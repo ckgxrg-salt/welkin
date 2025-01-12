@@ -15,6 +15,11 @@
       fsType = "zfs";
     };
 
+    "/xen" = {
+      device = "welkin/xen";
+      fsType = "zfs";
+    };
+
     "/var" = {
       device = "welkin/var";
       fsType = "zfs";

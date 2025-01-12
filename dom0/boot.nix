@@ -4,22 +4,14 @@
   imports = [ ./fstab.nix ];
   boot = {
     #========== Bootloader ==========#
-    # Config GRUB
+    # Config systemd-boot
     loader = {
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      grub = {
+      systemd-boot = {
         enable = true;
-        zfsSupport = true;
-        efiSupport = true;
-        mirroredBoots = [
-          {
-            devices = [ "nodev" ];
-            path = "/boot";
-          }
-        ];
       };
     };
 
@@ -27,6 +19,7 @@
     initrd = {
       systemd.enable = true;
       verbose = true;
+      supportedFilesystems = [ "zfs" ];
       availableKernelModules = [
         "xhci_pci"
         "nvme"
@@ -42,6 +35,9 @@
     #========== Kernel ==========#
     # Use Liquorix kernel
     kernelPackages = pkgs.linuxPackages_lqx;
+
+    # ZFS
+    supportedFilesystems = [ "zfs" ];
 
     # Kernel params
     kernelParams = [

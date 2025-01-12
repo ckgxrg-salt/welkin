@@ -2,7 +2,7 @@
   description = "Welkin's Dotfiles";
   inputs = {
     # Nixpkgs source
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # Use Lix
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/stable.tar.gz";
@@ -49,9 +49,9 @@
           ];
         };
 
-        Everpivot = { };
-        Archiva = { };
-        Goatfold = { };
+        #Everpivot = { };
+        #Archiva = { };
+        #Goatfold = { };
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim
