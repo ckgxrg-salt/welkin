@@ -15,18 +15,13 @@
       fsType = "zfs";
     };
 
-    "/home" = {
-      device = "welkin/home";
-      fsType = "zfs";
-    };
-
     "/var" = {
       device = "welkin/var";
       fsType = "zfs";
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/067E-9566";
+      device = "/dev/disk/by-uuid/8561-2C4F";
       fsType = "vfat";
       options = [
         "fmask=0022"

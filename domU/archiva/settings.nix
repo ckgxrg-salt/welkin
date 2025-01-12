@@ -17,8 +17,8 @@
         matchConfig.Type = "ether";
         networkConfig = {
           Address = [
-            "192.168.50.103/24"
-            "2408:8215:123:16d0:e251:d8ff:81bc:1da2/64"
+            "192.168.50.102/24"
+            "2408:8215:123:16d0:e251:d8ff:5bd9:8a1c/64"
           ];
           Gateway = "192.168.50.1";
           DNS = [ "192.168.50.1" ];
@@ -68,6 +68,7 @@
   programs.nano.enable = false;
   programs.command-not-found.enable = false;
   services.speechd.enable = false;
+  xdg.sounds.enable = false;
   documentation = {
     enable = false;
     man.enable = false;

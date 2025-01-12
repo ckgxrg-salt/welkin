@@ -1,33 +1,60 @@
 { ... }:
 # Configuration
 {
+  #========== Hardware ==========#
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+  };
+  services.zfs = {
+    autoScrub.enable = true;
+    trim.enable = true;
+  };
+
   #========== Network & Devices ==========#
   # Internet
   networking = {
-    # Virtual network...
+    # Ethernet only
     wireless.enable = false;
     useNetworkd = true;
-    useHostResolvConf = false;
   };
 
+  # Use systemd-networkd to manage interfaces
   systemd.network = {
     enable = true;
     networks = {
-      "20-lan" = {
-        matchConfig.Type = "ether";
+      "10-lan" = {
+        matchConfig.Name = [
+          "enp3s0"
+          "vb-*"
+        ];
+        networkConfig = {
+          Bridge = "br0";
+        };
+      };
+      "10-lan-bridge" = {
+        matchConfig.Name = "br0";
         networkConfig = {
           Address = [
-            "192.168.50.101/24"
-            "2408:8215:123:16d0:e251:d8ff:95ca:72a1/64"
+            "192.168.50.100/24"
+            "2408:8215:123:16d0:e251:d8ff:fe17:c7ff/64"
           ];
           Gateway = "192.168.50.1";
           DNS = [ "192.168.50.1" ];
           IPv6AcceptRA = true;
-          DHCP = "no";
         };
+        linkConfig.RequiredForOnline = "routable";
+      };
+    };
+    netdevs."br0" = {
+      netdevConfig = {
+        Name = "br0";
+        Kind = "bridge";
       };
     };
   };
+
+  #========== Power ==========#
+  services.thermald.enable = true;
 
   #========== Nix ==========#
   nix = {
@@ -47,6 +74,9 @@
         "flakes"
       ];
     };
+  };
+  nixpkgs = {
+    hostPlatform = "x86_64-linux";
   };
 
   #========== Localisation ==========#
@@ -68,6 +98,7 @@
   programs.nano.enable = false;
   programs.command-not-found.enable = false;
   services.speechd.enable = false;
+  xdg.sounds.enable = false;
   documentation = {
     enable = false;
     man.enable = false;

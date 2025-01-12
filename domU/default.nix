@@ -1,6 +1,15 @@
 { ... }:
-# Containers entrypoint
+# Xen entrypoint
 {
+  virtualisation.xen = {
+    enable = true;
+    efi.bootBuilderVerbosity = "info";
+    dom0Resources = {
+      memory = 512;
+      maxVCPUs = 2;
+      maxMemory = 1024;
+    };
+  };
   containers = {
     # Common services
     "everpivot" = {

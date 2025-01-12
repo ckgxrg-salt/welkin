@@ -1,7 +1,7 @@
 { ... }:
 # Security configuration
 {
-  # SSH to the host should be strictly limited
+  # SSH to the dom0 should be strictly limited
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
@@ -15,15 +15,15 @@
       PasswordAuthentication = false;
     };
   };
-  # Only allow Daywatch and Radilopa to access the host
+  # Only allow Daywatch and Radilopa to access the dom0
   users.users = {
     "akacloud".openssh.authorizedKeys.keyFiles = [
-      ./keys/daywatch-ssh.pub
-      ./keys/radilopa-ssh.pub
+      ../keys/daywatch-ssh.pub
+      ../keys/radilopa-ssh.pub
     ];
     "deployer".openssh.authorizedKeys.keyFiles = [
-      ./keys/daywatch-ssh.pub
-      ./keys/radilopa-ssh.pub
+      ../keys/daywatch-ssh.pub
+      ../keys/radilopa-ssh.pub
     ];
   };
 
