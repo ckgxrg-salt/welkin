@@ -25,14 +25,13 @@
       "10-lan" = {
         matchConfig.Name = [
           "enp3s0"
-          "vb-*"
         ];
         networkConfig = {
-          Bridge = "br0";
+          Bridge = "xenbr0";
         };
       };
       "10-lan-bridge" = {
-        matchConfig.Name = "br0";
+        matchConfig.Name = "xenbr0";
         networkConfig = {
           Address = [
             "192.168.50.100/24"
@@ -45,9 +44,9 @@
         linkConfig.RequiredForOnline = "routable";
       };
     };
-    netdevs."br0" = {
+    netdevs."xenbr0" = {
       netdevConfig = {
-        Name = "br0";
+        Name = "xenbr0";
         Kind = "bridge";
       };
     };

@@ -2,7 +2,7 @@
   description = "Welkin's Dotfiles";
   inputs = {
     # Nixpkgs source
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     # Use Lix
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/stable.tar.gz";
@@ -30,13 +30,13 @@
       colmena = {
         meta = {
           nixpkgs = import nixpkgs {
-            system = "x86_64-linux";
+            inherit system;
           };
         };
 
         Welkin = {
           deployment = {
-            buildOnTarget = true;
+            buildOnTarget = false;
             targetUser = "deployer";
             tags = [
               "welkin"
