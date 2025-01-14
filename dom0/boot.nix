@@ -33,7 +33,7 @@
     };
 
     #========== Kernel ==========#
-    # Use Liquorix kernel
+    # Use Xen-compatible kernel
     kernelPackages = pkgs.linuxPackages_lqx;
 
     # ZFS

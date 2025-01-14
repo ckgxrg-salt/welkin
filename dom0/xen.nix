@@ -1,17 +1,18 @@
-{ pkgs, ... }:
+{ ... }:
 # The Xen Project Hypervisor
 {
   virtualisation.xen = {
     enable = true;
-    package = pkgs.xen;
     efi.bootBuilderVerbosity = "info";
     bootParams = [
       "dom0=pvh"
     ];
     dom0Resources = {
-      memory = 512;
+      memory = 1024;
       maxVCPUs = 2;
-      maxMemory = 1024;
+      maxMemory = 2048;
     };
+    trace = true;
+    debug = true;
   };
 }

@@ -4,8 +4,12 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    zfsSupport = true;
+    efiSupport = false;
+    device = "/dev/xvda";
+  };
 
   networking.hostName = "CHANGEME";
   networking.hostId = "CHANGEME";
