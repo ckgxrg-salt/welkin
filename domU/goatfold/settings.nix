@@ -69,6 +69,7 @@
   programs.command-not-found.enable = false;
   services.speechd.enable = false;
   xdg.sounds.enable = false;
+  system.tools.nixos-option.enable = false;
   documentation = {
     enable = false;
     man.enable = false;

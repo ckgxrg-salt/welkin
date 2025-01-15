@@ -6,7 +6,6 @@
     ./login.nix
     ./settings.nix
     ./security.nix
-    ./xen.nix
     ../domU
   ];
 

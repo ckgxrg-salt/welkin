@@ -77,16 +77,16 @@
   nixpkgs = {
     hostPlatform = "x86_64-linux";
     # Debug OVMF
-    overlays = [
-      (_: super: {
-        OVMF = super.OVMF.overrideAttrs (
-          _: previousAttrs: {
-            pname = "OVMF-debug";
-            buildFlags = previousAttrs.buildFlags ++ [ "-D DEBUG_ON_SERIAL_PORT" ];
-          }
-        );
-      })
-    ];
+    #overlays = [
+    #  (_: super: {
+    #    OVMF = super.OVMF.overrideAttrs (
+    #      _: previousAttrs: {
+    #        pname = "OVMF-debug";
+    #        buildFlags = previousAttrs.buildFlags ++ [ "-D DEBUG_ON_SERIAL_PORT" ];
+    #      }
+    #    );
+    #  })
+    #];
   };
 
   #========== Localisation ==========#
@@ -109,6 +109,7 @@
   programs.command-not-found.enable = false;
   services.speechd.enable = false;
   xdg.sounds.enable = false;
+  system.tools.nixos-option.enable = false;
   documentation = {
     enable = false;
     man.enable = false;
