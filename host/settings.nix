@@ -27,11 +27,11 @@
           "enp3s0"
         ];
         networkConfig = {
-          Bridge = "xenbr0";
+          Bridge = "br0";
         };
       };
       "10-lan-bridge" = {
-        matchConfig.Name = "xenbr0";
+        matchConfig.Name = "br0";
         networkConfig = {
           Address = [
             "192.168.50.100/24"
@@ -44,9 +44,9 @@
         linkConfig.RequiredForOnline = "routable";
       };
     };
-    netdevs."xenbr0" = {
+    netdevs."br0" = {
       netdevConfig = {
-        Name = "xenbr0";
+        Name = "br0";
         Kind = "bridge";
       };
     };
@@ -76,17 +76,6 @@
   };
   nixpkgs = {
     hostPlatform = "x86_64-linux";
-    # Debug OVMF
-    #overlays = [
-    #  (_: super: {
-    #    OVMF = super.OVMF.overrideAttrs (
-    #      _: previousAttrs: {
-    #        pname = "OVMF-debug";
-    #        buildFlags = previousAttrs.buildFlags ++ [ "-D DEBUG_ON_SERIAL_PORT" ];
-    #      }
-    #    );
-    #  })
-    #];
   };
 
   #========== Localisation ==========#

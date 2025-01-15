@@ -1,20 +1,27 @@
 { pkgs, ... }:
-# Xen entrypoint
+# Containers entrypoint
 {
-  # Xen Project Hypervisor
-  virtualisation.xen = {
-    enable = true;
-    efi.bootBuilderVerbosity = "info";
-    bootParams = [
-      "dom0=pvh"
-    ];
-    dom0Resources = {
-      memory = 1024;
-      maxVCPUs = 2;
-      maxMemory = 2048;
+  # Define containers
+  virtualisation.oci-containers = {
+    backend = "podman";
+    containers = {
+      Goatfold = {
+        hostname = "Goatfold";
+        serviceName = "container-Goatfold";
+        workdir = "/containers/Goatfold";
+      };
     };
-    #trace = true;
-    #debug = true;
+  };
+
+  # Podman config
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = false;
+    dockerSocket.enable = false;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+    };
   };
 
   # Just install these vm descriptors

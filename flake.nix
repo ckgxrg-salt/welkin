@@ -44,7 +44,7 @@
             ];
           };
           imports = [
-            ./dom0
+            ./host
             lix-module.nixosModules.default
           ];
         };
@@ -53,8 +53,6 @@
         #Archiva = { };
         #Goatfold = { };
       };
-
-      packages.${system}.ovmf-debug = pkgs.callPackage ./ovmf-debug.nix { };
 
       # A nix develop shell including formatter and linter to be used with Neovim
       devShells.${system}.default = pkgs.mkShell {

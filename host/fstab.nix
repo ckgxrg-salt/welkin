@@ -15,13 +15,18 @@
       fsType = "zfs";
     };
 
-    "/xen" = {
-      device = "welkin/xen";
+    "/var" = {
+      device = "welkin/var";
       fsType = "zfs";
     };
 
-    "/var" = {
-      device = "welkin/var";
+    "/containers" = {
+      device = "welkin/containers";
+      fsType = "zfs";
+    };
+
+    "/storage" = {
+      device = "welkin/storage";
       fsType = "zfs";
     };
 

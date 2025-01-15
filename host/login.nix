@@ -3,7 +3,7 @@
   # Login Messages
   environment.etc = {
     "motd".text = ''
-      Welcome from the Welkin - Domain 0
+      Welcome from the Welkin - Host
     '';
     "issue".text = ''
       Dunno what to say yet...

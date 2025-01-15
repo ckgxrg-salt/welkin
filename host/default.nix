@@ -6,7 +6,7 @@
     ./login.nix
     ./settings.nix
     ./security.nix
-    ../domU
+    ../containers
   ];
 
   # Hostname & Host ID
