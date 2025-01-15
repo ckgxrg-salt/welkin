@@ -1,41 +1,33 @@
-{ pkgs, ... }:
+{ ... }:
 # Containers entrypoint
 {
-  # Define containers
-  virtualisation.oci-containers = {
-    backend = "podman";
-    containers = {
-      Goatfold = {
-        hostname = "Goatfold";
-        serviceName = "container-Goatfold";
-        workdir = "/containers/Goatfold";
-      };
+  containers = {
+    # Common services
+    #"everpivot" = {
+    #  autoStart = true;
+    #  privateNetwork = true;
+    #  hostBridge = "br0";
+    #  localAddress = "192.168.50.101/24";
+    #  localAddress6 = "2408:8215:123:16d0:e251:d8ff:95ca:72a1/64";
+    #  config = import ./everpivot;
+    #};
+    # Gitlab
+    #"archiva" = {
+    #  autoStart = true;
+    #  privateNetwork = true;
+    #  hostBridge = "br0";
+    #  localAddress = "192.168.50.102/24";
+    #  localAddress6 = "2408:8215:123:16d0:e251:d8ff:5bd9:8a1c/64";
+    #  config = import ./archiva;
+    #};
+    # Minecraft server
+    "goatfold" = {
+      autoStart = true;
+      privateNetwork = true;
+      hostBridge = "br0";
+      localAddress = "192.168.50.103/24";
+      localAddress6 = "2408:8215:123:16d0:e251:d8ff:81bc:1da2/64";
+      config = import ./goatfold;
     };
-  };
-
-  # Podman config
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = false;
-    dockerSocket.enable = false;
-    autoPrune = {
-      enable = true;
-      dates = "weekly";
-    };
-  };
-
-  # Just install these vm descriptors
-  environment.etc = {
-    "guests/goatfold.cfg".text = ''
-      name = 'Goatfold'
-      type = 'hvm'
-      device_model_version = 'qemu-xen'
-      device_model_override = '${pkgs.qemu_xen}/bin/qemu-system-i386'
-      boot = 'c'
-      memory = '8192'
-      vcpus = 4
-      vif = [ 'mac=2e:90:d6:0b:ee:d9,bridge=xenbr0' ]
-      disk = [ '/xen/images/goatfold.qcow2,qcow2,hda,w' ]
-    '';
   };
 }

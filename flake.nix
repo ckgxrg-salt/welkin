@@ -40,7 +40,7 @@
             targetUser = "deployer";
             tags = [
               "welkin"
-              "dom0"
+              "host"
             ];
           };
           imports = [

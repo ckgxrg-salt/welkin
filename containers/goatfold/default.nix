@@ -2,7 +2,6 @@
 # This vm runs Minecraft servers
 {
   imports = [
-    ./boot.nix
     ./login.nix
     ./security.nix
     ./settings.nix
