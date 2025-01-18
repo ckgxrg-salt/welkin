@@ -1,5 +1,5 @@
 { ... }:
-# This vm runs Minecraft servers
+# Minecraft servers
 {
   imports = [
     ./login.nix

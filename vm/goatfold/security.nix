@@ -32,18 +32,6 @@
     enable = true;
     wheelNeedsPassword = false;
     execWheelOnly = true;
-    extraRules = [
-      # Allow remote deployment to use the command without password
-      {
-        users = [ "deployer" ];
-        commands = [
-          {
-            command = "ALL";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-      }
-    ];
   };
 
   # Firewall with NFTables

@@ -8,6 +8,11 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/stable.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Helper for libvirt
+    nixvirt = {
+      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/0.5.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Deployment tool
     colmena.url = "github:zhaofengli/colmena";
   };
@@ -16,6 +21,7 @@
       self,
       nixpkgs,
       lix-module,
+      nixvirt,
       colmena,
       ...
     }:
@@ -32,11 +38,14 @@
           nixpkgs = import nixpkgs {
             inherit system;
           };
+          nodeSpecialArgs = {
+            Welkin = { inherit nixvirt; };
+          };
         };
 
         Welkin = {
           deployment = {
-            buildOnTarget = false;
+            buildOnTarget = true;
             targetUser = "deployer";
             tags = [
               "welkin"
@@ -46,16 +55,13 @@
           imports = [
             ./host
             lix-module.nixosModules.default
+            nixvirt.nixosModules.default
           ];
         };
-
-        #Everpivot = { };
-        #Archiva = { };
-        #Goatfold = { };
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim
-      devShells.${system}.default = pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShellNoCC {
         name = "welkin";
 
         buildInputs = with pkgs; [

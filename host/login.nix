@@ -6,7 +6,7 @@
       Welcome from the Welkin - Host
     '';
     "issue".text = ''
-      Dunno what to say yet...
+      Welkin is online
     '';
   };
 
@@ -17,7 +17,10 @@
       "akacloud" = {
         isNormalUser = true;
         uid = 1001;
-        extraGroups = [ "wheel" ];
+        extraGroups = [
+          "wheel"
+          "libvirtd"
+        ];
         description = "System administrator";
       };
       # The target colmena will ssh into

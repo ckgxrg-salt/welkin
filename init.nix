@@ -1,15 +1,10 @@
 { ... }:
 # configuration.nix for initial deployment
-# Copy to the domU to use
 {
   imports = [ ./hardware-configuration.nix ];
 
-  boot.loader.grub = {
-    enable = true;
-    zfsSupport = true;
-    efiSupport = false;
-    device = "/dev/xvda";
-  };
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "CHANGEME";
   networking.hostId = "CHANGEME";

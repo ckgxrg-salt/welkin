@@ -20,15 +20,10 @@
       fsType = "zfs";
     };
 
-    "/containers" = {
-      device = "welkin/containers";
-      fsType = "zfs";
-    };
-
-    "/storage" = {
-      device = "welkin/storage";
-      fsType = "zfs";
-    };
+    #"/storage" = {
+    #  device = "welkin/storage";
+    #  fsType = "zfs";
+    #};
 
     "/boot" = {
       device = "/dev/disk/by-uuid/8561-2C4F";
