@@ -4,6 +4,7 @@
   #========== Hardware ==========#
   hardware = {
     cpu.intel.updateMicrocode = true;
+    enableRedistributableFirmware = true;
   };
   services.zfs = {
     autoScrub.enable = true;

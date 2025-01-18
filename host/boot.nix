@@ -1,7 +1,6 @@
 { pkgs, ... }:
 # Bootstrap Process
 {
-  imports = [ ./fstab.nix ];
   boot = {
     #========== Bootloader ==========#
     # Config systemd-boot

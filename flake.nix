@@ -14,7 +14,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Deployment tool
-    colmena.url = "github:zhaofengli/colmena";
+    colmena = {
+      url = "github:zhaofengli/colmena";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -22,6 +29,7 @@
       nixpkgs,
       lix-module,
       nixvirt,
+      disko,
       colmena,
       ...
     }:
@@ -37,6 +45,9 @@
         meta = {
           nixpkgs = import nixpkgs {
             inherit system;
+          };
+          specialArgs = {
+            inherit disko;
           };
           nodeSpecialArgs = {
             Welkin = { inherit nixvirt; };
@@ -56,6 +67,20 @@
             ./host
             lix-module.nixosModules.default
             nixvirt.nixosModules.default
+            disko.nixosModules.disko
+          ];
+        };
+      };
+
+      # For initial deployment with nixos-anywhere
+      nixosConfigurations = {
+        Welkin = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./host
+            lix-module.nixosModules.default
+            nixvirt.nixosModules.default
+            disko.nixosModules.disko
           ];
         };
       };

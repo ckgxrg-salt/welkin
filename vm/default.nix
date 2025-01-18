@@ -2,6 +2,7 @@
 # VM entrypoint
 {
   imports = [ ./mkvm.nix ];
+
   # Libvirt
   virtualisation.libvirt = {
     enable = true;
@@ -12,8 +13,7 @@
     connections."qemu:///system" = with nixvirt.lib; {
       domains = [
         # Minecraft server
-        mkVM
-        {
+        (mkVM {
           name = "Goatfold";
           uuid = "9a74fbbb-8eb8-45d5-b16a-79d4db51e06b";
           boot = [
@@ -34,7 +34,7 @@
               };
               source = {
                 pool = "images";
-                volume = "Goatfold.qcow2";
+                volume = "Goatfold";
               };
               target = {
                 dev = "vda";
@@ -62,19 +62,17 @@
             source.bridge = "br0";
             mac.address = "2e:90:d6:0b:ee:d9";
           };
-        }
+        })
       ];
 
       networks = [
         {
-          definition = network.writeXML (
-            network.templates.bridge {
-              name = "default";
-              bridge_name = "br0";
-              uuid = "97e8bdf9-56e3-44a4-b339-59ba1d7edaac";
-              subnet_byte = 50;
-            }
-          );
+          definition = network.writeXML {
+            name = "bridge";
+            uuid = "97e8bdf9-56e3-44a4-b339-59ba1d7edaac";
+            bridge.name = "br0";
+            forward.mode = "bridge";
+          };
           active = true;
         }
       ];
@@ -89,12 +87,12 @@
           active = true;
           restart = false;
           source = {
-            device.path = "welkin/kvm";
+            device.path = "welkin/kvm-images";
           };
           volumes = [
-            volume.writeXML
-            {
-              name = "Goatfold.qcow2";
+            (volume.writeXML {
+              name = "Goatfold";
+              allocation.count = 0;
               capacity = {
                 count = 100;
                 unit = "GiB";
@@ -102,7 +100,7 @@
               target = {
                 format = "qcow2";
               };
-            }
+            })
           ];
         }
       ];

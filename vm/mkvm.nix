@@ -33,10 +33,13 @@
       devices = {
         emulator = "${pkgs.qemu}/bin/qemu-system-x86_64";
         inherit disk interface;
-      };
-      storage_vol = {
-        pool = "images";
-        volume = "Goatfold.qcow2";
+        rng = {
+          model = "virtio";
+          backend = {
+            model = "random";
+            source = "/dev/urandom";
+          };
+        };
       };
 
       # Create pseudo VM information, just for fun
