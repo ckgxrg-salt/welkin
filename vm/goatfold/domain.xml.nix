@@ -1,17 +1,22 @@
-{ pkgs }:
+pkgs:
 # Generate domain.xml
-pkgs.writeText "goatfold.xml" ''
+pkgs.writeText "libvirt-domain-goatfold.xml" ''
   <domain type='kvm'>
     <name>Goatfold</name>
     <uuid>9a74fbbb-8eb8-45d5-b16a-79d4db51e06b</uuid>
     <vcpu>4</vcpu>
     <memory unit='MiB'>8192</memory>
-    <os firmware='efi'>
+    <os>
   	  <type>hvm</type>
+      <loader readonly='yes' type='pflash'>${pkgs.OVMF.fd}/FV/OVMF_CODE.fd</loader>
+      <nvram type='file' template='${pkgs.OVMF.fd}/FV/OVMF_VARS.fd'>
+        <source file='/kvm/nvram/Goatfold.fd'/>
+      </nvram>
   	  <smbios mode='sysinfo'/>
   	  <boot dev='cdrom'/>
   	  <boot dev='hd'/>
     </os>
+    <cpu model='host-model'/>
     <features>
   	  <acpi/>
     </features>
@@ -28,14 +33,27 @@ pkgs.writeText "goatfold.xml" ''
   	  </disk>
   	  <disk type='volume' device='disk'>
   	    <driver name='qemu' type='qcow2' cache='none' discard='unmap'/>
-  	    <source pool='images' volume='Goatfold'/>
+  	    <source pool='images' volume='Goatfold.qcow2'/>
   	    <target dev='vda' bus='virtio'/>
   	  </disk>
   	  <interface type='bridge'>
   	    <model type='virtio'/>
   	    <source bridge='br0'/>
-          <mac address='2e:90:d6:0b:ee:d9'/>
+        <target dev='veth0'/>
+        <mac address='2e:90:d6:0b:ee:d9'/>
   	  </interface>
     </devices>
+    <sysinfo type='smbios'>
+      <bios>
+        <entry name="vendor">Goat</entry>
+        <entry name="version">11.45.14</entry>
+        <entry name="date">8/10/1919</entry>
+      </bios>
+      <system>
+        <entry name="manufacturer">Slat</entry>
+        <entry name="product">Goatfold</entry>
+        <entry name="version">19.19.810</entry>
+      </system>
+    </sysinfo>
   </domain>
 ''

@@ -46,9 +46,6 @@
           nixpkgs = import nixpkgs {
             inherit system;
           };
-          nodeSpecialArgs = {
-            Welkin = { inherit nixvirt; };
-          };
         };
 
         # Host
@@ -91,7 +88,6 @@
       nixosConfigurations = {
         Welkin = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit nixvirt; };
           modules = [
             ./host
             lix-module.nixosModules.default

@@ -68,11 +68,15 @@
           };
           "kvm-images" = {
             type = "zfs_fs";
-            options.mountpoint = "none";
+            mountpoint = "/kvm/images";
           };
           "kvm-storage" = {
             type = "zfs_fs";
-            mountpoint = "/kvm";
+            mountpoint = "/kvm/storage";
+          };
+          "kvm-nvram" = {
+            type = "zfs_fs";
+            mountpoint = "/kvm/nvram";
           };
         };
       };
