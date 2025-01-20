@@ -7,7 +7,6 @@
     # Virtual network...
     wireless.enable = false;
     useNetworkd = true;
-    useHostResolvConf = false;
   };
 
   systemd.network = {
@@ -15,9 +14,6 @@
     networks = {
       "20-lan" = {
         matchConfig.Type = "ether";
-        linkConfig = {
-          MACAddress = "2e:90:d6:0b:ee:d9";
-        };
         networkConfig = {
           Address = [
             "192.168.50.103/24"

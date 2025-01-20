@@ -27,6 +27,9 @@
         "virtio_scsi"
         "9p"
         "9pnet_virtio"
+        "ata_piix"
+        "uhci_hcd"
+        "sr_mod"
       ];
       kernelModules = [
         "virtio_balloon"

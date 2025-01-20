@@ -6,7 +6,7 @@ pkgs.writeText "libvirt-volume-goatfold.xml" ''
     <allocation>0</allocation>
     <capacity unit='GiB'>100</capacity>
     <target>
-      <format>qcow2</format>
+      <format type='qcow2'/>
     </target>
   </volume>
 ''

@@ -4,7 +4,7 @@
   disko.devices = {
     # Physical...? disks
     disk = {
-      "virtio" = {
+      "vdisk" = {
         type = "disk";
         device = "/dev/vda";
         content = {

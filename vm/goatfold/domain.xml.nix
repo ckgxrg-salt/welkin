@@ -13,7 +13,6 @@ pkgs.writeText "libvirt-domain-goatfold.xml" ''
         <source file='/kvm/nvram/Goatfold.fd'/>
       </nvram>
   	  <smbios mode='sysinfo'/>
-  	  <boot dev='cdrom'/>
   	  <boot dev='hd'/>
     </os>
     <cpu model='host-model'/>
@@ -25,12 +24,9 @@ pkgs.writeText "libvirt-domain-goatfold.xml" ''
   	  <rng model='virtio'>
   	    <backend model='random'>/dev/urandom</backend>
   	  </rng>
-  	  <disk type='file' device='cdrom'>
-  	    <driver name='qemu' type='raw'/>
-  	    <source file='/kvm/storage/latest-nixos-minimal-x86_64-linux.iso'/>
-  	    <target dev='hdc' bus='ide'/>
-  	    <readonly/>
-  	  </disk>
+      <console type='pty'>
+        <target type='virtio'/>
+      </console>
   	  <disk type='volume' device='disk'>
   	    <driver name='qemu' type='qcow2' cache='none' discard='unmap'/>
   	    <source pool='images' volume='Goatfold.qcow2'/>

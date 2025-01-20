@@ -17,7 +17,7 @@
   };
   # Only allow Daywatch and Radilopa to access the host
   users.users = {
-    "akacloud".openssh.authorizedKeys.keyFiles = [
+    "slat".openssh.authorizedKeys.keyFiles = [
       ../../keys/daywatch-ssh.pub
       ../../keys/radilopa-ssh.pub
     ];
@@ -36,6 +36,18 @@
     enable = true;
     wheelNeedsPassword = false;
     execWheelOnly = true;
+    extraRules = [
+      # Allow remote deployment to use the command without password
+      {
+        users = [ "deployer" ];
+        commands = [
+          {
+            command = "ALL";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
   };
 
   # Firewall with NFTables
