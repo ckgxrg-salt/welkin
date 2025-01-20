@@ -30,6 +30,8 @@
         "ata_piix"
         "uhci_hcd"
         "sr_mod"
+        "ahci"
+        "sd_mod"
       ];
       kernelModules = [
         "virtio_balloon"
@@ -40,7 +42,6 @@
     };
 
     #========== Kernel ==========#
-    # Use lqx kernel
     kernelPackages = pkgs.linuxPackages_lqx;
 
     # ZFS

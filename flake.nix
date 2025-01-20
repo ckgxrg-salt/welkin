@@ -70,7 +70,7 @@
         Goatfold = {
           deployment = {
             buildOnTarget = true;
-            targetUser = "deployer";
+            targetUser = "hyhy156";
             tags = [
               "goatfold"
               "vm"

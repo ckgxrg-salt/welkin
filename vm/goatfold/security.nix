@@ -21,7 +21,7 @@
       ../../keys/daywatch-ssh.pub
       ../../keys/radilopa-ssh.pub
     ];
-    "deployer".openssh.authorizedKeys.keyFiles = [
+    "hyhy156".openssh.authorizedKeys.keyFiles = [
       ../../keys/daywatch-ssh.pub
       ../../keys/radilopa-ssh.pub
     ];
