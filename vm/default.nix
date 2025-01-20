@@ -48,7 +48,6 @@
     qemu = {
       runAsRoot = false;
       ovmf.enable = true;
-      vhostUserPackages = [ pkgs.virtiofsd ];
     };
   };
 }

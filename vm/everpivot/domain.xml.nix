@@ -2,15 +2,15 @@ pkgs:
 # Generate domain.xml
 pkgs.writeText "libvirt-domain-goatfold.xml" ''
   <domain type='kvm'>
-    <name>Goatfold</name>
-    <uuid>9a74fbbb-8eb8-45d5-b16a-79d4db51e06b</uuid>
-    <vcpu>4</vcpu>
-    <memory unit='MiB'>8192</memory>
+    <name>Everpivot</name>
+    <uuid>19893bbf-81b1-4fb8-911b-1309fe8dce81</uuid>
+    <vcpu>2</vcpu>
+    <memory unit='MiB'>2048</memory>
     <os>
       <type>hvm</type>
       <loader readonly='yes' type='pflash'>${pkgs.OVMF.fd}/FV/OVMF_CODE.fd</loader>
       <nvram type='file' template='${pkgs.OVMF.fd}/FV/OVMF_VARS.fd'>
-        <source file='/kvm/nvram/Goatfold.fd'/>
+        <source file='/kvm/nvram/Everpivot.fd'/>
       </nvram>
       <smbios mode='sysinfo'/>
       <boot dev='hd'/>
@@ -31,7 +31,7 @@ pkgs.writeText "libvirt-domain-goatfold.xml" ''
       </disk>
       <disk type='volume' device='disk'>
         <driver name='qemu' type='qcow2'/>
-        <source pool='images' volume='Goatfold.qcow2'/>
+        <source pool='images' volume='Everpivot.qcow2'/>
         <target dev='hda' bus='sata'/>
       </disk>
       <interface type='bridge'>
@@ -42,14 +42,14 @@ pkgs.writeText "libvirt-domain-goatfold.xml" ''
     </devices>
     <sysinfo type='smbios'>
       <bios>
-        <entry name="vendor">Goat</entry>
-        <entry name="version">11.45.14</entry>
-        <entry name="date">8/10/1919</entry>
+        <entry name="vendor">akaCloud</entry>
+        <entry name="version">4.23</entry>
+        <entry name="date">5/6/47</entry>
       </bios>
       <system>
-        <entry name="manufacturer">Slat</entry>
-        <entry name="product">Goatfold</entry>
-        <entry name="version">19.19.810</entry>
+        <entry name="manufacturer">BSE</entry>
+        <entry name="product">Everpivot</entry>
+        <entry name="version">23.12</entry>
       </system>
     </sysinfo>
   </domain>

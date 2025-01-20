@@ -1,7 +1,9 @@
 { ... }:
-# This vm runs miscellaneous services
+# Miscellaneous services
 {
   imports = [
+    ./boot.nix
+    ./disko.nix
     ./login.nix
     ./security.nix
     ./settings.nix
