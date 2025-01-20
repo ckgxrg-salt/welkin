@@ -21,6 +21,10 @@
       ../../keys/daywatch-ssh.pub
       ../../keys/radilopa-ssh.pub
     ];
+    "deployer".openssh.authorizedKeys.keyFiles = [
+      ../../keys/daywatch-ssh.pub
+      ../../keys/radilopa-ssh.pub
+    ];
     "goat".openssh.authorizedKeys.keyFiles = [
       ../../keys/daywatch-ssh.pub
       ../../keys/radilopa-ssh.pub

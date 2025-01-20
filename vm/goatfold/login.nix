@@ -19,6 +19,15 @@
       extraGroups = [ "wheel" ];
       description = "System administrator";
     };
+    # The target colmena will ssh into
+    "deployer" = {
+      isNormalUser = true;
+      group = "deployer";
+      home = "/var/empty";
+      createHome = false;
+      extraGroups = [ "wheel" ];
+      description = "Colmena deployer";
+    };
     # This user actually runs Minecraft servers
     "goat" = {
       isNormalUser = true;

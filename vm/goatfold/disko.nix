@@ -2,11 +2,11 @@
 #========== Disks ==========#
 {
   disko.devices = {
-    # Physical disks
+    # Physical...? disks
     disk = {
-      "nvme" = {
+      "virtio" = {
         type = "disk";
-        device = "/dev/nvme0n1";
+        device = "/dev/vda";
         content = {
           type = "gpt";
           partitions = {
@@ -23,17 +23,11 @@
                 ];
               };
             };
-            "SWAP" = {
-              size = "32G";
-              content = {
-                type = "swap";
-              };
-            };
-            "WELKIN" = {
+            "GOATFOLD" = {
               size = "100%";
               content = {
                 type = "zfs";
-                pool = "welkin";
+                pool = "goatfold";
               };
             };
           };
@@ -43,7 +37,7 @@
 
     # Primary zpool
     zpool = {
-      "welkin" = {
+      "goatfold" = {
         type = "zpool";
         options = {
           cachefile = "none";
@@ -66,13 +60,9 @@
             type = "zfs_fs";
             mountpoint = "/var";
           };
-          "kvm-images" = {
+          "mc" = {
             type = "zfs_fs";
-            options.mountpoint = "none";
-          };
-          "kvm-storage" = {
-            type = "zfs_fs";
-            mountpoint = "/kvm";
+            mountpoint = "/srv/minecraft";
           };
         };
       };

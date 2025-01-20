@@ -7,7 +7,7 @@
     ./login.nix
     ./settings.nix
     ./security.nix
-    ../containers
+    ../vm
   ];
 
   # Hostname & Host ID

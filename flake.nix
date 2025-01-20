@@ -46,14 +46,12 @@
           nixpkgs = import nixpkgs {
             inherit system;
           };
-          specialArgs = {
-            inherit disko;
-          };
           nodeSpecialArgs = {
             Welkin = { inherit nixvirt; };
           };
         };
 
+        # Host
         Welkin = {
           deployment = {
             buildOnTarget = true;
@@ -70,16 +68,42 @@
             disko.nixosModules.disko
           ];
         };
+
+        # Minecraft server
+        Goatfold = {
+          deployment = {
+            buildOnTarget = true;
+            targetUser = "deployer";
+            tags = [
+              "goatfold"
+              "vm"
+            ];
+          };
+          imports = [
+            ./vm/goatfold
+            lix-module.nixosModules.default
+            disko.nixosModules.disko
+          ];
+        };
       };
 
       # For initial deployment with nixos-anywhere
       nixosConfigurations = {
         Welkin = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit nixvirt; };
           modules = [
             ./host
             lix-module.nixosModules.default
             nixvirt.nixosModules.default
+            disko.nixosModules.disko
+          ];
+        };
+        Goatfold = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./vm/goatfold
+            lix-module.nixosModules.default
             disko.nixosModules.disko
           ];
         };
