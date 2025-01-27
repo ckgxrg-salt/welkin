@@ -17,20 +17,23 @@
       "akacloud" = {
         isNormalUser = true;
         uid = 1001;
-        extraGroups = [
-          "wheel"
-          "libvirtd"
-        ];
-        description = "System administrator";
+        extraGroups = [ "wheel" ];
+        description = "System Administrator";
       };
       # The target colmena will ssh into
       "deployer" = {
         isNormalUser = true;
+        uid = 1002;
         group = "deployer";
         home = "/var/empty";
         createHome = false;
         extraGroups = [ "wheel" ];
         description = "Colmena deployer";
+      };
+      # Rootless containers
+      "bse" = {
+        isSystemUser = true;
+        description = "Podman Rootless Containers";
       };
     };
     groups = {

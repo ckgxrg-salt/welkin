@@ -55,23 +55,6 @@
             disko.nixosModules.disko
           ];
         };
-
-        # Minecraft server
-        Goatfold = {
-          deployment = {
-            buildOnTarget = true;
-            targetUser = "hyhy156";
-            tags = [
-              "goatfold"
-              "vm"
-            ];
-          };
-          imports = [
-            ./vm/goatfold
-            lix-module.nixosModules.default
-            disko.nixosModules.disko
-          ];
-        };
       };
 
       # For initial deployment with nixos-anywhere
@@ -80,14 +63,6 @@
           inherit system;
           modules = [
             ./host
-            lix-module.nixosModules.default
-            disko.nixosModules.disko
-          ];
-        };
-        Goatfold = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./vm/goatfold
             lix-module.nixosModules.default
             disko.nixosModules.disko
           ];

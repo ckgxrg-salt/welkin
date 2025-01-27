@@ -1,20 +1,17 @@
 { ... }:
-# Miscellaneous services
+# Minecraft servers
 {
   imports = [
-    ./boot.nix
-    ./disko.nix
     ./login.nix
     ./security.nix
     ./settings.nix
-
-    ./services/jellyfin.nix
+    ./tmux.nix
   ];
 
   # Hostname & Host ID
   networking = {
-    hostName = "Everpivot";
-    hostId = "f058329f";
+    hostName = "Goatfold";
+    hostId = "951c4139";
   };
 
   system.stateVersion = "24.11";

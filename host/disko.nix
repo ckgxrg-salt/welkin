@@ -66,17 +66,13 @@
             type = "zfs_fs";
             mountpoint = "/var";
           };
-          "kvm-images" = {
+          "storage" = {
             type = "zfs_fs";
-            mountpoint = "/kvm/images";
+            mountpoint = "/data";
           };
-          "kvm-storage" = {
+          "container" = {
             type = "zfs_fs";
-            mountpoint = "/kvm/storage";
-          };
-          "kvm-nvram" = {
-            type = "zfs_fs";
-            mountpoint = "/kvm/nvram";
+            mountpoint = "/var/lib/nixos-containers";
           };
         };
       };
