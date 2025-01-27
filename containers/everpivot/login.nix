@@ -16,7 +16,10 @@
     "bse" = {
       isNormalUser = true;
       uid = 1001;
-      extraGroups = [ "wheel" ];
+      extraGroups = [
+        "wheel"
+        "samba"
+      ];
       description = "System administrator";
     };
   };

@@ -17,11 +17,9 @@
   };
   outputs =
     {
-      self,
       nixpkgs,
       lix-module,
       disko,
-      colmena,
       ...
     }:
     let
@@ -29,7 +27,6 @@
       host-pkgs = import <nixpkgs> { inherit system; };
     in
     {
-      colmenaHive = colmena.lib.makeHive self.outputs.colmena;
       colmena = {
         meta = {
           nixpkgs = import nixpkgs {
@@ -71,9 +68,9 @@
       devShells.${system}.default = host-pkgs.mkShellNoCC {
         name = "welkin";
 
-        buildInputs = with host-pkgs; [
-          nixfmt-rfc-style
-          deadnix
+        buildInputs = [
+          host-pkgs.nixfmt-rfc-style
+          host-pkgs.deadnix
           host-pkgs.colmena
         ];
       };

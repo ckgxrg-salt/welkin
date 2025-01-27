@@ -6,7 +6,9 @@
     ./security.nix
     ./settings.nix
 
+    ./services/avahi.nix
     ./services/jellyfin.nix
+    ./services/samba.nix
   ];
 
   # Hostname & Host ID
