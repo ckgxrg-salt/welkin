@@ -17,7 +17,7 @@
   };
   # Only allow Daywatch and Radilopa to access the host
   users.users = {
-    "akacloud".openssh.authorizedKeys.keyFiles = [
+    "bse".openssh.authorizedKeys.keyFiles = [
       ../../keys/daywatch-ssh.pub
       ../../keys/radilopa-ssh.pub
     ];

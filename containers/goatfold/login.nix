@@ -20,15 +20,6 @@
         extraGroups = [ "wheel" ];
         description = "Salty Salt";
       };
-      # The target colmena will ssh into
-      "hyhy156" = {
-        isNormalUser = true;
-        group = "deployer";
-        home = "/var/empty";
-        createHome = false;
-        extraGroups = [ "wheel" ];
-        description = "Rainy Rain";
-      };
       # This user actually runs Minecraft servers
       "goat" = {
         isNormalUser = true;
@@ -36,9 +27,6 @@
         home = "/srv/minecraft";
         description = "Goaty Goat";
       };
-    };
-    groups = {
-      "deployer" = { };
     };
   };
 }

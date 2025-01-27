@@ -13,7 +13,7 @@
   # Users
   users.users = {
     # System administration & maintance
-    "akacloud" = {
+    "bse" = {
       isNormalUser = true;
       uid = 1001;
       extraGroups = [ "wheel" ];

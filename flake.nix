@@ -26,9 +26,7 @@
     }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-      };
+      host-pkgs = import <nixpkgs> { inherit system; };
     in
     {
       colmenaHive = colmena.lib.makeHive self.outputs.colmena;
@@ -70,21 +68,17 @@
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim
-      devShells.${system}.default =
-        let
-          host-pkgs = import <nixpkgs> { };
-        in
-        host-pkgs.mkShellNoCC {
-          name = "welkin";
+      devShells.${system}.default = host-pkgs.mkShellNoCC {
+        name = "welkin";
 
-          buildInputs = with host-pkgs; [
-            nixfmt-rfc-style
-            deadnix
-            host-pkgs.colmena
-          ];
-        };
+        buildInputs = with host-pkgs; [
+          nixfmt-rfc-style
+          deadnix
+          host-pkgs.colmena
+        ];
+      };
 
       # Support nix fmt command
-      formatter.${system} = pkgs.nixfmt-rfc-style;
+      formatter.${system} = host-pkgs.nixfmt-rfc-style;
     };
 }

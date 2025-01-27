@@ -7,6 +7,7 @@
     # Virtual network...
     wireless.enable = false;
     useNetworkd = true;
+    useHostResolvConf = false;
   };
 
   systemd.network = {

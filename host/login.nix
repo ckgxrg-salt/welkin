@@ -30,11 +30,6 @@
         extraGroups = [ "wheel" ];
         description = "Colmena deployer";
       };
-      # Rootless containers
-      "bse" = {
-        isSystemUser = true;
-        description = "Podman Rootless Containers";
-      };
     };
     groups = {
       "deployer" = { };
