@@ -7,5 +7,10 @@
     hostName = "Everpivot";
     nssmdns4 = true;
     nssmdns6 = true;
+    publish = {
+      enable = true;
+      userServices = true;
+      addresses = true;
+    };
   };
 }
