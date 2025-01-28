@@ -27,6 +27,15 @@
         "force group" = "samba";
         path = "/data/Pictures";
       };
+      Animes = {
+        browseable = "yes";
+        comment = "Everlight Pivot Animes";
+        "guest ok" = "no";
+        "write list" = "scribe";
+        "force user" = "scribe";
+        "force group" = "samba";
+        path = "/data/Animes";
+      };
     };
   };
 
