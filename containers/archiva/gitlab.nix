@@ -4,10 +4,13 @@
   services.gitlab = {
     enable = true;
     https = true;
+    host = "git.ckgxrg.io";
+    port = 9000;
     statePath = "/var/lib/gitlab";
     databaseName = "archiva";
     databaseUsername = "gitlab";
     databasePasswordFile = "/etc/gitlab/secrets/dbpasswd";
+    initialRootPasswordFile = "/var/empty";
     user = "gitlab";
     group = "gitlab";
     secrets = {
