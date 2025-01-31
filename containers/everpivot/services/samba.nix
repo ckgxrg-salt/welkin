@@ -16,7 +16,7 @@
         "map to guest" = "Bad User";
         "guest account" = "nobody";
         workgroup = "Welkin";
-        "server string" = "Welkin - Everpivot";
+        "server string" = "Welkin - Everlight Pivot";
       };
       Pictures = {
         browseable = "yes";
@@ -25,7 +25,7 @@
         "write list" = "scribe";
         "force user" = "scribe";
         "force group" = "samba";
-        path = "/data/Pictures";
+        path = "/data/Gallery";
       };
       Animes = {
         browseable = "yes";
@@ -54,7 +54,7 @@
     <?xml version="1.0" standalone='no'?>
     <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
     <service-group>
-      <name replace-wildcards="yes">%h Storage</name>
+      <name replace-wildcards="yes">Everlight Pivot Storage</name>
       <service>
         <type>_smb._tcp</type>
         <port>445</port>
@@ -64,6 +64,6 @@
   services.samba-wsdd = {
     enable = true;
     openFirewall = true;
-    hostname = "Everpivot";
+    hostname = "Everlight Pivot";
   };
 }
