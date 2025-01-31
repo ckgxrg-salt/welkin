@@ -6,7 +6,9 @@
     ./security.nix
     ./settings.nix
 
+    ./acme.nix
     ./gitlab.nix
+    ./nginx.nix
   ];
 
   # Hostname & Host ID
