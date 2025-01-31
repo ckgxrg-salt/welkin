@@ -5,6 +5,8 @@
     ./login.nix
     ./security.nix
     ./settings.nix
+
+    ./gitlab.nix
   ];
 
   # Hostname & Host ID

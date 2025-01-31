@@ -39,10 +39,6 @@
           deployment = {
             buildOnTarget = true;
             targetUser = "deployer";
-            tags = [
-              "welkin"
-              "host"
-            ];
           };
           imports = [
             ./host

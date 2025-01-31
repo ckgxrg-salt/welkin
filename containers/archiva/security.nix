@@ -17,7 +17,7 @@
   };
   # Only allow Daywatch and Radilopa to access the host
   users.users = {
-    "akacloud".openssh.authorizedKeys.keyFiles = [
+    "cresilexica".openssh.authorizedKeys.keyFiles = [
       ../../keys/daywatch-ssh.pub
       ../../keys/radilopa-ssh.pub
     ];
@@ -34,7 +34,6 @@
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 18242 ];
   };
 
   # AppArmor MAC
