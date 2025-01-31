@@ -18,7 +18,7 @@
         workgroup = "Welkin";
         "server string" = "Welkin - Everlight Pivot";
       };
-      Pictures = {
+      Gallery = {
         browseable = "yes";
         comment = "Everlight Pivot Gallery";
         "guest ok" = "yes";
@@ -35,6 +35,15 @@
         "force user" = "scribe";
         "force group" = "samba";
         path = "/data/Animes";
+      };
+      Movies = {
+        browseable = "yes";
+        comment = "Everlight Pivot Movies";
+        "guest ok" = "no";
+        "write list" = "scribe";
+        "force user" = "scribe";
+        "force group" = "samba";
+        path = "/data/Movies";
       };
     };
   };
