@@ -10,7 +10,7 @@
         enableACME = true;
         acmeRoot = null;
         locations."/" = {
-          proxyPass = "http://unix:/run/gitlab/gitlab-workhorse.socket";
+          proxyPass = "http://localhost:9000";
         };
         listen = [
           {
