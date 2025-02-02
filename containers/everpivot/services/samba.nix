@@ -18,6 +18,7 @@
         workgroup = "Welkin";
         "server string" = "Welkin - Everlight Pivot";
       };
+      # Public shares
       Gallery = {
         browseable = "yes";
         comment = "Everlight Pivot Gallery";
@@ -25,25 +26,39 @@
         "write list" = "scribe";
         "force user" = "scribe";
         "force group" = "samba";
+        "directory mask" = "0775";
         path = "/data/Gallery";
       };
       Animes = {
         browseable = "yes";
         comment = "Everlight Pivot Animes";
-        "guest ok" = "no";
+        "guest ok" = "yes";
         "write list" = "scribe";
         "force user" = "scribe";
         "force group" = "samba";
+        "directory mask" = "0775";
         path = "/data/Animes";
       };
       Movies = {
         browseable = "yes";
         comment = "Everlight Pivot Movies";
+        "guest ok" = "yes";
+        "write list" = "scribe";
+        "force user" = "scribe";
+        "force group" = "samba";
+        "directory mask" = "0775";
+        path = "/data/Movies";
+      };
+
+      # Private shares
+      Private = {
+        browseable = "yes";
+        comment = "Everlight Pivot Private";
         "guest ok" = "no";
         "write list" = "scribe";
         "force user" = "scribe";
         "force group" = "samba";
-        path = "/data/Movies";
+        path = "/data/Private";
       };
     };
   };
