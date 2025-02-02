@@ -23,7 +23,7 @@
         localAddress6 = "2408:8214:124:1750:e251:d8ff:95ca:72a1/64";
         config = import ./everpivot;
       };
-      # Gitlab
+      # Gitea
       archiva = base // {
         localAddress = "192.168.50.102/24";
         localAddress6 = "2408:8214:124:1750:e251:d8ff:5bd9:8a1c/64";

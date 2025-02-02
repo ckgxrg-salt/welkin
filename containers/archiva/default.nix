@@ -1,5 +1,5 @@
 { ... }:
-# This vm runs Gitlab
+# This vm runs Gitea
 {
   imports = [
     ./login.nix
@@ -7,7 +7,7 @@
     ./settings.nix
 
     ./acme.nix
-    ./gitlab.nix
+    ./gitea.nix
     ./nginx.nix
   ];
 

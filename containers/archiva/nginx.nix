@@ -1,5 +1,5 @@
 { ... }:
-# Make Gitlab accessible
+# Make Gitea accessible
 {
   services.nginx = {
     enable = true;
@@ -10,7 +10,7 @@
         enableACME = true;
         acmeRoot = null;
         locations."/" = {
-          proxyPass = "http://localhost:9000";
+          proxyPass = "http://localhost:8999";
         };
         listen = [
           {

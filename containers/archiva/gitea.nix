@@ -14,7 +14,8 @@
       server = {
         DOMAIN = "git.ckgxrg.io";
         ROOT_URL = "https://git.ckgxrg.io:9000";
-        HTTP_PORT = 9000;
+        HTTP_PORT = 8999;
+        DISABLE_REGISTRATION = true;
       };
       session = {
         COOKIE_SECURE = true;
@@ -29,9 +30,7 @@
     ensureUsers = [
       {
         name = "gitea";
-        ensurePermissions = {
-          "DATABASE gitea" = "ALL PRIVILEGES";
-        };
+        ensureDBOwnership = true;
       }
     ];
   };
@@ -40,7 +39,7 @@
   users = {
     users = {
       "gitea" = {
-        description = "Gitea";
+        description = "Gitea Service";
         isSystemUser = true;
         uid = 996;
         group = "gitea";

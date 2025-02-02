@@ -1,5 +1,5 @@
 { ... }:
-# SSL Certificates for Gitlab
+# SSL Certificates for Gitea
 {
   security.acme = {
     acceptTerms = true;
