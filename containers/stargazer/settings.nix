@@ -8,13 +8,6 @@
     wireless.enable = false;
     useNetworkd = true;
     useHostResolvConf = false;
-
-    # IoF
-    wg-quick.interfaces = {
-      fariof = {
-        configFile = "/etc/wireguard/fariof.conf";
-      };
-    };
   };
 
   systemd.network = {
@@ -24,8 +17,8 @@
         matchConfig.Type = "ether";
         networkConfig = {
           Address = [
-            "192.168.50.101/24"
-            "2408:8215:123:16d0:e251:d8ff:95ca:72a1/64"
+            "192.168.50.104/24"
+            "2408:8214:124:1750:e251:d8ff:214e:8251/64"
           ];
           Gateway = "192.168.50.1";
           DNS = [ "192.168.50.1" ];
@@ -41,7 +34,6 @@
     channel.enable = false;
     settings = {
       substituters = [
-        "https://mirror.sjtu.edu.cn/nix-channels/store"
         "https://cache.nixos.org"
       ];
       trusted-users = [
