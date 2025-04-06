@@ -8,6 +8,13 @@
     wireless.enable = false;
     useNetworkd = true;
     useHostResolvConf = false;
+
+    # IoF
+    wg-quick.interfaces = {
+      fariof = {
+        configFile = "/etc/wireguard/fariof.conf";
+      };
+    };
   };
 
   systemd.network = {

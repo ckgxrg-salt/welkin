@@ -48,6 +48,19 @@
           };
         };
       };
+      "archiva.ckgxrg.io" = {
+        forceSSL = true;
+        enableACME = true;
+        listenAddresses = [
+          "0.0.0.0"
+          "[::0]"
+        ];
+        locations = {
+          "/" = {
+            proxyPass = "http://10.1.10.102:8999";
+          };
+        };
+      };
     };
   };
 

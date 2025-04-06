@@ -50,7 +50,7 @@
         # Gateway
         Dispatcher = {
           deployment = {
-            targetHost = "209.38.172.211";
+            targetHost = "welkin.ckgxrg.io";
           };
           imports = [
             ./dispatcher

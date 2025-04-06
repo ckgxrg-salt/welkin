@@ -12,8 +12,8 @@
     };
     settings = {
       server = {
-        DOMAIN = "git.ckgxrg.io";
-        ROOT_URL = "https://git.ckgxrg.io:9000";
+        DOMAIN = "archiva.ckgxrg.io";
+        ROOT_URL = "https://archiva.ckgxrg.io";
         HTTP_PORT = 8999;
         DISABLE_REGISTRATION = true;
       };
@@ -50,5 +50,12 @@
         gid = 995;
       };
     };
+  };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      22
+      8999
+    ];
   };
 }
