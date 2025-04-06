@@ -2,6 +2,7 @@
 # Host entrypoint
 {
   imports = [
+    ./acme.nix
     ./generated.nix
     ./login.nix
     ./settings.nix

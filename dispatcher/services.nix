@@ -6,9 +6,8 @@
     recommendedProxySettings = true;
     virtualHosts = {
       "welkin.ckgxrg.io" = {
-        forceSSL = false;
-        enableACME = false;
-        acmeRoot = null;
+        forceSSL = true;
+        enableACME = true;
         listenAddresses = [
           "0.0.0.0"
           "[::0]"
@@ -20,9 +19,8 @@
         };
       };
       "jellyfin.ckgxrg.io" = {
-        forceSSL = false;
-        enableACME = false;
-        acmeRoot = null;
+        forceSSL = true;
+        enableACME = true;
         listenAddresses = [
           "0.0.0.0"
           "[::0]"
@@ -38,9 +36,8 @@
         };
       };
       "radicale.ckgxrg.io" = {
-        forceSSL = false;
-        enableACME = false;
-        acmeRoot = null;
+        forceSSL = true;
+        enableACME = true;
         listenAddresses = [
           "0.0.0.0"
           "[::0]"
