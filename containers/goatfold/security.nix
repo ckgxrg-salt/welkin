@@ -38,7 +38,6 @@
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 18242 ];
   };
 
   # AppArmor MAC
