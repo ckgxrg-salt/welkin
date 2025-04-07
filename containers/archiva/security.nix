@@ -18,8 +18,8 @@
   # Only allow Daywatch and Radilopa to access the host
   users.users = {
     "cresilexica".openssh.authorizedKeys.keyFiles = [
-      ../../keys/daywatch-ssh.pub
-      ../../keys/radilopa-ssh.pub
+      ../../misc/daywatch-ssh.pub
+      ../../misc/radilopa-ssh.pub
     ];
   };
 

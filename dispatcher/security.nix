@@ -17,12 +17,12 @@
   # Only allow Daywatch and Radilopa to access
   users.users = {
     "elekiana".openssh.authorizedKeys.keyFiles = [
-      ../keys/daywatch-ssh.pub
-      ../keys/radilopa-ssh.pub
+      ../misc/daywatch-ssh.pub
+      ../misc/radilopa-ssh.pub
     ];
     "root".openssh.authorizedKeys.keyFiles = [
-      ../keys/daywatch-ssh.pub
-      ../keys/radilopa-ssh.pub
+      ../misc/daywatch-ssh.pub
+      ../misc/radilopa-ssh.pub
     ];
   };
 

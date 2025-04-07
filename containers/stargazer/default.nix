@@ -7,6 +7,7 @@
     ./settings.nix
 
     ./synapse.nix
+    ./bridge-qq.nix
   ];
 
   # Hostname & Host ID
