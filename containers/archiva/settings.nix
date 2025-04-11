@@ -13,6 +13,7 @@
     wg-quick.interfaces = {
       fariof = {
         configFile = "/etc/wireguard/fariof.conf";
+        autostart = false;
       };
     };
   };

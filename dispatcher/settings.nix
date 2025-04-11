@@ -5,6 +5,7 @@
   networking.wg-quick.interfaces = {
     centre = {
       configFile = "/etc/wireguard/centre.conf";
+      autostart = false;
     };
   };
 
