@@ -3,6 +3,7 @@
 {
   imports = [
     ./acme.nix
+    ./frp.nix
     ./generated.nix
     ./login.nix
     ./settings.nix

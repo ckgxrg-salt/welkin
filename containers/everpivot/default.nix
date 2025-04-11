@@ -2,6 +2,7 @@
 # Miscellaneous services
 {
   imports = [
+    ./frp.nix
     ./login.nix
     ./security.nix
     ./settings.nix

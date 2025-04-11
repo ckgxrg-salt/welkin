@@ -47,8 +47,8 @@
         locations."/" = {
           return = "403";
         };
-        locations."/_matrix".proxyPass = "http://10.1.10.104:8008";
-        locations."/_synapse/client".proxyPass = "http://10.1.10.104:8008";
+        locations."/_matrix".proxyPass = "http://localhost:7002";
+        locations."/_synapse/client".proxyPass = "http://localhost:7002";
       };
       "welkin.ckgxrg.io" = {
         forceSSL = true;
@@ -72,10 +72,10 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://10.1.10.101:8096";
+            proxyPass = "http://localhost:7004";
           };
           "/socket" = {
-            proxyPass = "http://10.1.10.101:8096";
+            proxyPass = "http://localhost:7004";
             proxyWebsockets = true;
           };
         };
@@ -89,7 +89,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://10.1.10.101:5232";
+            proxyPass = "http://localhost:7005";
           };
         };
       };
@@ -102,7 +102,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://10.1.10.102:8999";
+            proxyPass = "http://localhost:7003";
           };
         };
       };
