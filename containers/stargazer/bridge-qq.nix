@@ -8,6 +8,7 @@ in
 {
   environment.systemPackages = [
     pkg
+    pkgs.ffmpeg
   ];
   users = {
     users."matrix-qq" = {
@@ -31,7 +32,7 @@ in
 
   systemd.services.matrix-qq = {
     description = "Matrix-QQ puppeting bridge";
-
+    path = [ pkgs.ffmpeg ];
     wantedBy = [ "multi-user.target" ];
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];
