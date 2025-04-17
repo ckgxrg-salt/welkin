@@ -41,5 +41,11 @@
         localAddress6 = "2408:8214:124:1750:e251:d8ff:214e:8251/64";
         config = import ./stargazer;
       };
+      # Nextcloud server
+      paralace = base // {
+        localAddress = "192.168.50.105/24";
+        localAddress6 = "2408:8214:124:1750:e251:d8ff:23ae:ea23/64";
+        config = import ./paralace;
+      };
     };
 }

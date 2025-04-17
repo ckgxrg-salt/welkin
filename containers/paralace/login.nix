@@ -3,10 +3,10 @@
   # Login Messages
   environment.etc = {
     "motd".text = ''
-      Welcome from the Welkin - Stargazer
+      Welcome from the Welkin - Paralace
     '';
     "issue".text = ''
-      Stargazer is online
+      Paralace is online
     '';
   };
 
@@ -14,7 +14,7 @@
   users = {
     users = {
       # System administration & maintance
-      "psichilus" = {
+      "lurocia" = {
         isNormalUser = true;
         uid = 1001;
         extraGroups = [ "wheel" ];

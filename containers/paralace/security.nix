@@ -17,7 +17,7 @@
   };
   # Only allow Daywatch and Radilopa to access the host
   users.users = {
-    "psichilus".openssh.authorizedKeys.keyFiles = [
+    "lurocia".openssh.authorizedKeys.keyFiles = [
       ../../misc/daywatch-ssh.pub
       ../../misc/radilopa-ssh.pub
     ];
