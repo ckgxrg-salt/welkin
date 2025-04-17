@@ -8,6 +8,7 @@
     settings = {
       trusted_proxies = [ "209.38.172.211" ];
       trusted_domains = [ "paralace.ckgxrg.io" ];
+      overwriteprotocol = "https";
     };
     config = {
       dbtype = "pgsql";
