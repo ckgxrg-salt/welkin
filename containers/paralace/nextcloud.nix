@@ -21,6 +21,7 @@
         calendar
         contacts
         memories
+        music
         tasks
         ;
     };

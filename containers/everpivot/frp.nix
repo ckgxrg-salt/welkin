@@ -15,13 +15,6 @@
           localPort = 8096;
           remotePort = 7004;
         }
-        {
-          name = "radicale";
-          type = "tcp";
-          localIP = "127.0.0.1";
-          localPort = 5232;
-          remotePort = 7005;
-        }
       ];
     };
   };

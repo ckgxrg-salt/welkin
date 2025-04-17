@@ -9,7 +9,6 @@
 
     ./services/avahi.nix
     ./services/jellyfin.nix
-    ./services/radicale.nix
     ./services/samba.nix
   ];
 
