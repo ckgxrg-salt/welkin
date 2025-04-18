@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 # Nextcloud configuration
 {
   services.nextcloud = {
@@ -20,10 +20,21 @@
       inherit (config.services.nextcloud.package.packages.apps)
         calendar
         contacts
+        deck
         memories
         music
         tasks
         ;
+      passman = pkgs.fetchNextcloudApp {
+        url = "https://releases.passman.cc/passman_2.4.12.tar.gz";
+        license = "agpl3Only";
+        hash = "sha256-nLwd67w/8drY/V/aPWZj2bVTuYmJpNNX0h6qnG+UQm4=";
+      };
+      breezedark = pkgs.fetchNextcloudApp {
+        url = "https://github.com/mwalbeck/nextcloud-breeze-dark/releases/download/v29.0.0/breezedark.tar.gz";
+        license = "agpl3Only";
+        hash = "sha256-9xMH9IcQrzzMJ5bL6RP/3CS1QGuByriCjGkJQJxQ4CU=";
+      };
     };
   };
 
