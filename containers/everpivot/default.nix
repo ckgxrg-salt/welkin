@@ -8,6 +8,7 @@
     ./settings.nix
 
     ./services/avahi.nix
+    ./services/couchdb.nix
     ./services/jellyfin.nix
     ./services/samba.nix
   ];

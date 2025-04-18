@@ -41,15 +41,6 @@
             };
           };
       };
-      "stargazer.ckgxrg.io" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          return = "403";
-        };
-        locations."/_matrix".proxyPass = "http://localhost:7002";
-        locations."/_synapse/client".proxyPass = "http://localhost:7002";
-      };
       "welkin.ckgxrg.io" = {
         forceSSL = true;
         enableACME = true;
@@ -63,7 +54,16 @@
           };
         };
       };
-      "jellyfin.ckgxrg.io" = {
+      "stargazer.ckgxrg.io" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          return = "403";
+        };
+        locations."/_matrix".proxyPass = "http://localhost:7002";
+        locations."/_synapse/client".proxyPass = "http://localhost:7002";
+      };
+      "everpivot.ckgxrg.io" = {
         forceSSL = true;
         enableACME = true;
         listenAddresses = [
@@ -72,9 +72,18 @@
         ];
         locations = {
           "/" = {
+            return = "403";
+          };
+          "/obsidian" = {
+            extraConfig = ''
+              rewrite /obsidian/(.*) /$1 break;
+            '';
+            proxyPass = "http://localhost:7006";
+          };
+          "/jellyfin" = {
             proxyPass = "http://localhost:7004";
           };
-          "/socket" = {
+          "/jellyfin/socket" = {
             proxyPass = "http://localhost:7004";
             proxyWebsockets = true;
           };

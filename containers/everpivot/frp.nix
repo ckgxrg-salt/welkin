@@ -15,6 +15,13 @@
           localPort = 8096;
           remotePort = 7004;
         }
+        {
+          name = "couchdb";
+          type = "tcp";
+          localIP = "127.0.0.1";
+          localPort = 5984;
+          remotePort = 7006;
+        }
       ];
     };
   };
