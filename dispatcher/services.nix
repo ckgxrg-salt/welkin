@@ -78,13 +78,13 @@
             extraConfig = ''
               rewrite /obsidian/(.*) /$1 break;
             '';
-            proxyPass = "http://localhost:7006";
+            proxyPass = "http://localhost:7006/";
           };
           "/jellyfin" = {
-            proxyPass = "http://localhost:7004";
+            proxyPass = "http://localhost:7004/";
           };
           "/jellyfin/socket" = {
-            proxyPass = "http://localhost:7004";
+            proxyPass = "http://localhost:7004/";
             proxyWebsockets = true;
           };
           "/shiori/" = {
@@ -119,6 +119,26 @@
         };
       };
     };
+
+    # SSH
+    streamConfig = ''
+      upstream archiva-ssh {
+        server localhost:8002;
+      }
+      upstream goatfold-ssh {
+        server localhost:8003;
+      }
+      server {
+        listen 0.0.0.0:2222;
+        listen [::0]:2222;
+        proxy_pass archiva-ssh;
+      }
+      server {
+        listen 0.0.0.0:2223;
+        listen [::0]:2223;
+        proxy_pass goatfold-ssh;
+      }
+    '';
   };
 
   # Open firewall
@@ -127,12 +147,12 @@
     allowedTCPPorts = [
       80
       443
-      51820
+      2222
+      2223
     ];
     allowedUDPPorts = [
       80
       443
-      51820
     ];
   };
 }

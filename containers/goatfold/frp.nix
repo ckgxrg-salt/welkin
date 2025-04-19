@@ -9,18 +9,11 @@
       serverPort = 7000;
       proxies = [
         {
-          name = "archiva";
-          type = "tcp";
-          localIP = "127.0.0.1";
-          localPort = 8999;
-          remotePort = 7003;
-        }
-        {
-          name = "archiva-ssh";
+          name = "goatfold-ssh";
           type = "tcp";
           localIP = "127.0.0.1";
           localPort = 22;
-          remotePort = 8002;
+          remotePort = 8003;
         }
       ];
     };
