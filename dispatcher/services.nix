@@ -87,6 +87,9 @@
             proxyPass = "http://localhost:7004";
             proxyWebsockets = true;
           };
+          "/shiori/" = {
+            proxyPass = "http://localhost:7007/";
+          };
         };
       };
       "archiva.ckgxrg.io" = {
@@ -98,7 +101,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7003";
+            proxyPass = "http://localhost:7003/";
           };
         };
       };
@@ -111,7 +114,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7001";
+            proxyPass = "http://localhost:7001/";
           };
         };
       };

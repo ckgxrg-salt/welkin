@@ -11,6 +11,7 @@
     ./services/couchdb.nix
     ./services/jellyfin.nix
     ./services/samba.nix
+    ./services/shiori.nix
   ];
 
   # Hostname & Host ID
