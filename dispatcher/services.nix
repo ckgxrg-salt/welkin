@@ -78,13 +78,13 @@
             extraConfig = ''
               rewrite /obsidian/(.*) /$1 break;
             '';
-            proxyPass = "http://localhost:7006/";
+            proxyPass = "http://localhost:7006";
           };
           "/jellyfin" = {
-            proxyPass = "http://localhost:7004/";
+            proxyPass = "http://localhost:7004";
           };
           "/jellyfin/socket" = {
-            proxyPass = "http://localhost:7004/";
+            proxyPass = "http://localhost:7004";
             proxyWebsockets = true;
           };
           "/shiori/" = {
@@ -101,7 +101,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7003/";
+            proxyPass = "http://localhost:7003";
           };
         };
       };
@@ -114,7 +114,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7001/";
+            proxyPass = "http://localhost:7001";
           };
         };
       };
