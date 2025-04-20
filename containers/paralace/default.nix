@@ -3,6 +3,7 @@
 {
   imports = [
     ./nextcloud.nix
+    ./glances.nix
     ./frp.nix
     ./login.nix
     ./security.nix

@@ -29,6 +29,13 @@
           localPort = 5984;
           remotePort = 7006;
         }
+        {
+          name = "glances";
+          type = "tcp";
+          localIP = "127.0.0.1";
+          localPort = 61820;
+          remotePort = 7010;
+        }
       ];
     };
   };

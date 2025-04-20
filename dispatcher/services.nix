@@ -90,6 +90,9 @@
           "/shiori/" = {
             proxyPass = "http://localhost:7007/";
           };
+          "/glances" = {
+            proxyPass = "http://localhost:7010/";
+          };
         };
       };
       "archiva.ckgxrg.io" = {

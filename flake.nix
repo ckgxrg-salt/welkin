@@ -3,6 +3,7 @@
   inputs = {
     # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11-small";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Use Lix
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
@@ -18,19 +19,23 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-unstable,
       lix-module,
       disko,
       ...
     }:
     let
       system = "x86_64-linux";
-      host-pkgs = import <nixpkgs> { inherit system; };
+      pkgs-unstable = import nixpkgs-unstable { inherit system; };
     in
     {
       colmena = {
         meta = {
           nixpkgs = import nixpkgs {
             inherit system;
+          };
+          specialArgs = {
+            inherit pkgs-unstable;
           };
         };
 
@@ -71,17 +76,17 @@
       };
 
       # A nix develop shell including formatter and linter to be used with Neovim
-      devShells.${system}.default = host-pkgs.mkShellNoCC {
+      devShells.${system}.default = pkgs-unstable.mkShellNoCC {
         name = "welkin";
 
         buildInputs = [
-          host-pkgs.nixfmt-rfc-style
-          host-pkgs.deadnix
-          host-pkgs.colmena
+          pkgs-unstable.nixfmt-rfc-style
+          pkgs-unstable.deadnix
+          pkgs-unstable.colmena
         ];
       };
 
       # Support nix fmt command
-      formatter.${system} = host-pkgs.nixfmt-rfc-style;
+      formatter.${system} = pkgs-unstable.nixfmt-rfc-style;
     };
 }
