@@ -17,7 +17,10 @@
       "akacloud" = {
         isNormalUser = true;
         uid = 1001;
-        extraGroups = [ "wheel" ];
+        extraGroups = [
+          "wheel"
+          "storage"
+        ];
         description = "System Administrator";
       };
       # The target colmena will ssh into
@@ -33,6 +36,9 @@
     };
     groups = {
       "deployer" = { };
+      "storage" = {
+        gid = 1024;
+      };
     };
   };
 }

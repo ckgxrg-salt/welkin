@@ -25,7 +25,7 @@
         "guest ok" = "yes";
         "write list" = "scribe";
         "force user" = "scribe";
-        "force group" = "samba";
+        "force group" = "storage";
         "directory mask" = "0775";
         path = "/data/Gallery";
       };
@@ -35,7 +35,7 @@
         "guest ok" = "yes";
         "write list" = "scribe";
         "force user" = "scribe";
-        "force group" = "samba";
+        "force group" = "storage";
         "directory mask" = "0775";
         path = "/data/Animes";
       };
@@ -45,7 +45,7 @@
         "guest ok" = "yes";
         "write list" = "scribe";
         "force user" = "scribe";
-        "force group" = "samba";
+        "force group" = "storage";
         "directory mask" = "0775";
         path = "/data/Movies";
       };
@@ -57,7 +57,7 @@
         "guest ok" = "no";
         "write list" = "scribe";
         "force user" = "scribe";
-        "force group" = "samba";
+        "force group" = "storage";
         path = "/data/Private";
       };
     };
@@ -68,9 +68,11 @@
     users."scribe" = {
       description = "Samba Admin";
       isSystemUser = true;
-      group = "samba";
+      group = "storage";
     };
-    groups."samba" = { };
+    groups."storage" = {
+      gid = 1024;
+    };
   };
 
   # Make it discoverable

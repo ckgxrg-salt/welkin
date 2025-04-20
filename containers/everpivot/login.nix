@@ -18,7 +18,7 @@
       uid = 1001;
       extraGroups = [
         "wheel"
-        "samba"
+        "storage"
       ];
       description = "System administrator";
     };
