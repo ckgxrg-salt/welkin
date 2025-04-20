@@ -33,6 +33,13 @@
         extraGroups = [ "wheel" ];
         description = "Colmena deployer";
       };
+      # Storage user
+      "storage" = {
+        description = "Storage user";
+        isSystemUser = true;
+        uid = 1024;
+        group = "storage";
+      };
     };
     groups = {
       "deployer" = { };

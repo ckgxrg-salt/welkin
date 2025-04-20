@@ -49,9 +49,12 @@
     users."nextcloud" = {
       description = "Nextcloud user";
       isSystemUser = true;
+      uid = 1024;
       group = "nextcloud";
       extraGroups = [ "storage" ];
     };
-    groups."nextcloud" = { };
+    groups."nextcloud" = {
+      gid = 1024;
+    };
   };
 }

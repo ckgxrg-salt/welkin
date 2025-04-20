@@ -68,6 +68,7 @@
     users."scribe" = {
       description = "Samba Admin";
       isSystemUser = true;
+      uid = 1024;
       group = "storage";
     };
     groups."storage" = {

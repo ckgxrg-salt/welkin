@@ -17,16 +17,8 @@
       "lurocia" = {
         isNormalUser = true;
         uid = 1001;
-        extraGroups = [
-          "wheel"
-          "storage"
-        ];
+        extraGroups = [ "wheel" ];
         description = "Mysterious";
-      };
-    };
-    groups = {
-      "storage" = {
-        gid = 1024;
       };
     };
   };
