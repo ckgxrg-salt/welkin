@@ -33,8 +33,15 @@
           name = "glances";
           type = "tcp";
           localIP = "127.0.0.1";
-          localPort = 61820;
+          localPort = 61208;
           remotePort = 7010;
+        }
+        {
+          name = "glance";
+          type = "tcp";
+          localIP = "127.0.0.1";
+          localPort = 5678;
+          remotePort = 7011;
         }
       ];
     };

@@ -18,6 +18,8 @@
   };
   outputs =
     {
+      self,
+      colmena,
       nixpkgs,
       nixpkgs-unstable,
       lix-module,
@@ -29,6 +31,7 @@
       pkgs-unstable = import nixpkgs-unstable { inherit system; };
     in
     {
+      colmenaHive = colmena.lib.makeHive self.outputs.colmena;
       colmena = {
         meta = {
           nixpkgs = import nixpkgs {
@@ -82,7 +85,7 @@
         buildInputs = [
           pkgs-unstable.nixfmt-rfc-style
           pkgs-unstable.deadnix
-          pkgs-unstable.colmena
+          colmena.packages.${system}.colmena
         ];
       };
 

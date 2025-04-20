@@ -72,7 +72,7 @@
         ];
         locations = {
           "/" = {
-            return = "403";
+            proxyPass = "http://localhost:7011";
           };
           "/obsidian" = {
             extraConfig = ''
@@ -89,9 +89,6 @@
           };
           "/shiori/" = {
             proxyPass = "http://localhost:7007/";
-          };
-          "/glances" = {
-            proxyPass = "http://localhost:7010/";
           };
         };
       };
