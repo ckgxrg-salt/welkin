@@ -9,6 +9,12 @@
     useNetworkd = true;
     useHostResolvConf = false;
 
+    firewall = {
+      allowedTCPPorts = [
+        25585
+      ];
+    };
+
     # IoF
     wg-quick.interfaces = {
       fariof = {
