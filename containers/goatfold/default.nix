@@ -3,7 +3,6 @@
 {
   imports = [
     ./frp.nix
-    ./glances.nix
     ./login.nix
     ./security.nix
     ./settings.nix

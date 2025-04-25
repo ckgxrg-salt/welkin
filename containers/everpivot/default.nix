@@ -10,7 +10,6 @@
     ./services/avahi.nix
     ./services/couchdb.nix
     ./services/glance.nix
-    ./services/glances.nix
     ./services/jellyfin.nix
     ./services/samba.nix
     ./services/shiori.nix

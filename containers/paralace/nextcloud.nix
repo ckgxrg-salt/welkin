@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 # Nextcloud configuration
 {
   services.nextcloud = {
@@ -26,11 +26,6 @@
         music
         tasks
         ;
-      passman = pkgs.fetchNextcloudApp {
-        url = "https://releases.passman.cc/passman_2.4.12.tar.gz";
-        license = "agpl3Only";
-        hash = "sha256-nLwd67w/8drY/V/aPWZj2bVTuYmJpNNX0h6qnG+UQm4=";
-      };
     };
   };
 

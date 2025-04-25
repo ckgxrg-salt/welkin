@@ -7,7 +7,6 @@
     ./security.nix
     ./settings.nix
 
-    ./glances.nix
     ./synapse.nix
     ./bridge-qq.nix
   ];
