@@ -24,6 +24,7 @@
         deck
         memories
         music
+        news
         tasks
         ;
     };
