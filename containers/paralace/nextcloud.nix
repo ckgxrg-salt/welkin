@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 # Nextcloud configuration
 {
   services.nextcloud = {
@@ -27,6 +27,11 @@
         news
         tasks
         ;
+      breezedark = pkgs.fetchNextcloudApp {
+        url = "https://github.com/mwalbeck/nextcloud-breeze-dark/releases/download/v29.0.0/breezedark.tar.gz";
+        license = "agpl3Only";
+        hash = "sha256-9xMH9IcQrzzMJ5bL6RP/3CS1QGuByriCjGkJQJxQ4CU=";
+      };
     };
   };
 

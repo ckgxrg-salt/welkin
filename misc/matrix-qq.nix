@@ -11,15 +11,15 @@ buildGoModule {
   subPackages = [ "cmd/matrix-qq" ];
 
   src = fetchFromGitHub {
-    owner = "duo";
+    owner = "ckgxrg-salt";
     repo = "matrix-qq";
-    rev = "69ec39e42a76406e105efad1d48fb21a09b2661c";
-    hash = "sha256-bfskjmlWd6DSc04rZU3/D/zOUflE8Ymgk+ZoLlyzPRs=";
+    rev = "3bf8423e3e47d79610d2794d5c25dd219fbd06d0";
+    hash = "sha256-cLcwafAPTAPM3eFvQ3yBqXHTKj+zGiINaUVl4Z+aZPc=";
   };
 
   tags = "goolm";
 
-  vendorHash = "sha256-V4t6G9fh+lKeN49cD/Iy24KQNQXUunNSn9eS2mZRXx0=";
+  vendorHash = "sha256-ygin1CNbCN8DWfu/5046HA0uDTCJoPlwzsDQ4p0AAKg=";
 
   meta = {
     homepage = "https://github.com/duo/matrix-qq";
