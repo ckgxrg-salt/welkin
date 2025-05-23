@@ -18,11 +18,11 @@
   users.users = {
     "elekiana".openssh.authorizedKeys.keyFiles = [
       ../misc/daywatch-ssh.pub
-      ../misc/radilopa-ssh.pub
+      ../misc/rhyslow-ssh.pub
     ];
     "root".openssh.authorizedKeys.keyFiles = [
       ../misc/daywatch-ssh.pub
-      ../misc/radilopa-ssh.pub
+      ../misc/rhyslow-ssh.pub
     ];
   };
 

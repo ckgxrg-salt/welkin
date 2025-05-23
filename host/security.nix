@@ -19,11 +19,11 @@
   users.users = {
     "akacloud".openssh.authorizedKeys.keyFiles = [
       ../misc/daywatch-ssh.pub
-      ../misc/radilopa-ssh.pub
+      ../misc/rhyslow-ssh.pub
     ];
     "deployer".openssh.authorizedKeys.keyFiles = [
       ../misc/daywatch-ssh.pub
-      ../misc/radilopa-ssh.pub
+      ../misc/rhyslow-ssh.pub
     ];
   };
 

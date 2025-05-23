@@ -19,11 +19,11 @@
   users.users = {
     "slat".openssh.authorizedKeys.keyFiles = [
       ../../misc/daywatch-ssh.pub
-      ../../misc/radilopa-ssh.pub
+      ../../misc/rhyslow-ssh.pub
     ];
     "goat".openssh.authorizedKeys.keyFiles = [
       ../../misc/daywatch-ssh.pub
-      ../../misc/radilopa-ssh.pub
+      ../../misc/rhyslow-ssh.pub
     ];
   };
 

@@ -19,7 +19,7 @@
   users.users = {
     "lurocia".openssh.authorizedKeys.keyFiles = [
       ../../misc/daywatch-ssh.pub
-      ../../misc/radilopa-ssh.pub
+      ../../misc/rhyslow-ssh.pub
     ];
   };
 
