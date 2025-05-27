@@ -16,18 +16,18 @@
           remotePort = 7004;
         }
         {
+          name = "alumnimap";
+          type = "tcp";
+          localIP = "127.0.0.1";
+          localPort = 8080;
+          remotePort = 7078;
+        }
+        {
           name = "shiori";
           type = "tcp";
           localIP = "127.0.0.1";
           localPort = 8089;
           remotePort = 7007;
-        }
-        {
-          name = "couchdb";
-          type = "tcp";
-          localIP = "127.0.0.1";
-          localPort = 5984;
-          remotePort = 7006;
         }
         {
           name = "glances";

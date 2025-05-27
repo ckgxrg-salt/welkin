@@ -7,8 +7,8 @@
     ./security.nix
     ./settings.nix
 
+    ./services/alumnimap.nix
     ./services/avahi.nix
-    ./services/couchdb.nix
     ./services/glance.nix
     ./services/jellyfin.nix
     ./services/samba.nix

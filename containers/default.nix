@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs-unstable, ckgs, ... }:
 # Containers entrypoint
 {
   containers =
@@ -19,7 +19,7 @@
             hostPath = "/data";
           };
         };
-        specialArgs = { inherit pkgs-unstable; };
+        specialArgs = { inherit pkgs-unstable ckgs; };
         localAddress = "192.168.50.101/24";
         localAddress6 = "2408:8214:124:1750:e251:d8ff:95ca:72a1/64";
         config = import ./everpivot;

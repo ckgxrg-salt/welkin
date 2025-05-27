@@ -74,12 +74,6 @@
           "/" = {
             proxyPass = "http://localhost:7011";
           };
-          "/obsidian" = {
-            extraConfig = ''
-              rewrite /obsidian/(.*) /$1 break;
-            '';
-            proxyPass = "http://localhost:7006";
-          };
           "/jellyfin" = {
             proxyPass = "http://localhost:7004";
           };
@@ -89,6 +83,19 @@
           };
           "/shiori/" = {
             proxyPass = "http://localhost:7007/";
+          };
+        };
+      };
+      "alumnimap.ckgxrg.io" = {
+        forceSSL = true;
+        enableACME = true;
+        listenAddresses = [
+          "0.0.0.0"
+          "[::0]"
+        ];
+        locations = {
+          "/" = {
+            proxyPass = "http://localhost:7078";
           };
         };
       };
