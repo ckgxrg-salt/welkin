@@ -6,9 +6,11 @@
 
     ./services/adguard.nix
     ./services/alumnimap.nix
+    ./services/filebrowser.nix
     ./services/glance.nix
     ./services/jellyfin.nix
     ./services/shiori.nix
+    ./services/syncthing.nix
   ];
 
   networking = {
@@ -53,21 +55,30 @@
     '';
   };
 
-  users.users = {
-    # System administration & maintance
-    "bse" = {
-      isNormalUser = true;
-      uid = 1001;
-      extraGroups = [
-        "wheel"
-        "storage"
-      ];
-      description = "System administrator";
-      openssh.authorizedKeys.keyFiles = [
-        ../../misc/daywatch-ssh.pub
-        ../../misc/rhyslow-ssh.pub
-      ];
+  users = {
+    users = {
+      # System administration & maintance
+      "bse" = {
+        isNormalUser = true;
+        uid = 1001;
+        extraGroups = [
+          "wheel"
+          "storage"
+        ];
+        description = "System administrator";
+        openssh.authorizedKeys.keyFiles = [
+          ../../misc/daywatch-ssh.pub
+          ../../misc/rhyslow-ssh.pub
+        ];
+      };
+      # Storage user
+      "storage" = {
+        isSystemUser = true;
+        uid = 1024;
+        group = "storage";
+      };
     };
+    groups."storage" = { };
   };
 
   system.stateVersion = "24.11";

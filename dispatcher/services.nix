@@ -72,17 +72,23 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7011";
+            proxyPass = "http://localhost:7102";
+          };
+          "/files" = {
+            proxyPass = "http://localhost:7101";
           };
           "/jellyfin" = {
-            proxyPass = "http://localhost:7004";
+            proxyPass = "http://localhost:7103";
           };
           "/jellyfin/socket" = {
-            proxyPass = "http://localhost:7004";
+            proxyPass = "http://localhost:7103";
             proxyWebsockets = true;
           };
           "/shiori/" = {
-            proxyPass = "http://localhost:7007/";
+            proxyPass = "http://localhost:7104/";
+          };
+          "/sync" = {
+            proxyPass = "http://localhost:7105";
           };
         };
       };
@@ -95,7 +101,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7078";
+            proxyPass = "http://localhost:7100";
           };
         };
       };
