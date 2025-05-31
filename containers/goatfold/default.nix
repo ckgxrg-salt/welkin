@@ -2,6 +2,8 @@
 # Entertainment
 {
   imports = [
+    ../common.nix
+
     ./frp.nix
     ./tmux.nix
   ];

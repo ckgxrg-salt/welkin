@@ -4,6 +4,7 @@
   imports = [
     ../common.nix
 
+    ./services/adguard.nix
     ./services/alumnimap.nix
     ./services/glance.nix
     ./services/jellyfin.nix
