@@ -17,7 +17,7 @@
   ];
 
   systemd.services.alumnimap = {
-    description = "See where our classmates will be going";
+    description = "AlumniMap";
     serviceConfig = {
       ExecStart = "${ckgs.alumnimap}/bin/alumnimap server";
     };
