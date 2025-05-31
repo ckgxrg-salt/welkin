@@ -15,7 +15,7 @@
       isSystemUser = true;
       group = "jellyfin";
       extraGroups = [
-        "samba"
+        "storage"
       ];
     };
     groups."jellyfin" = { };

@@ -18,6 +18,8 @@
 
   systemd.services.alumnimap = {
     description = "AlumniMap";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = "${ckgs.alumnimap}/bin/alumnimap server";
     };

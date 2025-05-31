@@ -1,4 +1,4 @@
-{ pkgs-unstable, ckgs, ... }:
+{ ckgs, ... }:
 # Containers entrypoint
 {
   containers =
@@ -19,30 +19,30 @@
             hostPath = "/data";
           };
         };
-        specialArgs = { inherit pkgs-unstable ckgs; };
+        specialArgs = { inherit ckgs; };
         localAddress = "192.168.50.101/24";
         localAddress6 = "2408:8214:124:1750:e251:d8ff:95ca:72a1/64";
         config = import ./everpivot;
       };
-      # Gitea
+      # Study & Project management
       archiva = base // {
         localAddress = "192.168.50.102/24";
         localAddress6 = "2408:8214:124:1750:e251:d8ff:5bd9:8a1c/64";
         config = import ./archiva;
       };
-      # Minecraft server
+      # Entertainment
       goatfold = base // {
         localAddress = "192.168.50.103/24";
         localAddress6 = "2408:8214:124:1750:e251:d8ff:81bc:1da2/64";
         config = import ./goatfold;
       };
-      # Matrix server
+      # Communication
       stargazer = base // {
         localAddress = "192.168.50.104/24";
         localAddress6 = "2408:8214:124:1750:e251:d8ff:214e:8251/64";
         config = import ./stargazer;
       };
-      # Nextcloud server
+      # Daily chores
       paralace = base // {
         bindMounts = {
           storage = {

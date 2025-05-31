@@ -13,6 +13,9 @@
       };
     };
   };
+  services.resolved.extraConfig = ''
+    DNSStubListener=no
+  '';
 
   nix = {
     channel.enable = false;

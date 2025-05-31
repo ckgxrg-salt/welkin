@@ -23,6 +23,12 @@
           ../misc/rhyslow-ssh.pub
         ];
       };
+      root = {
+        openssh.authorizedKeys.keyFiles = [
+          ../misc/daywatch-ssh.pub
+          ../misc/rhyslow-ssh.pub
+        ];
+      };
     };
   };
 }
