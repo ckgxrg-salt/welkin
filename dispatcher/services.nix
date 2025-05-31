@@ -74,21 +74,21 @@
           "/" = {
             proxyPass = "http://localhost:7102";
           };
-          "/files" = {
+          "/files/" = {
             proxyPass = "http://localhost:7101";
           };
-          "/jellyfin" = {
+          "/jellyfin/" = {
             proxyPass = "http://localhost:7103";
           };
-          "/jellyfin/socket" = {
+          "/jellyfin/socket/" = {
             proxyPass = "http://localhost:7103";
             proxyWebsockets = true;
           };
           "/shiori/" = {
             proxyPass = "http://localhost:7104/";
           };
-          "/sync" = {
-            proxyPass = "http://localhost:7105";
+          "/sync/" = {
+            proxyPass = "http://localhost:7105/";
           };
         };
       };
