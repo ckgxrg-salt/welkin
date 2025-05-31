@@ -148,7 +148,6 @@
     '';
   };
 
-  # Open firewall
   networking.firewall = {
     allowPing = true;
     allowedTCPPorts = [
@@ -161,5 +160,12 @@
       80
       443
     ];
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults = {
+      email = "ckgxrg@ckgxrg.io";
+    };
   };
 }

@@ -10,7 +10,6 @@
     ../containers
   ];
 
-  # Hostname & Host ID
   networking = {
     hostName = "Welkin";
     hostId = "9ff456c1";

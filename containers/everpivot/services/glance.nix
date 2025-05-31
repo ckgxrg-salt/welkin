@@ -1,5 +1,5 @@
 { ... }:
-# A glance of news
+# A simple dashboard
 {
   services.glance = {
     enable = true;
@@ -11,4 +11,14 @@
       };
     };
   };
+
+  services.frp.settings.proxies = [
+    {
+      name = "glance";
+      type = "tcp";
+      localIP = "127.0.0.1";
+      localPort = 5678;
+      remotePort = 7011;
+    }
+  ];
 }

@@ -41,7 +41,13 @@
     ];
   };
 
-  networking.firewall = {
-    allowedTCPPorts = [ 8008 ];
-  };
+  services.frp.settings.proxies = [
+    {
+      name = "stargazer";
+      type = "tcp";
+      localIP = "127.0.0.1";
+      localPort = 8008;
+      remotePort = 7002;
+    }
+  ];
 }

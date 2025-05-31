@@ -58,4 +58,14 @@
       gid = 1024;
     };
   };
+
+  services.frp.settings.proxies = [
+    {
+      name = "paralace";
+      type = "tcp";
+      localIP = "127.0.0.1";
+      localPort = 8079;
+      remotePort = 7001;
+    }
+  ];
 }

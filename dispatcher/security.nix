@@ -14,17 +14,6 @@
       PasswordAuthentication = false;
     };
   };
-  # Only allow Daywatch and Radilopa to access
-  users.users = {
-    "elekiana".openssh.authorizedKeys.keyFiles = [
-      ../misc/daywatch-ssh.pub
-      ../misc/rhyslow-ssh.pub
-    ];
-    "root".openssh.authorizedKeys.keyFiles = [
-      ../misc/daywatch-ssh.pub
-      ../misc/rhyslow-ssh.pub
-    ];
-  };
 
   # sudo
   security.sudo = {

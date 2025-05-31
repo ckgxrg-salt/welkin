@@ -1,8 +1,7 @@
 { ... }:
-# Host entrypoint
+# Dispatcher entrypoint
 {
   imports = [
-    ./acme.nix
     ./frp.nix
     ./generated.nix
     ./login.nix
@@ -11,7 +10,6 @@
     ./services.nix
   ];
 
-  # Hostname & Host ID
   networking = {
     hostName = "IoFCentre";
     hostId = "7d9bafff";

@@ -22,4 +22,14 @@
       ExecStart = "${ckgs.alumnimap}/bin/alumnimap server";
     };
   };
+
+  services.frp.settings.proxies = [
+    {
+      name = "alumnimap";
+      type = "tcp";
+      localIP = "127.0.0.1";
+      localPort = 8080;
+      remotePort = 7078;
+    }
+  ];
 }

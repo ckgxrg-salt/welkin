@@ -1,21 +1,11 @@
 { ... }:
-# Configuration
+# Common configurations
 {
-  #========== Network & Devices ==========#
-  # Internet
   networking = {
-    # Virtual network...
     wireless.enable = false;
     useNetworkd = true;
     useHostResolvConf = false;
 
-    firewall = {
-      allowedTCPPorts = [
-        25585
-      ];
-    };
-
-    # IoF
     wg-quick.interfaces = {
       fariof = {
         configFile = "/etc/wireguard/fariof.conf";
@@ -24,26 +14,6 @@
     };
   };
 
-  systemd.network = {
-    enable = true;
-    networks = {
-      "20-lan" = {
-        matchConfig.Type = "ether";
-        networkConfig = {
-          Address = [
-            "192.168.50.103/24"
-            "2408:8215:123:16d0:e251:d8ff:81bc:1da2/64"
-          ];
-          Gateway = "192.168.50.1";
-          DNS = [ "192.168.50.1" ];
-          IPv6AcceptRA = true;
-          DHCP = "no";
-        };
-      };
-    };
-  };
-
-  #========== Nix ==========#
   nix = {
     channel.enable = false;
     settings = {
@@ -54,7 +24,6 @@
         "root"
         "@wheel"
       ];
-      # Enable flakes
       experimental-features = [
         "nix-command"
         "flakes"
@@ -62,8 +31,6 @@
     };
   };
 
-  #========== Localisation ==========#
-  # Timezone, Locale
   time.timeZone = "Asia/Shanghai";
 
   i18n = {
@@ -76,8 +43,6 @@
     };
   };
 
-  #========== Miscellaneous ==========#
-  # Who'll need this...
   programs.nano.enable = false;
   programs.command-not-found.enable = false;
   services.speechd.enable = false;
@@ -90,5 +55,38 @@
     doc.enable = false;
     dev.enable = false;
     nixos.enable = false;
+  };
+  services.openssh = {
+    enable = true;
+    startWhenNeeded = true;
+    openFirewall = true;
+
+    settings = {
+      X11Forwarding = false;
+      UsePAM = true;
+      PrintMotd = true;
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+  };
+
+  security.sudo = {
+    enable = true;
+    wheelNeedsPassword = false;
+    execWheelOnly = true;
+  };
+
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+  };
+
+  security.apparmor = {
+    enable = true;
+    enableCache = true;
+  };
+  services.dbus = {
+    apparmor = "enabled";
+    implementation = "broker";
   };
 }

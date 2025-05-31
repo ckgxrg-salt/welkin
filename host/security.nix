@@ -15,17 +15,6 @@
       PasswordAuthentication = false;
     };
   };
-  # Only allow Daywatch and Radilopa to access the dom0
-  users.users = {
-    "akacloud".openssh.authorizedKeys.keyFiles = [
-      ../misc/daywatch-ssh.pub
-      ../misc/rhyslow-ssh.pub
-    ];
-    "deployer".openssh.authorizedKeys.keyFiles = [
-      ../misc/daywatch-ssh.pub
-      ../misc/rhyslow-ssh.pub
-    ];
-  };
 
   # sudo
   security.sudo = {

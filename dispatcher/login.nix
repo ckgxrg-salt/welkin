@@ -10,7 +10,6 @@
     '';
   };
 
-  # Users & Groups
   users = {
     users = {
       # System administration & maintance
@@ -19,6 +18,10 @@
         uid = 1001;
         extraGroups = [ "wheel" ];
         description = "Mysterious technician";
+        openssh.authorizedKeys.keyFiles = [
+          ../misc/daywatch-ssh.pub
+          ../misc/rhyslow-ssh.pub
+        ];
       };
     };
   };
