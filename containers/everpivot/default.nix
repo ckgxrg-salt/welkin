@@ -37,6 +37,10 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "d /data 770 storage storage - -"
+  ];
+
   services.frp = {
     enable = true;
     role = "client";
