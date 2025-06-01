@@ -118,7 +118,7 @@
           };
         };
       };
-      "paralace.ckgxrg.io" = {
+      "firefly.paralace.ckgxrg.io" = {
         forceSSL = true;
         enableACME = true;
         listenAddresses = [
@@ -127,11 +127,11 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7001";
+            proxyPass = "http://localhost:7501/";
           };
         };
       };
-      "dav.ckgxrg.io" = {
+      "dav.paralace.ckgxrg.io" = {
         forceSSL = true;
         enableACME = true;
         listenAddresses = [
@@ -140,7 +140,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7500";
+            proxyPass = "http://localhost:7500/";
           };
         };
       };

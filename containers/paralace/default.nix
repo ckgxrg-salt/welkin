@@ -5,7 +5,7 @@
     ../common.nix
 
     ./davis.nix
-    ./nextcloud.nix
+    ./firefly-iii.nix
   ];
 
   networking = {
