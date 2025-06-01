@@ -50,7 +50,10 @@
         ];
         locations = {
           "/" = {
-            return = "403";
+            proxyPass = "http://localhost:7102";
+          };
+          "/files/" = {
+            proxyPass = "http://localhost:7101";
           };
         };
       };
@@ -71,12 +74,6 @@
           "[::0]"
         ];
         locations = {
-          "/" = {
-            proxyPass = "http://localhost:7102";
-          };
-          "/files/" = {
-            proxyPass = "http://localhost:7101";
-          };
           "/jellyfin/" = {
             proxyPass = "http://localhost:7103";
           };
@@ -118,7 +115,20 @@
           };
         };
       };
-      "firefly.paralace.ckgxrg.io" = {
+      "davis.ckgxrg.io" = {
+        forceSSL = true;
+        enableACME = true;
+        listenAddresses = [
+          "0.0.0.0"
+          "[::0]"
+        ];
+        locations = {
+          "/" = {
+            proxyPass = "http://localhost:7500/";
+          };
+        };
+      };
+      "firefly.ckgxrg.io" = {
         forceSSL = true;
         enableACME = true;
         listenAddresses = [
@@ -131,7 +141,7 @@
           };
         };
       };
-      "dav.paralace.ckgxrg.io" = {
+      "mealie.ckgxrg.io" = {
         forceSSL = true;
         enableACME = true;
         listenAddresses = [
@@ -140,7 +150,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7500/";
+            proxyPass = "http://localhost:7502/";
           };
         };
       };
