@@ -4,6 +4,7 @@
   imports = [
     ../common.nix
 
+    ./davis.nix
     ./nextcloud.nix
   ];
 

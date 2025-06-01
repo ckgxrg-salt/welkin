@@ -4,13 +4,13 @@
   imports = [
     ../common.nix
 
-    ./services/adguard.nix
-    ./services/alumnimap.nix
-    ./services/filebrowser.nix
-    ./services/glance.nix
-    ./services/jellyfin.nix
-    ./services/shiori.nix
-    ./services/syncthing.nix
+    ./adguard.nix
+    ./alumnimap.nix
+    ./filebrowser.nix
+    ./glance.nix
+    ./jellyfin.nix
+    ./shiori.nix
+    ./syncthing.nix
   ];
 
   networking = {
