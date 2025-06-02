@@ -9,7 +9,21 @@
   services.zfs = {
     autoScrub.enable = true;
     trim.enable = true;
-    autoSnapshot.enable = true;
+  };
+  services.sanoid = {
+    enable = true;
+    templates."default" = {
+      autosnap = true;
+      autoprune = true;
+      hourly = 24;
+      daily = 7;
+      weekly = 4;
+      monthly = 4;
+    };
+    datasets = {
+      "welkin/storage".useTemplate = [ "default" ];
+      "welkin/container".useTemplate = [ "default" ];
+    };
   };
 
   #========== Network & Devices ==========#
