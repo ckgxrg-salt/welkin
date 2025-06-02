@@ -40,6 +40,7 @@
       stargazer = base // {
         localAddress = "192.168.50.104/24";
         localAddress6 = "2408:8214:124:1750:e251:d8ff:214e:8251/64";
+        specialArgs = { inherit ckgs; };
         config = import ./stargazer;
       };
       # Daily chores

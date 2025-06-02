@@ -1,13 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, ckgs, ... }:
 # Matrix-QQ bridge
 let
-  pkg = (pkgs.callPackage ../../misc/matrix-qq.nix { });
   settingsFile = "/var/lib/matrix-qq/settings.yaml";
   registrationFile = "/var/lib/matrix-qq/qq-registration.yaml";
 in
 {
   environment.systemPackages = [
-    pkg
+    ckgs.matrix-qq
     pkgs.ffmpeg
   ];
   users = {
@@ -43,7 +42,7 @@ in
       StateDirectory = "matrix-qq";
       WorkingDirectory = "/var/lib/matrix-qq";
       ExecStart = ''
-        ${pkg}/bin/matrix-qq \
+        ${ckgs.matrix-qq}/bin/matrix-qq \
         --config='${settingsFile}' \
         --registration='${registrationFile}'
       '';
