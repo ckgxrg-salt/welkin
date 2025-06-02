@@ -98,7 +98,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7100";
+            proxyPass = "http://localhost:7100/";
           };
         };
       };
@@ -111,7 +111,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7003";
+            proxyPass = "http://localhost:7300/";
           };
         };
       };

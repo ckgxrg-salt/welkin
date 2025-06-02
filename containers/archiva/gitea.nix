@@ -52,10 +52,19 @@
     };
   };
 
+  services.frp.settings.proxies = [
+    {
+      name = "gitea";
+      type = "tcp";
+      localip = "127.0.0.1";
+      localport = 8999;
+      remoteport = 7300;
+    }
+  ];
+
   networking.firewall = {
     allowedTCPPorts = [
       22
-      8999
     ];
   };
 }
