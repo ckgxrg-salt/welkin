@@ -154,6 +154,19 @@
           };
         };
       };
+      "freshrss.ckgxrg.io" = {
+        forceSSL = true;
+        enableACME = true;
+        listenAddresses = [
+          "0.0.0.0"
+          "[::0]"
+        ];
+        locations = {
+          "/" = {
+            proxyPass = "http://localhost:7503/";
+          };
+        };
+      };
     };
 
     # SSH

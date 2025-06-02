@@ -6,6 +6,7 @@
 
     ./davis.nix
     ./firefly-iii.nix
+    ./freshrss.nix
     ./mealie.nix
   ];
 

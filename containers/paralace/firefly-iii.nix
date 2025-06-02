@@ -3,7 +3,7 @@
   services.firefly-iii = {
     enable = true;
     enableNginx = true;
-    virtualHost = "localhost";
+    virtualHost = "firefly";
     settings = {
       APP_URL = "https://firefly.paralace.ckgxrg.io";
       TRUSTED_PROXIES = "**";
@@ -12,7 +12,7 @@
     };
   };
 
-  services.nginx.virtualHosts."localhost".listen = [
+  services.nginx.virtualHosts."firefly".listen = [
     {
       addr = "127.0.0.1";
       port = 9182;
