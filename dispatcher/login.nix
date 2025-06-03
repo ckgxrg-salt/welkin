@@ -19,14 +19,14 @@
         extraGroups = [ "wheel" ];
         description = "Mysterious technician";
         openssh.authorizedKeys.keyFiles = [
-          ../misc/daywatch-ssh.pub
-          ../misc/rhyslow-ssh.pub
+          ../keys/daywatch-ssh.pub
+          ../keys/rhyslow-ssh.pub
         ];
       };
       root = {
         openssh.authorizedKeys.keyFiles = [
-          ../misc/daywatch-ssh.pub
-          ../misc/rhyslow-ssh.pub
+          ../keys/daywatch-ssh.pub
+          ../keys/rhyslow-ssh.pub
         ];
       };
     };

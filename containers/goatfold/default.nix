@@ -59,8 +59,8 @@
         extraGroups = [ "wheel" ];
         description = "Salty Salt";
         openssh.authorizedKeys.keyFiles = [
-          ../../misc/daywatch-ssh.pub
-          ../../misc/rhyslow-ssh.pub
+          ../../keys/daywatch-ssh.pub
+          ../../keys/rhyslow-ssh.pub
         ];
       };
       # This user actually runs Minecraft servers
@@ -70,8 +70,8 @@
         home = "/srv/minecraft";
         description = "Goaty Goat";
         openssh.authorizedKeys.keyFiles = [
-          ../../misc/daywatch-ssh.pub
-          ../../misc/rhyslow-ssh.pub
+          ../../keys/daywatch-ssh.pub
+          ../../keys/rhyslow-ssh.pub
         ];
       };
     };

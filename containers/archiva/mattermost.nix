@@ -21,7 +21,9 @@
     settings = {
       TeamSettings = {
         EnableUserCreation = false;
-        CustomDescriptionText = "Welkin Project Comms";
+        CustomDescriptionText = "Archiva Project Comms";
+        CustomBrandText = "Archiva";
+        EnableCustomBrand = true;
       };
       SupportSettings = {
         EnableAskCommunityLink = false;

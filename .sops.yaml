@@ -1,0 +1,16 @@
+keys:
+  - &ckgxrg age1yy9f2spvzv6fuv9c3x0nln3z7r03922eafenrx7nud9qdkvh042qr0zd76
+
+  - &welkin age1uqmm69mv5g5nae9rgaf62wdxva8v37fnydu3cjm743xpdh9cgdvs0z4j82
+  - &dispatcher age13jue5cd830z558ljc6vcvdde3uw7fczr6es9t2adg6q6cw82cukqfaq0s6
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *ckgxrg
+      - *welkin
+  - path_regex: secrets/dispatcher/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *ckgxrg
+      - *dispatcher

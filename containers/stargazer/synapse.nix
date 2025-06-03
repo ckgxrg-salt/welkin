@@ -37,7 +37,7 @@
       ];
     };
     extraConfigFiles = [
-      "/etc/synapse/registration_secret.conf"
+      "/var/secrets/synapse/registration_secret.conf"
     ];
   };
 

@@ -124,7 +124,7 @@
         ];
         locations = {
           "/" = {
-            proxyPass = "http://localhost:7301/";
+            proxyPass = "http://localhost:7301";
           };
         };
       };

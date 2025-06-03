@@ -23,8 +23,8 @@
         ];
         description = "System Administrator";
         openssh.authorizedKeys.keyFiles = [
-          ../misc/daywatch-ssh.pub
-          ../misc/rhyslow-ssh.pub
+          ../keys/daywatch-ssh.pub
+          ../keys/rhyslow-ssh.pub
         ];
       };
       # The target colmena will ssh into
@@ -37,8 +37,8 @@
         extraGroups = [ "wheel" ];
         description = "Colmena deployer";
         openssh.authorizedKeys.keyFiles = [
-          ../misc/daywatch-ssh.pub
-          ../misc/rhyslow-ssh.pub
+          ../keys/daywatch-ssh.pub
+          ../keys/rhyslow-ssh.pub
         ];
       };
       # Storage user

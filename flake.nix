@@ -1,21 +1,22 @@
 {
   description = "Welkin's Dotfiles";
   inputs = {
-    # Nixpkgs source
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     ckgpkgs = {
       url = "github:ckgxrg-salt/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Use Lix
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Deployment tool
     colmena.url = "github:zhaofengli/colmena";
     disko = {
       url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -27,6 +28,7 @@
       ckgpkgs,
       lix-module,
       disko,
+      sops-nix,
       ...
     }:
     let
@@ -56,8 +58,10 @@
           };
           imports = [
             ./host
+            ./secrets
             lix-module.nixosModules.default
             disko.nixosModules.disko
+            sops-nix.nixosModules.sops
           ];
         };
 
@@ -68,6 +72,7 @@
           };
           imports = [
             ./dispatcher
+            sops-nix.nixosModules.sops
           ];
         };
       };
@@ -80,6 +85,7 @@
             ./host
             lix-module.nixosModules.default
             disko.nixosModules.disko
+            sops-nix.nixosModules.sops
           ];
         };
       };
@@ -91,6 +97,7 @@
         buildInputs = [
           pkgs.nixfmt-rfc-style
           pkgs.deadnix
+          pkgs.sops
           colmena.packages.${system}.colmena
         ];
       };

@@ -5,8 +5,8 @@
     hostname = "dav.ckgxrg.io";
     database.driver = "postgresql";
     adminLogin = "ckgxrg";
-    adminPasswordFile = "/etc/davis/admin-passwd";
-    appSecretFile = "/etc/davis/app-secret";
+    adminPasswordFile = "/var/secrets/davis/admin-passwd";
+    appSecretFile = "/var/secrets/davis/app-secret";
     nginx = {
       listen = [
         {

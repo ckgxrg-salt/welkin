@@ -5,6 +5,7 @@
     ../common.nix
 
     ./gitea.nix
+    ./mattermost.nix
   ];
 
   networking = {
@@ -57,8 +58,8 @@
       extraGroups = [ "wheel" ];
       description = "System administrator";
       openssh.authorizedKeys.keyFiles = [
-        ../../misc/daywatch-ssh.pub
-        ../../misc/rhyslow-ssh.pub
+        ../../keys/daywatch-ssh.pub
+        ../../keys/rhyslow-ssh.pub
       ];
     };
   };

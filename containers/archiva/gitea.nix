@@ -8,7 +8,7 @@
       type = "postgres";
       name = "gitea";
       user = "gitea";
-      passwordFile = "/etc/gitea/secrets/dbpasswd";
+      passwordFile = "/var/secrets/gitea/dbpasswd";
     };
     settings = {
       server = {
