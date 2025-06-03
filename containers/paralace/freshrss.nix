@@ -3,6 +3,7 @@
   services.freshrss = {
     enable = true;
     defaultUser = "ckgxrg";
+    passwordFile = "/etc/freshrss/passwd";
     baseUrl = "https://freshrss.ckgxrg.io";
     database = {
       type = "pgsql";
