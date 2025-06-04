@@ -38,7 +38,7 @@
     enable = true;
     role = "client";
     settings = {
-      serverAddr = "welkin.ckgxrg.io";
+      serverAddr = "deploy.welkin.ckgxrg.io";
       serverPort = 7000;
     };
   };
