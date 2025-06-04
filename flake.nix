@@ -68,7 +68,7 @@
         # Gateway
         Dispatcher = {
           deployment = {
-            targetHost = "ckgxrg.io";
+            targetHost = "deploy.welkin.ckgxrg.io";
           };
           imports = [
             ./dispatcher
