@@ -5,7 +5,7 @@
     listenAddress = "127.0.0.1";
     port = 9275;
     settings = {
-      BASE_URL = "https://welkin.ckgxrg.io:7502";
+      BASE_URL = "https://mealie.welkin.ckgxrg.io";
       DB_ENGINE = "postgres";
       POSTGRES_SERVER = "localhost";
     };

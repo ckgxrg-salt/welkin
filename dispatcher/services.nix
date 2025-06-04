@@ -10,6 +10,15 @@ let
     ];
     inherit locations;
   };
+  mkWelkin = locations: {
+    forceSSL = true;
+    useACMEHost = "welkin.ckgxrg.io";
+    listenAddresses = [
+      "0.0.0.0"
+      "[::0]"
+    ];
+    inherit locations;
+  };
 in
 {
   services.nginx = {
@@ -38,7 +47,7 @@ in
           "/.well-known/matrix/server".extraConfig = mkWellKnown serverCfg;
           "/.well-known/matrix/client".extraConfig = mkWellKnown clientCfg;
         };
-      "welkin.ckgxrg.io" = mkHost {
+      "welkin.ckgxrg.io" = mkWelkin {
         "/".proxyPass = "http://localhost:7102";
         "/files/".proxyPass = "http://localhost:7101";
         "/jellyfin/".proxyPass = "http://localhost:7103";
@@ -58,18 +67,18 @@ in
         "/".proxyPass = "http://localhost:7100/";
       };
       "archiva.ckgxrg.io" = mkHost {
-        "/".proxyPass = "http://localhost:7300/";
+        "/".proxyPass = "http://localhost:7200/";
       };
-      "davis.welkin.ckgxrg.io" = mkHost {
+      "davis.welkin.ckgxrg.io" = mkWelkin {
         "/".proxyPass = "http://localhost:7500/";
       };
-      "firefly.welkin.ckgxrg.io" = mkHost {
+      "firefly.welkin.ckgxrg.io" = mkWelkin {
         "/".proxyPass = "http://localhost:7501/";
       };
-      "mealie.welkin.ckgxrg.io" = mkHost {
+      "mealie.welkin.ckgxrg.io" = mkWelkin {
         "/".proxyPass = "http://localhost:7502/";
       };
-      "freshrss.welkin.ckgxrg.io" = mkHost {
+      "freshrss.welkin.ckgxrg.io" = mkWelkin {
         "/".proxyPass = "http://localhost:7503/";
       };
     };
@@ -80,7 +89,7 @@ in
     allowedTCPPorts = [
       80
       443
-      7322
+      7222
     ];
     allowedUDPPorts = [
       80
@@ -89,8 +98,9 @@ in
   };
 
   sops.secrets."cloudflare" = {
-    sopsFile = ../secrets/dispatcher.yaml;
+    sopsFile = ../secrets/dispatcher/default.yaml;
   };
+  users.users."nginx".extraGroups = [ "acme" ];
   security.acme = {
     acceptTerms = true;
     defaults = {
@@ -98,6 +108,11 @@ in
     };
     certs."ckgxrg.io" = {
       domain = "*.ckgxrg.io";
+      dnsProvider = "cloudflare";
+      environmentFile = "/run/secrets/cloudflare";
+    };
+    certs."welkin.ckgxrg.io" = {
+      domain = "*.welkin.ckgxrg.io";
       dnsProvider = "cloudflare";
       environmentFile = "/run/secrets/cloudflare";
     };

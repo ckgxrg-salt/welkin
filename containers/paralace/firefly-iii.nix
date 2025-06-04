@@ -5,7 +5,7 @@
     enableNginx = true;
     virtualHost = "firefly";
     settings = {
-      APP_URL = "https://firefly.ckgxrg.io";
+      APP_URL = "https://firefly.welkin.ckgxrg.io";
       TRUSTED_PROXIES = "**";
       DB_CONNECTION = "pgsql";
       APP_KEY_FILE = "/var/secrets/firefly-iii/app-key";

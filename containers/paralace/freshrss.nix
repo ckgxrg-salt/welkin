@@ -4,7 +4,7 @@
     enable = true;
     defaultUser = "ckgxrg";
     passwordFile = "/var/secrets/freshrss/passwd";
-    baseUrl = "https://freshrss.ckgxrg.io";
+    baseUrl = "https://freshrss.welkin.ckgxrg.io";
     database = {
       type = "pgsql";
       port = 5432;

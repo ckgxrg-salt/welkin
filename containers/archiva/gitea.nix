@@ -54,17 +54,18 @@
 
   services.frp.settings.proxies = [
     {
+      name = "gitea-ssh";
+      type = "tcp";
+      localip = "127.0.0.1";
+      localport = 22;
+      remoteport = 7222;
+    }
+    {
       name = "gitea";
       type = "tcp";
       localip = "127.0.0.1";
       localport = 8999;
-      remoteport = 7300;
+      remoteport = 7200;
     }
   ];
-
-  networking.firewall = {
-    allowedTCPPorts = [
-      22
-    ];
-  };
 }
