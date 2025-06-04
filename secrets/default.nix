@@ -10,6 +10,28 @@
 
   sops.secrets = {
     "everpivot/shiori/env" = { };
+    "everpivot/authelia/jwt" = {
+      uid = 988;
+      gid = 986;
+    };
+    "everpivot/authelia/storage" = {
+      uid = 988;
+      gid = 986;
+    };
+    "everpivot/authelia/dbpasswd" = {
+      uid = 988;
+      gid = 986;
+    };
+    "everpivot/authelia/session" = {
+      uid = 988;
+      gid = 986;
+    };
+    "everpivot/authelia/users.yaml" = {
+      uid = 988;
+      gid = 986;
+      sopsFile = ../secrets/users.yaml;
+      key = "";
+    };
     "archiva/gitea/dbpasswd" = {
       uid = 996;
       gid = 995;

@@ -92,7 +92,6 @@ in
       7222
     ];
     allowedUDPPorts = [
-      80
       443
     ];
   };
@@ -106,15 +105,17 @@ in
     defaults = {
       email = "ckgxrg@ckgxrg.io";
     };
-    certs."ckgxrg.io" = {
-      domain = "*.ckgxrg.io";
-      dnsProvider = "cloudflare";
-      environmentFile = "/run/secrets/cloudflare";
-    };
-    certs."welkin.ckgxrg.io" = {
-      domain = "*.welkin.ckgxrg.io";
-      dnsProvider = "cloudflare";
-      environmentFile = "/run/secrets/cloudflare";
+    certs = {
+      "ckgxrg.io" = {
+        domain = "*.ckgxrg.io";
+        dnsProvider = "cloudflare";
+        environmentFile = "/run/secrets/cloudflare";
+      };
+      "welkin.ckgxrg.io" = {
+        domain = "*.welkin.ckgxrg.io";
+        dnsProvider = "cloudflare";
+        environmentFile = "/run/secrets/cloudflare";
+      };
     };
   };
 }
