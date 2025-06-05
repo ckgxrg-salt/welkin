@@ -2,12 +2,18 @@
 {
   services.syncthing = {
     enable = true;
-    guiAddress = "0.0.0.0:8384";
+    guiAddress = "127.0.0.1:8384";
     group = "storage";
+    overrideDevices = false;
     settings = {
       options = {
         urAccepted = -1;
         crashReportingEnabled = false;
+      };
+      gui = {
+        # Since it has no native support for SSO...
+        insecureAdminAccess = true;
+        insecureSkipHostcheck = true;
       };
       folders = {
         "Books" = {

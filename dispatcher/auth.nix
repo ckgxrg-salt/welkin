@@ -89,6 +89,7 @@
         extraConfig = autheliaLocation;
         locations."/".extraConfig = autheliaAuthrequest;
         locations."/files/".extraConfig = autheliaAuthrequest;
+        locations."/sync/".extraConfig = autheliaAuthrequest;
       };
     };
 }
