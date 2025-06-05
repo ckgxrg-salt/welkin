@@ -60,6 +60,7 @@
       uid = 995;
       gid = 60;
     };
+    "paralace/mealie/client-secret.env" = { };
   };
 
   containers = {
