@@ -91,5 +91,13 @@
         locations."/files/".extraConfig = autheliaAuthrequest;
         locations."/sync/".extraConfig = autheliaAuthrequest;
       };
+      "davis.welkin.ckgxrg.io" = {
+        extraConfig = autheliaLocation;
+        locations."/".extraConfig = autheliaAuthrequest;
+      };
+      "freshrss.welkin.ckgxrg.io" = {
+        extraConfig = autheliaLocation;
+        locations."/".extraConfig = autheliaAuthrequest;
+      };
     };
 }

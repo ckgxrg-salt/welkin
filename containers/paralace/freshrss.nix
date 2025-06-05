@@ -3,8 +3,8 @@
   services.freshrss = {
     enable = true;
     defaultUser = "ckgxrg";
-    passwordFile = "/var/secrets/freshrss/passwd";
     baseUrl = "https://freshrss.welkin.ckgxrg.io";
+    authType = "http_auth";
     database = {
       type = "pgsql";
       port = 5432;

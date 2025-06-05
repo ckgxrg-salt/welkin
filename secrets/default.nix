@@ -40,10 +40,6 @@
       uid = 224;
       gid = 224;
     };
-    "paralace/davis/admin-passwd" = {
-      uid = 996;
-      gid = 994;
-    };
     "paralace/davis/app-secret" = {
       uid = 996;
       gid = 994;
@@ -51,10 +47,6 @@
     "paralace/firefly-iii/app-key" = {
       uid = 995;
       gid = 60;
-    };
-    "paralace/freshrss/passwd" = {
-      uid = 994;
-      gid = 992;
     };
   };
 

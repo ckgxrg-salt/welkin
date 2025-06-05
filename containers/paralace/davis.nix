@@ -5,8 +5,12 @@
     hostname = "davis.welkin.ckgxrg.io";
     database.driver = "postgresql";
     adminLogin = "ckgxrg";
-    adminPasswordFile = "/var/secrets/davis/admin-passwd";
+    adminPasswordFile = "/dev/null";
     appSecretFile = "/var/secrets/davis/app-secret";
+    config = {
+      # Use Authelia
+      ADMIN_AUTH_BYPASS = true;
+    };
     nginx = {
       listen = [
         {
