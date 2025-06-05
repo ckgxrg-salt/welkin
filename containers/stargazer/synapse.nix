@@ -35,9 +35,33 @@
           ];
         }
       ];
+      oidc_providers = [
+        {
+          idp_id = "authelia";
+          idp_name = "Authelia";
+          idp_icon = "mxc://authelia.com/cKlrTPsGvlpKxAYeHWJsdVHI";
+          discover = true;
+          issuer = "https://auth.welkin.ckgxrg.io";
+          userinfo_endpoint = "https://auth.welkin.ckgxrg.io/api/oidc/userinfo";
+          user_profile_method = "userinfo_endpoint";
+          client_id = "matrix-synapse";
+          client_secret_path = "/var/secrets/synapse/client-secret";
+          scopes = [
+            "openid"
+            "profile"
+            "email"
+          ];
+          allow_existing_users = true;
+          user_mapping_provider.config = {
+            localpart_template = "{{ user.name }}";
+            display_name_template = "{{ user.name }}";
+            email_template = "{{ user.email }}";
+          };
+        }
+      ];
     };
     extraConfigFiles = [
-      "/var/secrets/synapse/registration_secret.conf"
+      "/var/secrets/synapse/registration-secret.conf"
     ];
   };
 

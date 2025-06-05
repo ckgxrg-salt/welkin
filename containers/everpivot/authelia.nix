@@ -8,6 +8,8 @@
       jwtSecretFile = "/var/secrets/authelia/jwt";
       sessionSecretFile = "/var/secrets/authelia/session";
       storageEncryptionKeyFile = "/var/secrets/authelia/storage";
+      oidcHmacSecretFile = "/var/secrets/authelia/hmac";
+      oidcIssuerPrivateKeyFile = "/var/secrets/authelia/oidc-issuer";
     };
     environmentVariables = {
       AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE = "/var/secrets/authelia/dbpasswd";
@@ -15,6 +17,7 @@
     settings = {
       server = {
         address = "tcp://:1976";
+        asset_path = "/var/lib/authelia-Welkin/assets";
         endpoints.authz.auth-request.implementation = "AuthRequest";
       };
       theme = "dark";
@@ -36,6 +39,25 @@
           {
             domain = "*.welkin.ckgxrg.io";
             policy = "one_factor";
+          }
+        ];
+      };
+      identity_providers.oidc = {
+        clients = [
+          {
+            client_id = "matrix-synapse";
+            # Hashed
+            client_secret = "$pbkdf2-sha512$310000$h8pJ0DwNuKF1xQSkS/nBaw$brZPQ4tibLrFsieSItyeR8yGOg4SjZLZpAwCWO7h3G33xybRYIUM8z3xu.TW97klZlOft31lPgmO/r4tIe7rxw";
+            client_name = "Matrix Synapse";
+            authorization_policy = "one_factor";
+            redirect_uris = [ "https://stargazer.ckgxrg.io/_synapse/client/oidc/callback" ];
+            scopes = [
+              "openid"
+              "profile"
+              "email"
+            ];
+            userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_basic";
           }
         ];
       };

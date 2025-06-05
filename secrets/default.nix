@@ -26,6 +26,14 @@
       uid = 988;
       gid = 986;
     };
+    "everpivot/authelia/hmac" = {
+      uid = 988;
+      gid = 986;
+    };
+    "everpivot/authelia/oidc-issuer" = {
+      uid = 988;
+      gid = 986;
+    };
     "everpivot/authelia/users.yaml" = {
       uid = 988;
       gid = 986;
@@ -36,7 +44,11 @@
       uid = 996;
       gid = 995;
     };
-    "stargazer/synapse/registration_secret.conf" = {
+    "stargazer/synapse/registration-secret.conf" = {
+      uid = 224;
+      gid = 224;
+    };
+    "stargazer/synapse/client-secret" = {
       uid = 224;
       gid = 224;
     };
