@@ -99,5 +99,9 @@
         extraConfig = autheliaLocation;
         locations."/".extraConfig = autheliaAuthrequest;
       };
+      "firefly.welkin.ckgxrg.io" = {
+        extraConfig = autheliaLocation;
+        locations."/".extraConfig = autheliaAuthrequest;
+      };
     };
 }
