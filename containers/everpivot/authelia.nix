@@ -30,6 +30,10 @@
         default_policy = "deny";
         rules = [
           {
+            domain = "welkin.ckgxrg.io";
+            policy = "one_factor";
+          }
+          {
             domain = "*.welkin.ckgxrg.io";
             policy = "one_factor";
           }

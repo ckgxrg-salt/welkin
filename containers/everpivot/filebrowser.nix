@@ -7,6 +7,8 @@
       port = 8124;
       root = "/data";
       baseurl = "/files";
+      "auth.method" = "proxy";
+      "auth.header" = "Remote-User";
     };
   };
 
