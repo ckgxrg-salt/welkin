@@ -55,7 +55,7 @@ in
           proxyPass = "http://localhost:7103";
           proxyWebsockets = true;
         };
-        "/bookmarks/".return = 418;
+        "/bookmarks".return = 501;
         "/sync/".proxyPass = "http://localhost:7105/";
       };
       "stargazer.ckgxrg.io" = mkHost {
