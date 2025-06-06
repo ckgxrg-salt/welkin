@@ -10,7 +10,6 @@
     ./filebrowser.nix
     ./glance.nix
     ./jellyfin.nix
-    ./shiori.nix
     ./syncthing.nix
   ];
 
