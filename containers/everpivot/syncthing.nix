@@ -3,8 +3,10 @@
   services.syncthing = {
     enable = true;
     guiAddress = "127.0.0.1:8384";
+    user = "storage";
     group = "storage";
     overrideDevices = false;
+    overrideFolders = false;
     settings = {
       options = {
         urAccepted = -1;
@@ -29,8 +31,11 @@
     };
   };
 
-  users.users."syncthing" = {
-    extraGroups = [ "storage" ];
+  # Huh?
+  users.users.syncthing = {
+    enable = false;
+    isSystemUser = true;
+    group = "storage";
   };
 
   services.frp.settings.proxies = [
