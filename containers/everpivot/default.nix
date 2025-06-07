@@ -8,7 +8,7 @@
     ./authelia.nix
     ./alumnimap.nix
     ./filebrowser.nix
-    ./homepage.nix
+    ./glance.nix
     ./jellyfin.nix
     ./syncthing.nix
   ];

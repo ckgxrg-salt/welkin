@@ -9,7 +9,7 @@
   };
 
   sops.secrets = {
-    "everpivot/homepage/env" = { };
+    "everpivot/glance/env" = { };
     "everpivot/authelia/jwt" = {
       uid = 988;
       gid = 986;
