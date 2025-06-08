@@ -57,6 +57,7 @@ in
         };
         "/bookmarks".return = 501;
         "/sync/".proxyPass = "http://localhost:7105/";
+        "/miniflux".proxyPass = "http://localhost:7503";
       };
       "stargazer.ckgxrg.io" = mkHost {
         "/".return = "403";
@@ -77,9 +78,6 @@ in
       };
       "mealie.welkin.ckgxrg.io" = mkWelkin {
         "/".proxyPass = "http://localhost:7502/";
-      };
-      "freshrss.welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7503/";
       };
     };
   };

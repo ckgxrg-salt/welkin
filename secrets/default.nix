@@ -61,6 +61,7 @@
       gid = 60;
     };
     "paralace/mealie/client-secret.env" = { };
+    "paralace/miniflux/client-secret.env" = { };
   };
 
   containers = {

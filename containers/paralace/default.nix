@@ -6,8 +6,8 @@
 
     ./davis.nix
     ./firefly-iii.nix
-    ./freshrss.nix
     ./mealie.nix
+    ./miniflux.nix
   ];
 
   networking = {

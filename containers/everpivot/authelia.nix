@@ -46,7 +46,6 @@
         clients = [
           {
             client_id = "matrix-synapse";
-            # Hashed
             client_secret = "$pbkdf2-sha512$310000$h8pJ0DwNuKF1xQSkS/nBaw$brZPQ4tibLrFsieSItyeR8yGOg4SjZLZpAwCWO7h3G33xybRYIUM8z3xu.TW97klZlOft31lPgmO/r4tIe7rxw";
             client_name = "Matrix";
             authorization_policy = "one_factor";
@@ -61,7 +60,6 @@
           }
           {
             client_id = "jellyfin";
-            # Hashed
             client_secret = "$pbkdf2-sha512$310000$mkRcEYKEO9PyUplyfCtUmg$E9G4781j4AiMMmpmAwICsF69tY0zbhv99Y8WRQSrDn92XZgORBX/dQmAJ3kOCjFHaGZaZxT.E531nUMCWh9idw";
             client_name = "Jellyfin";
             authorization_policy = "one_factor";
@@ -76,7 +74,6 @@
           }
           {
             client_id = "gitea";
-            # Hashed
             client_secret = "$pbkdf2-sha512$310000$Re0xJIX9hI7TKtgsYc306w$43Z.l5T3Jo2ty8QRq.LSmAwQ0Z/7JUOHsYy92jcDlW36VpJdRU77BjjnGfT/e5C9.tiIEeMFLiiea/QY/.n67Q";
             client_name = "Gitea";
             authorization_policy = "one_factor";
@@ -91,7 +88,6 @@
           }
           {
             client_id = "mealie";
-            # Hashed
             client_secret = "$pbkdf2-sha512$310000$.4z4aG.rGjNuqRieKKQ69Q$a3trExILXestrXn0mH2v0KfBSCrJXmOkKt1v5G6eM5KunHwsO2gC/UZW0nYPYgEYzx66HeyoN3pYkVbau3Zm4A";
             client_name = "Mealie";
             authorization_policy = "one_factor";
@@ -101,6 +97,20 @@
               "email"
               "profile"
               "groups"
+            ];
+            userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_basic";
+          }
+          {
+            client_id = "miniflux";
+            client_secret = "$pbkdf2-sha512$310000$6Pc6L/0c58.EoViD8jyKVw$9XE7vgDzyEZHGg0xua6KMgDWwq4k1z3NEQIuxAWg.YXACFqgTmfrhYsmdPlnxJ0y/a3QvcAIPYpBp.JwKQNEwA";
+            client_name = "Miniflux";
+            authorization_policy = "one_factor";
+            redirect_uris = [ "https://welkin.ckgxrg.io/miniflux/oauth2/oidc/callback" ];
+            scopes = [
+              "openid"
+              "email"
+              "profile"
             ];
             userinfo_signed_response_alg = "none";
             token_endpoint_auth_method = "client_secret_basic";

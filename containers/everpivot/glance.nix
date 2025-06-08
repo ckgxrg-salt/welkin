@@ -224,16 +224,32 @@
                   ];
                 }
                 {
-                  type = "rss";
-                  title = "RSS Feed";
-                  style = "vertical-list";
-                  preserve-order = true;
-                  feeds = [
-                    {
-                      title = "FreshRSS";
-                      url = "https://freshrss.welkin.ckgxrg.io/api/query.php?user=ckgxrg&t=5zHjOqP3aJC287Hu4vJDYf&f=rss";
-                    }
-                  ];
+                  type = "custom-api";
+                  title = "RSS Feeds";
+                  url = "https://welkin.ckgxrg.io/miniflux/v1/categories/2/entries?limit=10&order=published_at&direction=desc&category_id=2&status=unread";
+                  cache = "15m";
+                  headers = {
+                    X-Auth-Token = "\${MINIFLUX_TOKEN}";
+                    Accept = "application/json";
+                  };
+                  template = ''
+                    <ul class="list list-gap-10 collapsible-container" data-collapse-after="5">
+                    {{ range .JSON.Array "entries" }}
+                      <li>
+                          <div class="flex gap-10 row-reverse-on-mobile thumbnail-parent">
+                              <div class="grow min-width-0">
+                                  <a href="https://welkin.ckgxrg.io/miniflux/unread/category/2/entry/{{ .String "id" }}" class="size-title-dynamic color-primary-if-not-visited" target="_blank" rel="noreferrer">{{ .String "title" }}</a>
+                                  <ul class="list-horizontal-text flex-nowrap text-compact">
+                                      <li class="shrink-0">{{ .String "feed.title" }}</li>
+                                      <li class="shrink-0" {{ .String "published_at" | parseTime "rfc3339" | toRelativeTime }}></li>
+                                      <li class="min-width-0"><a class="visited-indicator text-truncate block" href="{{ .String "url" | safeURL }}" target="_blank" rel="noreferrer" title="Link">Link</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+                    {{ end }}
+                    </ul>
+                  '';
                 }
                 {
                   type = "group";
@@ -377,9 +393,9 @@
                       url = "https://mealie.welkin.ckgxrg.io";
                     }
                     {
-                      title = "FreshRSS";
+                      title = "Miniflux";
                       icon = "si:rss";
-                      url = "https://freshrss.welkin.ckgxrg.io";
+                      url = "https://welkin.ckgxrg.io/miniflux";
                     }
                   ];
                 }
