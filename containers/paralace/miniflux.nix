@@ -14,7 +14,6 @@
       OAUTH2_OIDC_PROVIDER_NAME = "Welkin";
       OAUTH2_PROVIDER = "oidc";
       OAUTH2_REDIRECT_URL = "https://welkin.ckgxrg.io/miniflux/oauth2/oidc/callback";
-      OAUTH2_USER_CREATION = 1;
     };
   };
 

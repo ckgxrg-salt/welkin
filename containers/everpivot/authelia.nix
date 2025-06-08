@@ -35,10 +35,25 @@
           {
             domain = "welkin.ckgxrg.io";
             policy = "one_factor";
+            subject = [
+              "group:admin"
+            ];
           }
           {
-            domain = "*.welkin.ckgxrg.io";
+            domain = "davis.welkin.ckgxrg.io";
             policy = "one_factor";
+            subject = [
+              "group:admin"
+              "group:davis"
+            ];
+          }
+          {
+            domain = "firefly.welkin.ckgxrg.io";
+            policy = "one_factor";
+            subject = [
+              "group:admin"
+              "group:firefly"
+            ];
           }
         ];
       };
@@ -77,7 +92,7 @@
             client_secret = "$pbkdf2-sha512$310000$Re0xJIX9hI7TKtgsYc306w$43Z.l5T3Jo2ty8QRq.LSmAwQ0Z/7JUOHsYy92jcDlW36VpJdRU77BjjnGfT/e5C9.tiIEeMFLiiea/QY/.n67Q";
             client_name = "Gitea";
             authorization_policy = "one_factor";
-            redirect_uris = [ "https://archiva.ckgxrg.io/user/oauth2/authelia/callback" ];
+            redirect_uris = [ "https://archiva.ckgxrg.io/user/oauth2/Welkin/callback" ];
             scopes = [
               "openid"
               "email"
