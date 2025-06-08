@@ -397,6 +397,11 @@
                       icon = "si:rss";
                       url = "https://welkin.ckgxrg.io/miniflux";
                     }
+                    {
+                      title = "Vikunja";
+                      icon = "si:todoist";
+                      url = "https://todo.welkin.ckgxrg.io";
+                    }
                   ];
                 }
                 {

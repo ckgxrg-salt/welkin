@@ -62,6 +62,12 @@
     };
     "paralace/mealie/client-secret.env" = { };
     "paralace/miniflux/client-secret.env" = { };
+    "paralace/vikunja.yaml" = {
+      uid = 993;
+      gid = 991;
+      sopsFile = ./vikunja.yaml;
+      key = "";
+    };
   };
 
   containers = {

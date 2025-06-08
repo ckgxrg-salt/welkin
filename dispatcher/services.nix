@@ -71,13 +71,16 @@ in
         "/".proxyPass = "http://localhost:7200/";
       };
       "davis.welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7500/";
+        "/".proxyPass = "http://localhost:7500";
       };
       "firefly.welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7501/";
+        "/".proxyPass = "http://localhost:7501";
       };
       "mealie.welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7502/";
+        "/".proxyPass = "http://localhost:7502";
+      };
+      "todo.welkin.ckgxrg.io" = mkWelkin {
+        "/".proxyPass = "http://localhost:7504";
       };
     };
   };

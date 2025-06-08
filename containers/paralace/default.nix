@@ -8,6 +8,7 @@
     ./firefly-iii.nix
     ./mealie.nix
     ./miniflux.nix
+    ./vikunja.nix
   ];
 
   networking = {
