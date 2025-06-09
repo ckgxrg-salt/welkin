@@ -1,18 +1,19 @@
-{ ... }:
+{ modulesPath, ... }:
 # Dispatcher entrypoint
 {
   imports = [
     ./auth.nix
     ./frp.nix
-    ./generated.nix
     ./login.nix
     ./settings.nix
     ./security.nix
     ./services.nix
+
+    (modulesPath + "/virtualisation/digital-ocean-config.nix")
   ];
 
   networking = {
-    hostName = "IoFCentre";
+    hostName = "Dispatcher";
     hostId = "7d9bafff";
   };
 

@@ -77,7 +77,6 @@
         };
       };
 
-      # For initial deployment with nixos-anywhere
       nixosConfigurations = {
         Welkin = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -85,6 +84,13 @@
             ./host
             lix-module.nixosModules.default
             disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+          ];
+        };
+        Dispatcher = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./dispatcher
             sops-nix.nixosModules.sops
           ];
         };
