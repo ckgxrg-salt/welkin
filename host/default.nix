@@ -7,7 +7,7 @@
     ./login.nix
     ./settings.nix
     ./security.nix
-    ../containers
+    ../servers
   ];
 
   networking = {

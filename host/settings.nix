@@ -41,6 +41,7 @@
       "10-lan" = {
         matchConfig.Name = [
           "enp3s0"
+          "vm-*"
         ];
         networkConfig = {
           Bridge = "br0";

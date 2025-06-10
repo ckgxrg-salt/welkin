@@ -1,21 +1,38 @@
 { ... }:
-# Common configurations
 {
-  networking = {
-    wireless.enable = false;
-    useNetworkd = true;
-    useHostResolvConf = false;
+  services.frp = {
+    enable = true;
+    role = "client";
+    settings = {
+      serverAddr = "deploy.welkin.ckgxrg.io";
+      serverPort = 7000;
+    };
+  };
 
-    wg-quick.interfaces = {
-      fariof = {
-        configFile = "/etc/wireguard/fariof.conf";
-        autostart = false;
+  environment.etc = {
+    "motd".text = ''
+      Welcome from the Welkin - Impure Services
+    '';
+    "issue".text = ''
+      Impure Services are online
+    '';
+  };
+
+  users = {
+    users = {
+      # System administration & maintance
+      "minexton" = {
+        isNormalUser = true;
+        uid = 1001;
+        extraGroups = [ "wheel" ];
+        description = "Minexton";
+        openssh.authorizedKeys.keyFiles = [
+          ../../keys/daywatch-ssh.pub
+          ../../keys/rhyslow-ssh.pub
+        ];
       };
     };
   };
-  services.resolved.extraConfig = ''
-    DNSStubListener=no
-  '';
 
   nix = {
     channel.enable = false;
@@ -59,6 +76,7 @@
     dev.enable = false;
     nixos.enable = false;
   };
+
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
