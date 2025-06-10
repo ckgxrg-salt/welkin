@@ -8,6 +8,7 @@
         privateNetwork = true;
         hostBridge = "br0";
         specialArgs = { inherit ckgs; };
+        timeoutStartSec = "10min";
       };
     in
     {
