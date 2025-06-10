@@ -18,7 +18,7 @@
       server = {
         address = "tcp://:1976";
         asset_path = "/var/lib/authelia-Welkin/assets";
-        endpoints.authz.auth-request.implementation = "AuthRequest";
+        endpoints.authz.forward-auth.implementation = "ForwardAuth";
       };
       theme = "dark";
       authentication_backend = {

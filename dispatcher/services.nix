@@ -1,87 +1,110 @@
 { ... }:
 # Redirect domains to services
 let
-  mkHost = locations: {
-    forceSSL = true;
+  mkHost = cfg: {
     useACMEHost = "ckgxrg.io";
     listenAddresses = [
       "0.0.0.0"
       "[::0]"
     ];
-    inherit locations;
+    extraConfig = "encode\n" + cfg;
   };
-  mkWelkin = locations: {
-    forceSSL = true;
+  mkWelkin = cfg: {
     useACMEHost = "welkin.ckgxrg.io";
     listenAddresses = [
       "0.0.0.0"
       "[::0]"
     ];
-    inherit locations;
+    extraConfig = "encode\n" + cfg;
   };
 in
 {
-  services.nginx = {
+  services.caddy = {
     enable = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
-    recommendedOptimisation = true;
-    recommendedZstdSettings = true;
+    globalConfig = ''
+      auto_https disable_certs
+    '';
     virtualHosts = {
-      "ckgxrg.io" =
-        let
-          clientCfg = {
-            "m.homeserver".base_url = "https://stargazer.ckgxrg.io";
-          };
-          serverCfg = {
-            "m.server" = "stargazer.ckgxrg.io:443";
-          };
-          mkWellKnown = data: ''
-            default_type application/json;
-            add_header Access-Control-Allow-Origin *;
-            return 200 '${builtins.toJSON data}';
-          '';
-        in
-        mkHost {
-          "/".return = "403";
-          "/.well-known/matrix/server".extraConfig = mkWellKnown serverCfg;
-          "/.well-known/matrix/client".extraConfig = mkWellKnown clientCfg;
-        };
-      "welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7102";
-        "/files/".proxyPass = "http://localhost:7101";
-        "/jellyfin/".proxyPass = "http://localhost:7103";
-        "/jellyfin/socket/" = {
-          proxyPass = "http://localhost:7103";
-          proxyWebsockets = true;
-        };
-        "/bookmarks".return = 501;
-        "/sync/".proxyPass = "http://localhost:7105/";
-        "/miniflux".proxyPass = "http://localhost:7503";
-      };
-      "stargazer.ckgxrg.io" = mkHost {
-        "/".return = "403";
-        "/_matrix".proxyPass = "http://localhost:7400";
-        "/_synapse/client".proxyPass = "http://localhost:7400";
-      };
-      "alumnimap.ckgxrg.io" = mkHost {
-        "/".proxyPass = "http://localhost:7100/";
-      };
-      "archiva.ckgxrg.io" = mkHost {
-        "/".proxyPass = "http://localhost:7200/";
-      };
-      "davis.welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7500";
-      };
-      "firefly.welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7501";
-      };
-      "mealie.welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7502";
-      };
-      "todo.welkin.ckgxrg.io" = mkWelkin {
-        "/".proxyPass = "http://localhost:7504";
-      };
+      "ckgxrg.io" = mkHost ''
+        header /.well-known/matrix/* Content-Type application/json
+        header /.well-known/matrix/* Access-Control-Allow-Origin *
+        respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
+        respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
+      '';
+      "welkin.ckgxrg.io" = mkWelkin ''
+        handle {
+          forward_auth localhost:7106 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
+          reverse_proxy localhost:7102
+        }
+
+        handle /files* {
+          forward_auth localhost:7106 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
+          reverse_proxy localhost:7101
+        }
+
+        handle_path /sync* {
+          forward_auth localhost:7106 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
+          reverse_proxy localhost:7105
+        }
+
+        handle /jellyfin* {
+          reverse_proxy localhost:7103
+        }
+
+        handle /bookmarks* {
+          respond "Under Construction" 501
+        }
+
+        handle /miniflux* {
+          reverse_proxy localhost:7503
+        }
+      '';
+      "stargazer.ckgxrg.io" = mkHost ''
+        reverse_proxy /_matrix/* localhost:7400
+        reverse_proxy /_synapse/client/* localhost:7400
+      '';
+      "alumnimap.ckgxrg.io" = mkHost ''
+        reverse_proxy localhost:7100
+      '';
+      "archiva.ckgxrg.io" = mkHost ''
+        reverse_proxy localhost:7200
+      '';
+      "davis.welkin.ckgxrg.io" = mkWelkin ''
+        forward_auth localhost:7106 {
+          uri /api/authz/forward-auth
+          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+        }
+        reverse_proxy localhost:7500
+      '';
+      "firefly.welkin.ckgxrg.io" = mkWelkin ''
+        forward_auth localhost:7106 {
+          uri /api/authz/forward-auth
+          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+        }
+        reverse_proxy localhost:7501
+      '';
+      "mealie.welkin.ckgxrg.io" = mkWelkin ''
+        reverse_proxy localhost:7502
+      '';
+      "todo.welkin.ckgxrg.io" = mkWelkin ''
+        reverse_proxy localhost:7504
+      '';
+      "trips.welkin.ckgxrg.io" = mkWelkin ''
+        reverse_proxy localhost:7600
+      '';
+
+      "auth.welkin.ckgxrg.io" = mkWelkin ''
+        reverse_proxy localhost:7106
+      '';
     };
   };
 
@@ -100,7 +123,7 @@ in
   sops.secrets."cloudflare" = {
     sopsFile = ../secrets/dispatcher/default.yaml;
   };
-  users.users."nginx".extraGroups = [ "acme" ];
+  users.users."caddy".extraGroups = [ "acme" ];
   security.acme = {
     acceptTerms = true;
     defaults = {

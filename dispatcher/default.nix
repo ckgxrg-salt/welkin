@@ -2,7 +2,6 @@
 # Dispatcher entrypoint
 {
   imports = [
-    ./auth.nix
     ./frp.nix
     ./login.nix
     ./settings.nix
