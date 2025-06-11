@@ -68,6 +68,7 @@
       sopsFile = ./vikunja.yaml;
       key = "";
     };
+    "impure/adventurelog/env" = { };
   };
 
   containers = {

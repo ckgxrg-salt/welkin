@@ -2,6 +2,7 @@
 {
   services.glance = {
     enable = true;
+    environmentFile = "/var/secrets/glance/env";
     settings = {
       server = {
         port = 5678;
@@ -15,7 +16,7 @@
       };
       pages = [
         {
-          name = "Welkin - Dashboard";
+          name = "Welkin | Dashboard";
           center-vertically = true;
           show-mobile-header = true;
           head-widgets = [
@@ -337,7 +338,7 @@
                   title = "Everlight Pivot";
                   basic-auth = {
                     username = "\${MONITOR_USERNAME}";
-                    password = "\${MONITOR_PASSWD}";
+                    password = "\${MONITOR_PWD}";
                   };
                   sites = [
                     {
@@ -374,7 +375,7 @@
                   title = "Paralace";
                   basic-auth = {
                     username = "\${MONITOR_USERNAME}";
-                    password = "\${MONITOR_PASSWD}";
+                    password = "\${MONITOR_PWD}";
                   };
                   sites = [
                     {
@@ -441,10 +442,6 @@
         }
       ];
     };
-  };
-
-  systemd.services."glance" = {
-    serviceConfig.EnvironmentFile = "/var/secrets/glance/env";
   };
 
   services.frp.settings.proxies = [

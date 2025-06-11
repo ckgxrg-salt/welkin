@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ ... }:
 # Impure services
 {
   imports = [
     ./settings.nix
+
+    ./adventurelog.nix
   ];
 
   networking = {
@@ -13,6 +15,7 @@
   microvm = {
     balloon = true;
     hypervisor = "cloud-hypervisor";
+    vcpu = 4;
     hotplugMem = 6 * 1024;
     hotpluggedMem = 512;
     interfaces = [
@@ -35,10 +38,32 @@
         tag = "secrets";
         proto = "virtiofs";
       }
+      {
+        source = "/var/lib/microvms/impure/ssh";
+        mountPoint = "/run/ssh";
+        tag = "ssh";
+        proto = "virtiofs";
+      }
+      {
+        source = "/var/lib/microvms/impure/oci";
+        mountPoint = "/var/lib/containers";
+        tag = "oci";
+        proto = "virtiofs";
+      }
     ];
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_lqx;
+  services.openssh.hostKeys = [
+    {
+      bits = 4096;
+      path = "/run/ssh/ssh_host_rsa_key";
+      type = "rsa";
+    }
+    {
+      path = "/run/ssh/ssh_host_ed25519_key";
+      type = "ed25519";
+    }
+  ];
 
   systemd.network = {
     enable = true;
