@@ -31,40 +31,50 @@ in
         respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
         respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
       '';
+      "auth.welkin.ckgxrg.io" = mkWelkin ''
+        reverse_proxy localhost:7106
+      '';
       "welkin.ckgxrg.io" = mkWelkin ''
         handle {
           forward_auth localhost:7106 {
             uri /api/authz/forward-auth
             copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+            header_up Proxy-Authorization {header.authorization}
           }
           reverse_proxy localhost:7102
         }
 
-        handle /files* {
+        @files path /files /files/*
+        handle @files {
           forward_auth localhost:7106 {
             uri /api/authz/forward-auth
             copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+            header_up Proxy-Authorization {header.authorization}
           }
           reverse_proxy localhost:7101
         }
 
-        handle_path /sync* {
+        handle_path /sync/* {
           forward_auth localhost:7106 {
             uri /api/authz/forward-auth
             copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+            header_up Proxy-Authorization {header.authorization}
           }
           reverse_proxy localhost:7105
         }
 
-        handle /jellyfin* {
+        @jellyfin path /jellyfin /jellyfin/*
+        handle @jellyfin {
           reverse_proxy localhost:7103
         }
 
-        handle /bookmarks* {
+        @bookmarks path /bookmarks /bookmarks/*
+        handle @bookmarks {
           respond "Under Construction" 501
         }
 
-        handle /miniflux* {
+        @miniflux path /miniflux /miniflux/*
+        handle @miniflux {
           reverse_proxy localhost:7503
         }
       '';
@@ -82,6 +92,7 @@ in
         forward_auth localhost:7106 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          header_up Proxy-Authorization {header.authorization}
         }
         reverse_proxy localhost:7500
       '';
@@ -89,8 +100,11 @@ in
         forward_auth localhost:7106 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          header_up Proxy-Authorization {header.authorization}
         }
-        reverse_proxy localhost:7501
+        reverse_proxy localhost:7501 {
+          header_up Proxy-Authorization {header.authorization}
+        }
       '';
       "mealie.welkin.ckgxrg.io" = mkWelkin ''
         reverse_proxy localhost:7502
@@ -99,11 +113,11 @@ in
         reverse_proxy localhost:7504
       '';
       "trips.welkin.ckgxrg.io" = mkWelkin ''
-        reverse_proxy localhost:7600
-      '';
-
-      "auth.welkin.ckgxrg.io" = mkWelkin ''
-        reverse_proxy localhost:7106
+        @frontend {
+          not path /media* /admin* /static* /accounts*
+        }
+        reverse_proxy @frontend localhost:7600
+        reverse_proxy localhost:7601
       '';
     };
   };
