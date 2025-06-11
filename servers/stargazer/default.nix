@@ -5,7 +5,7 @@
     ../common.nix
 
     ./synapse.nix
-    ./bridge-qq.nix
+    ./matrix-qq.nix
   ];
 
   networking = {

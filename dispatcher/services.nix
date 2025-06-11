@@ -39,7 +39,6 @@ in
           forward_auth localhost:7106 {
             uri /api/authz/forward-auth
             copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-            header_up Proxy-Authorization {header.authorization}
           }
           reverse_proxy localhost:7102
         }
@@ -49,7 +48,6 @@ in
           forward_auth localhost:7106 {
             uri /api/authz/forward-auth
             copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-            header_up Proxy-Authorization {header.authorization}
           }
           reverse_proxy localhost:7101
         }
@@ -58,7 +56,6 @@ in
           forward_auth localhost:7106 {
             uri /api/authz/forward-auth
             copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-            header_up Proxy-Authorization {header.authorization}
           }
           reverse_proxy localhost:7105
         }
@@ -92,7 +89,6 @@ in
         forward_auth localhost:7106 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          header_up Proxy-Authorization {header.authorization}
         }
         reverse_proxy localhost:7500
       '';
@@ -100,11 +96,8 @@ in
         forward_auth localhost:7106 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          header_up Proxy-Authorization {header.authorization}
         }
-        reverse_proxy localhost:7501 {
-          header_up Proxy-Authorization {header.authorization}
-        }
+        reverse_proxy localhost:7501
       '';
       "mealie.welkin.ckgxrg.io" = mkWelkin ''
         reverse_proxy localhost:7502
