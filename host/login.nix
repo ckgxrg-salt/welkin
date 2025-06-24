@@ -25,6 +25,7 @@
         openssh.authorizedKeys.keyFiles = [
           ../keys/daywatch-ssh.pub
           ../keys/rhyslow-ssh.pub
+          ../keys/asedia-ssh.pub
         ];
       };
       # The target colmena will ssh into
@@ -39,6 +40,7 @@
         openssh.authorizedKeys.keyFiles = [
           ../keys/daywatch-ssh.pub
           ../keys/rhyslow-ssh.pub
+          ../keys/asedia-ssh.pub
         ];
       };
       # Storage user

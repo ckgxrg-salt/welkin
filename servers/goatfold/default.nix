@@ -61,6 +61,7 @@
         openssh.authorizedKeys.keyFiles = [
           ../../keys/daywatch-ssh.pub
           ../../keys/rhyslow-ssh.pub
+          ../../keys/asedia-ssh.pub
         ];
       };
       # This user actually runs Minecraft servers
@@ -72,6 +73,7 @@
         openssh.authorizedKeys.keyFiles = [
           ../../keys/daywatch-ssh.pub
           ../../keys/rhyslow-ssh.pub
+          ../../keys/asedia-ssh.pub
         ];
       };
     };

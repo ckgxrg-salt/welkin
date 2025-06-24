@@ -62,6 +62,7 @@
         openssh.authorizedKeys.keyFiles = [
           ../../keys/daywatch-ssh.pub
           ../../keys/rhyslow-ssh.pub
+          ../../keys/asedia-ssh.pub
         ];
       };
     };
