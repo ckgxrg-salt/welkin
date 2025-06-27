@@ -29,10 +29,13 @@ in
   systemd.services."minecraft@" = {
     description = "Minecraft Server: %i";
     after = [ "network.target" ];
-    path = [ java24 ];
+    path = [
+      java24
+      pkgs.bash
+    ];
     serviceConfig = {
+      Type = "forking";
       WorkingDirectory = "/srv/minecraft/%i";
-      Type = "simple";
       PrivateUsers = true;
       User = "goat";
       Group = "minecraft";
@@ -41,14 +44,8 @@ in
       ProtectKernelTunables = true;
       ProtectControlGroups = true;
 
-      ExecStart = ''
-        ${pkgs.tmux}/bin/tmux \
-                new-session \
-                -s %i \
-                -d "bash run.sh"
-      '';
+      ExecStart = "${pkgs.tmux}/bin/tmux new-session -d -s %i 'bash run.sh'";
       ExecStop = "${pkgs.tmux}/bin/tmux send-keys -t %i 'say Server is shutting down.' C-m 'save-all' C-m 'stop' C-m";
-      ExecStopPost = "sleep 2";
     };
     wantedBy = [ "multi-user.target" ];
   };
