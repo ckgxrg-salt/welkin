@@ -5,7 +5,6 @@
     ../common.nix
 
     ./gitea.nix
-    ./mattermost.nix
   ];
 
   networking = {
