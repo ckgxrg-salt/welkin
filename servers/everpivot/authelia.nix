@@ -60,20 +60,6 @@
       identity_providers.oidc = {
         clients = [
           {
-            client_id = "matrix-synapse";
-            client_secret = "$pbkdf2-sha512$310000$h8pJ0DwNuKF1xQSkS/nBaw$brZPQ4tibLrFsieSItyeR8yGOg4SjZLZpAwCWO7h3G33xybRYIUM8z3xu.TW97klZlOft31lPgmO/r4tIe7rxw";
-            client_name = "Matrix";
-            authorization_policy = "one_factor";
-            redirect_uris = [ "https://stargazer.ckgxrg.io/_synapse/client/oidc/callback" ];
-            scopes = [
-              "openid"
-              "profile"
-              "email"
-            ];
-            userinfo_signed_response_alg = "none";
-            token_endpoint_auth_method = "client_secret_basic";
-          }
-          {
             client_id = "jellyfin";
             client_secret = "$pbkdf2-sha512$310000$mkRcEYKEO9PyUplyfCtUmg$E9G4781j4AiMMmpmAwICsF69tY0zbhv99Y8WRQSrDn92XZgORBX/dQmAJ3kOCjFHaGZaZxT.E531nUMCWh9idw";
             client_name = "Jellyfin";
@@ -187,6 +173,7 @@
       description = "Authelia user";
       isSystemUser = true;
       group = "authelia";
+      extraGroups = [ "secrets" ];
     };
     groups."authelia" = { };
   };

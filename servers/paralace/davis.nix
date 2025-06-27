@@ -21,6 +21,8 @@
     };
   };
 
+  users.users."davis".extraGroups = [ "secrets" ];
+
   services.frp.settings.proxies = [
     {
       name = "davis";

@@ -43,6 +43,7 @@
         isSystemUser = true;
         uid = 996;
         group = "gitea";
+        extraGroups = [ "secrets" ];
       };
     };
     groups = {

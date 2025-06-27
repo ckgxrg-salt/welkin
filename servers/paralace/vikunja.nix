@@ -31,6 +31,7 @@
       description = "Vikunja";
       isSystemUser = true;
       group = "vikunja";
+      extraGroups = [ "secrets" ];
     };
     groups."vikunja" = { };
   };

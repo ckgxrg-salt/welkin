@@ -46,6 +46,10 @@
     };
   };
 
+  users.groups = {
+    "secrets".gid = 1437;
+  };
+
   programs.nano.enable = false;
   programs.command-not-found.enable = false;
   services.speechd.enable = false;

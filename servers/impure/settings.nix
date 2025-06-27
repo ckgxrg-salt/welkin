@@ -33,6 +33,9 @@
         ];
       };
     };
+    groups = {
+      "secrets".gid = 1437;
+    };
   };
 
   nix = {

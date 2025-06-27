@@ -15,6 +15,8 @@
     };
   };
 
+  users.users."firefly-iii".extraGroups = [ "secrets" ];
+
   services.nginx.virtualHosts."firefly".listen = [
     {
       addr = "127.0.0.1";

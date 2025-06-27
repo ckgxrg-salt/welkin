@@ -1,4 +1,10 @@
 { ... }:
+let
+  default = {
+    mode = "0440";
+    gid = 1437;
+  };
+in
 {
   sops = {
     defaultSopsFile = ./default.yaml;
@@ -10,61 +16,23 @@
 
   sops.secrets = {
     "everpivot/glance/env" = { };
-    "everpivot/authelia/jwt" = {
-      uid = 988;
-      gid = 986;
-    };
-    "everpivot/authelia/storage" = {
-      uid = 988;
-      gid = 986;
-    };
-    "everpivot/authelia/dbpasswd" = {
-      uid = 988;
-      gid = 986;
-    };
-    "everpivot/authelia/session" = {
-      uid = 988;
-      gid = 986;
-    };
-    "everpivot/authelia/hmac" = {
-      uid = 988;
-      gid = 986;
-    };
-    "everpivot/authelia/oidc-issuer" = {
-      uid = 988;
-      gid = 986;
-    };
-    "everpivot/authelia/users.yaml" = {
-      uid = 988;
-      gid = 986;
+    "everpivot/authelia/jwt" = default;
+    "everpivot/authelia/storage" = default;
+    "everpivot/authelia/dbpasswd" = default;
+    "everpivot/authelia/session" = default;
+    "everpivot/authelia/hmac" = default;
+    "everpivot/authelia/oidc-issuer" = default;
+    "everpivot/authelia/users.yaml" = default // {
       sopsFile = ../secrets/users.yaml;
       key = "";
     };
-    "archiva/gitea/dbpasswd" = {
-      uid = 996;
-      gid = 995;
-    };
-    "stargazer/synapse/registration-secret.conf" = {
-      uid = 224;
-      gid = 224;
-    };
-    "stargazer/synapse/client-secret" = {
-      uid = 224;
-      gid = 224;
-    };
-    "paralace/davis/app-secret" = {
-      uid = 996;
-      gid = 994;
-    };
-    "paralace/firefly-iii/app-key" = {
-      uid = 995;
-      gid = 60;
-    };
+    "archiva/gitea/dbpasswd" = default;
+    "stargazer/dendrite/matrix-key" = default;
+    "paralace/davis/app-secret" = default;
+    "paralace/firefly-iii/app-key" = default;
     "paralace/mealie/client-secret.env" = { };
     "paralace/miniflux/client-secret.env" = { };
-    "paralace/vikunja.yaml" = {
-      uid = 993;
-      gid = 991;
+    "paralace/vikunja.yaml" = default // {
       sopsFile = ./vikunja.yaml;
       key = "";
     };
