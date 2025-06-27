@@ -78,9 +78,6 @@ in
       "stargazer.ckgxrg.io" = mkHost ''
         reverse_proxy /_matrix/* localhost:7400
       '';
-      "alumnimap.ckgxrg.io" = mkHost ''
-        reverse_proxy localhost:7100
-      '';
       "archiva.ckgxrg.io" = mkHost ''
         reverse_proxy localhost:7200
       '';
