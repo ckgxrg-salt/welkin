@@ -19,20 +19,18 @@ in
     groups."matrix-qq" = { };
   };
 
-  services.matrix-synapse = {
-    settings.app_service_config_files = [
+  services.dendrite = {
+    settings.app_service_api.config_files = [
       registrationFile
       "/var/lib/matrix-qq/qq-doublepuppet.yaml"
     ];
   };
-  systemd.services.matrix-synapse = {
-    serviceConfig.SupplementaryGroups = [ "matrix-qq" ];
-  };
+  systemd.services.dendrite.serviceConfig.SupplementaryGroups = [ "matrix-qq" ];
 
   systemd.services.matrix-qq = {
     description = "Matrix-QQ puppeting bridge";
     path = [ pkgs.ffmpeg ];
-    partOf = [ "matrix-synapse.service" ];
+    partOf = [ "dendrite.service" ];
     wantedBy = [ "multi-user.target" ];
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];
