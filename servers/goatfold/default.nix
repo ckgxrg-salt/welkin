@@ -4,8 +4,7 @@
   imports = [
     ../common.nix
 
-    ./frp.nix
-    ./tmux.nix
+    ./minecraft.nix
   ];
 
   networking = {
@@ -68,6 +67,7 @@
       "goat" = {
         isNormalUser = true;
         uid = 1002;
+        group = "minecraft";
         home = "/srv/minecraft";
         description = "Goaty Goat";
         openssh.authorizedKeys.keyFiles = [
@@ -77,6 +77,7 @@
         ];
       };
     };
+    groups."minecraft" = { };
   };
 
   system.stateVersion = "24.11";
