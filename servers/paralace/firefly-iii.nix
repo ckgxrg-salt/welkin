@@ -25,6 +25,7 @@
   ];
 
   services.postgresql = {
+    enable = true;
     ensureUsers = [
       {
         name = "firefly-iii";

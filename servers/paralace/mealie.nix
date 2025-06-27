@@ -22,6 +22,7 @@
   };
 
   services.postgresql = {
+    enable = true;
     ensureUsers = [
       {
         name = "mealie";

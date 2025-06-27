@@ -179,6 +179,7 @@
   };
 
   services.postgresql = {
+    enable = true;
     ensureUsers = [
       {
         name = "authelia";
