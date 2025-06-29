@@ -4,7 +4,7 @@
   imports = [
     ../common.nix
 
-    ./dendrite.nix
+    ./continuwuity.nix
     ./matrix-qq.nix
   ];
 

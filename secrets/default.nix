@@ -27,7 +27,7 @@ in
       key = "";
     };
     "archiva/gitea/dbpasswd" = default;
-    "stargazer/dendrite/matrix-key" = default;
+    "stargazer/continuwuity/registration-token.env" = { };
     "paralace/davis/app-secret" = default;
     "paralace/firefly-iii/app-key" = default;
     "paralace/mealie/client-secret.env" = { };

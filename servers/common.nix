@@ -40,6 +40,7 @@
     defaultLocale = "en_GB.UTF-8";
     supportedLocales = [
       "en_GB.UTF-8/UTF-8"
+      "zh_CN.UTF-8/UTF-8"
     ];
     extraLocaleSettings = {
       LC_ALL = "en_GB.UTF-8";
