@@ -2,7 +2,7 @@ keys:
   - &ckgxrg age1yy9f2spvzv6fuv9c3x0nln3z7r03922eafenrx7nud9qdkvh042qr0zd76
 
   - &welkin age1uqmm69mv5g5nae9rgaf62wdxva8v37fnydu3cjm743xpdh9cgdvs0z4j82
-  - &dispatcher age1mjk44hfxwgj8unlztwt8m29658ses3vkyw6mh5w3tk7prayvpvvqth5nd9
+  - &dispatcher age1rl9zryguh8wqu9csr28m5ef7zz4lxjsfce34h80h8mfkn5hfefssr03ne8
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
