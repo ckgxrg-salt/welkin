@@ -77,7 +77,6 @@ in
       '';
       "stargazer.ckgxrg.io" = mkHost ''
         reverse_proxy /_matrix/* localhost:7400
-        reverse_proxy /_conduwuit/* localhost:7400
       '';
       "alumnimap.ckgxrg.io" = mkHost ''
         reverse_proxy localhost:7100

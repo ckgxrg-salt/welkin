@@ -33,7 +33,7 @@ in
   systemd.services.matrix-qq = {
     description = "Matrix-QQ puppeting bridge";
     path = [ pkgs.ffmpeg ];
-    partOf = [ "continuwuity.service" ];
+    partOf = [ "conduit.service" ];
     wantedBy = [ "multi-user.target" ];
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];

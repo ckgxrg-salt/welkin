@@ -4,7 +4,7 @@
   imports = [
     ../common.nix
 
-    ./continuwuity.nix
+    ./conduit.nix
     ./matrix-qq.nix
   ];
 
