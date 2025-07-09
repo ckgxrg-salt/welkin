@@ -4,6 +4,7 @@
   imports = [
     ../common.nix
 
+    ./caddy.nix
     ./conduit.nix
     ./matrix-qq.nix
   ];
