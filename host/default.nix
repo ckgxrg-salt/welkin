@@ -4,6 +4,7 @@
   imports = [
     ./boot.nix
     ./certs.nix
+    ./ddns.nix
     ./disko.nix
     ./login.nix
     ./settings.nix
