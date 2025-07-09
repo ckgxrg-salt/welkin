@@ -1,7 +1,7 @@
 { ... }:
 {
   services.mealie = {
-    enable = false;
+    enable = true;
     listenAddress = "127.0.0.1";
     port = 9275;
     settings = {
