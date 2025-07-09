@@ -3,7 +3,7 @@
   services.filebrowser = {
     enable = true;
     settings = {
-      address = "127.0.0.1";
+      address = "0.0.0.0";
       port = 8124;
       root = "/data";
       baseurl = "/files";
@@ -31,14 +31,4 @@
     };
     groups."filebrowser" = { };
   };
-
-  services.frp.settings.proxies = [
-    {
-      name = "filebrowser";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 8124;
-      remotePort = 7101;
-    }
-  ];
 }

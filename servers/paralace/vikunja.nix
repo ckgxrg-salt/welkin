@@ -46,14 +46,4 @@
     ];
     ensureDatabases = [ "vikunja" ];
   };
-
-  services.frp.settings.proxies = [
-    {
-      name = "vikunja";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 4571;
-      remotePort = 7504;
-    }
-  ];
 }

@@ -19,7 +19,7 @@
 
   services.nginx.virtualHosts."firefly".listen = [
     {
-      addr = "127.0.0.1";
+      addr = "0.0.0.0";
       port = 9182;
     }
   ];
@@ -34,14 +34,4 @@
     ];
     ensureDatabases = [ "firefly-iii" ];
   };
-
-  services.frp.settings.proxies = [
-    {
-      name = "firefly-iii";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 9182;
-      remotePort = 7501;
-    }
-  ];
 }

@@ -16,23 +16,6 @@ let
   };
 in
 {
-  services.frp.settings.proxies = [
-    {
-      name = "adventurelog";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 8015;
-      remotePort = 7600;
-    }
-    {
-      name = "adventurelog-admin";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 8016;
-      remotePort = 7601;
-    }
-  ];
-
   # Runtime
   virtualisation.podman = {
     enable = true;

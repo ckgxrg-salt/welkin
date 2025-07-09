@@ -1,14 +1,5 @@
 { ... }:
 {
-  services.frp = {
-    enable = true;
-    role = "client";
-    settings = {
-      serverAddr = "deploy.welkin.ckgxrg.io";
-      serverPort = 7000;
-    };
-  };
-
   environment.etc = {
     "motd".text = ''
       Welcome from the Welkin - Impure Services

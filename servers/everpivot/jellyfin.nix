@@ -20,14 +20,4 @@
     };
     groups."jellyfin" = { };
   };
-
-  services.frp.settings.proxies = [
-    {
-      name = "jellyfin";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 8096;
-      remotePort = 7103;
-    }
-  ];
 }

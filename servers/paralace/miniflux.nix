@@ -5,7 +5,7 @@
     adminCredentialsFile = "/var/secrets/miniflux/client-secret.env";
     config = {
       BASE_URL = "https://welkin.ckgxrg.io/miniflux";
-      LISTEN_ADDR = "127.0.0.1:9124";
+      LISTEN_ADDR = "0.0.0.0:9124";
 
       CREATE_ADMIN = 1;
 
@@ -27,14 +27,4 @@
     ];
     ensureDatabases = [ "miniflux" ];
   };
-
-  services.frp.settings.proxies = [
-    {
-      name = "miniflux";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 9124;
-      remotePort = 7503;
-    }
-  ];
 }
