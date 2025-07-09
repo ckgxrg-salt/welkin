@@ -70,17 +70,6 @@
             microvm.nixosModules.host
           ];
         };
-
-        # Gateway
-        Dispatcher = {
-          deployment = {
-            targetHost = "deploy.welkin.ckgxrg.io";
-          };
-          imports = [
-            ./dispatcher
-            sops-nix.nixosModules.sops
-          ];
-        };
       };
 
       nixosConfigurations = {
@@ -92,13 +81,6 @@
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
             microvm.nixosModules.host
-          ];
-        };
-        Dispatcher = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./dispatcher
-            sops-nix.nixosModules.sops
           ];
         };
       };
