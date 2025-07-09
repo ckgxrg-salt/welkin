@@ -3,11 +3,15 @@
 {
   imports = [
     ./boot.nix
-    ./certs.nix
     ./disko.nix
     ./login.nix
     ./settings.nix
     ./security.nix
+
+    ./certs.nix
+    ./cloudflared.nix
+    ./services.nix
+
     ../servers
   ];
 

@@ -15,6 +15,10 @@ in
   };
 
   sops.secrets = {
+    "cloudflare/api" = { };
+    "cloudflare/cert.pem" = { };
+    "cloudflare/welkin.json" = { };
+
     "everpivot/glance/env" = { };
     "everpivot/authelia/jwt" = default;
     "everpivot/authelia/storage" = default;

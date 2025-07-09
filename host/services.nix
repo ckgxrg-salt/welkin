@@ -4,6 +4,7 @@ let
   mkHost = cfg: {
     useACMEHost = "ckgxrg.io";
     listenAddresses = [
+      "0.0.0.0"
       "[::0]"
     ];
     extraConfig = "encode\n" + cfg;
@@ -11,6 +12,7 @@ let
   mkWelkin = cfg: {
     useACMEHost = "welkin.ckgxrg.io";
     listenAddresses = [
+      "0.0.0.0"
       "[::0]"
     ];
     extraConfig = "encode\n" + cfg;
@@ -21,7 +23,6 @@ in
     enable = true;
     globalConfig = ''
       auto_https disable_certs
-      https_port 8443
     '';
     virtualHosts = {
       "ckgxrg.io" = mkHost ''
@@ -107,6 +108,7 @@ in
   networking.firewall = {
     allowPing = true;
     allowedTCPPorts = [
+      8080
       8443
     ];
     allowedUDPPorts = [

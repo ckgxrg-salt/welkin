@@ -1,7 +1,5 @@
 { ... }:
 {
-  sops.secrets."cloudflare" = { };
-
   users.users."caddy".extraGroups = [ "acme" ];
   containers = {
     "archiva".bindMounts.certs = {
@@ -23,12 +21,12 @@
       "ckgxrg.io" = {
         domain = "*.ckgxrg.io";
         dnsProvider = "cloudflare";
-        environmentFile = "/run/secrets/cloudflare";
+        environmentFile = "/run/secrets/cloudflare/api";
       };
       "welkin.ckgxrg.io" = {
         domain = "*.welkin.ckgxrg.io";
         dnsProvider = "cloudflare";
-        environmentFile = "/run/secrets/cloudflare";
+        environmentFile = "/run/secrets/cloudflare/api";
       };
     };
   };
