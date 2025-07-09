@@ -9,7 +9,7 @@
       provider."cloudflare.com" = {
         hostname = "welkin.ckgxrg.io";
         username = "ckgxrg.io";
-        include = "/run/secrets/cloudflare";
+        include = "/run/secrets/ddns";
         proxied = true;
       };
     };

@@ -1,7 +1,6 @@
 { ... }:
 let
   mkHost = cfg: {
-    useACMEHost = "ckgxrg.io";
     listenAddresses = [
       "[::0]"
     ];

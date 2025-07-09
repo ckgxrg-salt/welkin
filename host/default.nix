@@ -3,12 +3,15 @@
 {
   imports = [
     ./boot.nix
-    ./certs.nix
-    ./ddns.nix
     ./disko.nix
     ./login.nix
     ./settings.nix
     ./security.nix
+
+    ./certs.nix
+    ./ddns.nix
+    ./services.nix
+
     ../servers
   ];
 

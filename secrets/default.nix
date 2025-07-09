@@ -15,6 +15,8 @@ in
   };
 
   sops.secrets = {
+    "cloudflare.env" = { };
+    "ddns" = default;
     "everpivot/glance/env" = { };
     "everpivot/authelia/jwt" = default;
     "everpivot/authelia/storage" = default;
@@ -26,9 +28,9 @@ in
       sopsFile = ../secrets/users.yaml;
       key = "";
     };
-    "archiva/cloudflare" = default;
+    "archiva/ddns" = default;
     "archiva/gitea/dbpasswd" = default;
-    "stargazer/cloudflare" = default;
+    "stargazer/ddns" = default;
     "stargazer/conduit/registration-token.env" = { };
     "paralace/davis/app-secret" = default;
     "paralace/firefly-iii/app-key" = default;
