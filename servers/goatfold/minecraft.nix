@@ -3,16 +3,6 @@ let
   java24 = pkgs.temurin-jre-bin-24;
 in
 {
-  services.frp.settings.proxies = [
-    {
-      name = "goatfold-ssh";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 22;
-      remotePort = 7322;
-    }
-  ];
-
   programs.tmux = {
     enable = true;
     # So server keeps running with we ssh out

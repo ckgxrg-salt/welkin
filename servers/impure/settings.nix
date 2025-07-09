@@ -4,8 +4,17 @@
     enable = true;
     role = "client";
     settings = {
-      serverAddr = "deploy.welkin.ckgxrg.io";
+      serverAddr = "welkin.ckgxrg.io";
       serverPort = 7000;
+      proxies = [
+        {
+          name = "impure-ssh";
+          type = "tcp";
+          localIP = "127.0.0.1";
+          localPort = 22;
+          remotePort = 7622;
+        }
+      ];
     };
   };
 

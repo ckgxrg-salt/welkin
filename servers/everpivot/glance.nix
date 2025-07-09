@@ -257,7 +257,7 @@
                   widgets = [
                     {
                       type = "custom-api";
-                      title = "Oceanblock";
+                      title = "Goatfold";
                       url = "https://api.mcstatus.io/v2/status/java/goatfold.ckgxrg.io";
                       cache = "1m";
                       template = ''

@@ -34,7 +34,7 @@ in
       "auth.welkin.ckgxrg.io" = mkWelkin ''
         reverse_proxy localhost:7106
       '';
-      "welkin.ckgxrg.io" = mkWelkin ''
+      "welkin.ckgxrg.io" = mkHost ''
         handle {
           forward_auth localhost:7106 {
             uri /api/authz/forward-auth
@@ -119,7 +119,13 @@ in
     allowedTCPPorts = [
       80
       443
+
+      7022
+      7122
       7222
+      7322
+      7422
+      7522
     ];
     allowedUDPPorts = [
       443

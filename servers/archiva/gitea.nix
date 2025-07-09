@@ -16,6 +16,7 @@
         ROOT_URL = "https://archiva.ckgxrg.io";
         HTTP_PORT = 8999;
         DISABLE_REGISTRATION = true;
+        SSH_PORT = 7222;
       };
       session = {
         COOKIE_SECURE = true;
@@ -54,13 +55,6 @@
   };
 
   services.frp.settings.proxies = [
-    {
-      name = "gitea-ssh";
-      type = "tcp";
-      localip = "127.0.0.1";
-      localport = 22;
-      remoteport = 7222;
-    }
     {
       name = "gitea";
       type = "tcp";
