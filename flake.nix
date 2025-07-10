@@ -60,6 +60,8 @@
           deployment = {
             buildOnTarget = true;
             targetUser = "deployer";
+            targetHost = "welkin.ckgxrg.io";
+            targetPort = 7022;
           };
           imports = [
             ./host
