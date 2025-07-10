@@ -25,12 +25,20 @@ in
       auto_https disable_certs
     '';
     virtualHosts = {
-      "ckgxrg.io" = mkHost ''
-        header /.well-known/matrix/* Content-Type application/json
-        header /.well-known/matrix/* Access-Control-Allow-Origin *
-        respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
-        respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
-      '';
+      "ckgxrg.io" = {
+        useACMEHost = "base";
+        listenAddresses = [
+          "0.0.0.0"
+          "[::0]"
+        ];
+        extraConfig = ''
+          encode
+          header /.well-known/matrix/* Content-Type application/json
+          header /.well-known/matrix/* Access-Control-Allow-Origin *
+          respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
+          respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
+        '';
+      };
       "auth.welkin.ckgxrg.io" = mkWelkin ''
         reverse_proxy localhost:7106
       '';
@@ -144,6 +152,11 @@ in
       email = "ckgxrg@ckgxrg.io";
     };
     certs = {
+      "base" = {
+        domain = "ckgxrg.io";
+        dnsProvider = "cloudflare";
+        environmentFile = "/run/secrets/cloudflare";
+      };
       "ckgxrg.io" = {
         domain = "*.ckgxrg.io";
         dnsProvider = "cloudflare";

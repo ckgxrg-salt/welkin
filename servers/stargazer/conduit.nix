@@ -11,6 +11,12 @@
         allow_check_for_updates = false;
         enable_lightning_bolt = false;
         allow_registration = true;
+        proxy.by_domain = [
+          {
+            url = "socks5://192.168.50.101:20173";
+            include = [ "matrix-federation.matrix.org" ];
+          }
+        ];
       };
     };
   };

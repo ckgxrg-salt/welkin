@@ -4,6 +4,10 @@
     enable = true;
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [ 20172 ];
+  };
+
   services.frp.settings.proxies = [
     {
       name = "v2raya";
