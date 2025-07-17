@@ -1,11 +1,7 @@
 { ... }:
 {
   services.v2raya = {
-    enable = true;
-  };
-
-  networking.firewall = {
-    allowedTCPPorts = [ 20172 ];
+    enable = false;
   };
 
   services.frp.settings.proxies = [
@@ -14,7 +10,7 @@
       type = "tcp";
       localIP = "127.0.0.1";
       localPort = 2017;
-      remotePort = 7117;
+      remotePort = 7417;
     }
   ];
 }

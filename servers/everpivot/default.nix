@@ -10,7 +10,6 @@
     ./glance.nix
     ./jellyfin.nix
     ./syncthing.nix
-    ./v2raya.nix
   ];
 
   networking = {

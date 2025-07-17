@@ -1,14 +1,6 @@
 { ... }:
 # Configuration
 {
-  #========== Wireguard ==========#
-  networking.wg-quick.interfaces = {
-    centre = {
-      configFile = "/etc/wireguard/centre.conf";
-      autostart = false;
-    };
-  };
-
   # Allow forwarding
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
