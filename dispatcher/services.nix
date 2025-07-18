@@ -35,14 +35,14 @@ in
           encode
           header /.well-known/matrix/* Content-Type application/json
           header /.well-known/matrix/* Access-Control-Allow-Origin *
-          respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
-          respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
+          respond /.well-known/matrix/server `{"m.server": "matrix.ckgxrg.io:443"}`
+          respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://matrix.ckgxrg.io"}}`
         '';
       };
-      "auth.welkin.ckgxrg.io" = mkWelkin ''
+      "auth.ckgxrg.io" = mkHost ''
         reverse_proxy localhost:7106
       '';
-      "welkin.ckgxrg.io" = mkHost ''
+      "dash.ckgxrg.io" = mkHost ''
         handle {
           forward_auth localhost:7106 {
             uri /api/authz/forward-auth
@@ -83,36 +83,33 @@ in
           reverse_proxy localhost:7503
         }
       '';
-      "stargazer.ckgxrg.io" = mkHost ''
+      "matrix.ckgxrg.io" = mkHost ''
         reverse_proxy /_matrix/* localhost:7400
       '';
-      "alumnimap.ckgxrg.io" = mkHost ''
-        reverse_proxy localhost:7100
-      '';
-      "archiva.ckgxrg.io" = mkHost ''
+      "gitea.ckgxrg.io" = mkHost ''
         reverse_proxy localhost:7200
       '';
-      "davis.welkin.ckgxrg.io" = mkWelkin ''
-        forward_auth localhost:7106 {
-          uri /api/authz/forward-auth
-          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-        }
-        reverse_proxy localhost:7500
-      '';
-      "firefly.welkin.ckgxrg.io" = mkWelkin ''
+      #"davis.welkin.ckgxrg.io" = mkWelkin ''
+      #forward_auth localhost:7106 {
+      #  uri /api/authz/forward-auth
+      #  copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+      #}
+      #  reverse_proxy localhost:7500
+      #'';
+      "firefly.ckgxrg.io" = mkHost ''
         forward_auth localhost:7106 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
         }
         reverse_proxy localhost:7501
       '';
-      "mealie.welkin.ckgxrg.io" = mkWelkin ''
-        reverse_proxy localhost:7502
-      '';
-      "todo.welkin.ckgxrg.io" = mkWelkin ''
+      #"mealie.welkin.ckgxrg.io" = mkWelkin ''
+      #  reverse_proxy localhost:7502
+      #'';
+      "todo.ckgxrg.io" = mkHost ''
         reverse_proxy localhost:7504
       '';
-      "trips.welkin.ckgxrg.io" = mkWelkin ''
+      "trips.ckgxrg.io" = mkHost ''
         @frontend {
           not path /media* /admin* /static* /accounts*
         }
@@ -134,8 +131,6 @@ in
       7322
       7422
       7522
-
-      7417
     ];
     allowedUDPPorts = [
       443

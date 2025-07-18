@@ -60,7 +60,7 @@
           deployment = {
             buildOnTarget = true;
             targetUser = "deployer";
-            targetHost = "welkin.ckgxrg.io";
+            targetHost = "welkin-1.ckgxrg.io";
             targetPort = 7022;
           };
           imports = [
@@ -76,7 +76,7 @@
         # Gateway
         Dispatcher = {
           deployment = {
-            targetHost = "welkin.ckgxrg.io";
+            targetHost = "welkin-1.ckgxrg.io";
           };
           imports = [
             ./dispatcher
