@@ -19,10 +19,6 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    microvm = {
-      url = "github:astro/microvm.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     {
@@ -33,7 +29,6 @@
       lix-module,
       disko,
       sops-nix,
-      microvm,
       ...
     }:
     let
@@ -67,7 +62,6 @@
             lix-module.nixosModules.default
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
-            microvm.nixosModules.host
           ];
         };
       };
@@ -80,7 +74,6 @@
             lix-module.nixosModules.default
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
-            microvm.nixosModules.host
           ];
         };
       };

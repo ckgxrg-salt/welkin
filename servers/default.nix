@@ -51,12 +51,4 @@
         config = import ./paralace;
       };
     };
-
-  microvm.vms = {
-    # A place for services that *only* provides docker-compose.yml
-    impure = {
-      config = import ./impure;
-      restartIfChanged = true;
-    };
-  };
 }
