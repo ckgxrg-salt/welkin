@@ -109,13 +109,6 @@ in
       "todo.ckgxrg.io" = mkHost ''
         reverse_proxy localhost:7504
       '';
-      "trips.ckgxrg.io" = mkHost ''
-        @frontend {
-          not path /media* /admin* /static* /accounts*
-        }
-        reverse_proxy @frontend localhost:7600
-        reverse_proxy localhost:7601
-      '';
     };
   };
 
