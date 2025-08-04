@@ -30,7 +30,8 @@ in
       sopsFile = ../secrets/users.yaml;
       key = "";
     };
-    "archiva/gitea/dbpasswd" = default;
+    "archiva/cloudflare/cert.pem" = { };
+    "archiva/cloudflare/archiva.json" = { };
     "stargazer/conduit/registration-token.env" = { };
     "paralace/davis/app-secret" = default;
     "paralace/firefly-iii/app-key" = default;
