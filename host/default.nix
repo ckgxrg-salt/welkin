@@ -8,7 +8,6 @@
     ./settings.nix
     ./security.nix
 
-    ./certs.nix
     ./cloudflared.nix
     ./services.nix
 

@@ -1,8 +1,7 @@
 { ... }:
 # Redirect domains to services
 let
-  mkHost = cert: cfg: {
-    useACMEHost = cert;
+  mkHost = cfg: {
     listenAddresses = [
       "0.0.0.0"
       "[::0]"
@@ -14,20 +13,21 @@ in
   services.caddy = {
     enable = true;
     globalConfig = ''
+      http_port 8080
       https_port 8443
-      auto_https disable_certs
+      auto_https off
     '';
     virtualHosts = {
-      "ckgxrg.io" = mkHost "0" ''
+      "http://ckgxrg.io" = mkHost ''
         header /.well-known/matrix/* Content-Type application/json
         header /.well-known/matrix/* Access-Control-Allow-Origin *
         respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
         respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
       '';
-      "auth.welkin.ckgxrg.io" = mkHost "2" ''
+      "auth.welkin.ckgxrg.io" = mkHost ''
         reverse_proxy 192.168.50.101:1976
       '';
-      "welkin.ckgxrg.io" = mkHost "1" ''
+      "welkin.ckgxrg.io" = mkHost ''
         handle {
           forward_auth 192.168.50.101:1976 {
             uri /api/authz/forward-auth
@@ -68,24 +68,24 @@ in
           reverse_proxy 192.168.50.105:9124
         }
       '';
-      "davis.welkin.ckgxrg.io" = mkHost "2" ''
+      "http://davis.welkin.ckgxrg.io" = mkHost ''
         forward_auth 192.168.50.101:1976 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
         }
         reverse_proxy 192.168.50.105:8567
       '';
-      "firefly.welkin.ckgxrg.io" = mkHost "2" ''
+      "http://firefly.welkin.ckgxrg.io" = mkHost ''
         forward_auth 192.168.50.101:1976 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
         }
         reverse_proxy 192.168.50.105:9182
       '';
-      "mealie.welkin.ckgxrg.io" = mkHost "2" ''
+      "http://mealie.welkin.ckgxrg.io" = mkHost ''
         reverse_proxy 192.168.50.105:9275
       '';
-      "todo.welkin.ckgxrg.io" = mkHost "2" ''
+      "http://todo.welkin.ckgxrg.io" = mkHost ''
         reverse_proxy 192.168.50.105:4571
       '';
     };
