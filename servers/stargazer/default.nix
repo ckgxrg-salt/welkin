@@ -4,7 +4,7 @@
   imports = [
     ../common.nix
 
-    ./caddy.nix
+    ./cloudflared.nix
     ./conduit.nix
     ./matrix-qq.nix
   ];

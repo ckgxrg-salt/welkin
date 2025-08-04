@@ -33,6 +33,8 @@ in
     "archiva/cloudflare/cert.pem" = { };
     "archiva/cloudflare/archiva.json" = { };
     "stargazer/conduit/registration-token.env" = { };
+    "stargazer/cloudflare/cert.pem" = { };
+    "stargazer/cloudflare/stargazer.json" = { };
     "paralace/davis/app-secret" = default;
     "paralace/firefly-iii/app-key" = default;
     "paralace/mealie/client-secret.env" = { };
