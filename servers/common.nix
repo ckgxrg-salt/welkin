@@ -5,13 +5,6 @@
     wireless.enable = false;
     useNetworkd = true;
     useHostResolvConf = false;
-
-    wg-quick.interfaces = {
-      fariof = {
-        configFile = "/etc/wireguard/fariof.conf";
-        autostart = false;
-      };
-    };
   };
   services.resolved.extraConfig = ''
     DNSStubListener=no

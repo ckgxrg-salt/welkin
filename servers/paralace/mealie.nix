@@ -2,7 +2,7 @@
 {
   services.mealie = {
     enable = true;
-    listenAddress = "127.0.0.1";
+    listenAddress = "0.0.0.0";
     port = 9275;
     settings = {
       BASE_URL = "https://mealie.welkin.ckgxrg.io";
@@ -31,14 +31,4 @@
     ];
     ensureDatabases = [ "mealie" ];
   };
-
-  services.frp.settings.proxies = [
-    {
-      name = "mealie";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 9275;
-      remotePort = 7502;
-    }
-  ];
 }

@@ -41,19 +41,9 @@
     enable = true;
   };
 
-  # AppArmor MAC
-  security.apparmor = {
-    enable = true;
-    enableCache = true;
-  };
   services.dbus = {
-    apparmor = "enabled";
     implementation = "broker";
   };
-
-  # Audit Framework
-  security.audit.enable = true;
-  security.auditd.enable = true;
 
   # TPM Support
   boot.initrd.systemd.tpm2.enable = true;

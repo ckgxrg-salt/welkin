@@ -6,7 +6,7 @@
     settings = {
       server = {
         port = 5678;
-        address = "127.0.0.1";
+        address = "0.0.0.0";
         proxied = true;
       };
       theme = {
@@ -443,14 +443,4 @@
       ];
     };
   };
-
-  services.frp.settings.proxies = [
-    {
-      name = "glance";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 5678;
-      remotePort = 7102;
-    }
-  ];
 }

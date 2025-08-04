@@ -188,14 +188,4 @@
     ];
     ensureDatabases = [ "authelia" ];
   };
-
-  services.frp.settings.proxies = [
-    {
-      name = "authelia";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 1976;
-      remotePort = 7106;
-    }
-  ];
 }

@@ -14,7 +14,7 @@
     nginx = {
       listen = [
         {
-          addr = "127.0.0.1";
+          addr = "0.0.0.0";
           port = 8567;
         }
       ];
@@ -22,14 +22,4 @@
   };
 
   users.users."davis".extraGroups = [ "secrets" ];
-
-  services.frp.settings.proxies = [
-    {
-      name = "davis";
-      type = "tcp";
-      localIP = "127.0.0.1";
-      localPort = 8567;
-      remotePort = 7500;
-    }
-  ];
 }

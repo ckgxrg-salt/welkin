@@ -7,6 +7,10 @@
     ./login.nix
     ./settings.nix
     ./security.nix
+
+    ./cloudflared.nix
+    ./services.nix
+
     ../servers
   ];
 

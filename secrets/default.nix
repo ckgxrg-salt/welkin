@@ -15,6 +15,10 @@ in
   };
 
   sops.secrets = {
+    "cloudflare/api" = { };
+    "cloudflare/cert.pem" = { };
+    "cloudflare/welkin.json" = { };
+
     "everpivot/glance/env" = { };
     "everpivot/authelia/jwt" = default;
     "everpivot/authelia/storage" = default;
@@ -26,8 +30,11 @@ in
       sopsFile = ../secrets/users.yaml;
       key = "";
     };
-    "archiva/gitea/dbpasswd" = default;
+    "archiva/cloudflare/cert.pem" = { };
+    "archiva/cloudflare/archiva.json" = { };
     "stargazer/conduit/registration-token.env" = { };
+    "stargazer/cloudflare/cert.pem" = { };
+    "stargazer/cloudflare/stargazer.json" = { };
     "paralace/davis/app-secret" = default;
     "paralace/firefly-iii/app-key" = default;
     "paralace/mealie/client-secret.env" = { };

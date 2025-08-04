@@ -53,9 +53,8 @@
     };
     groups = {
       "deployer" = { };
-      "storage" = {
-        gid = 1024;
-      };
+      "storage".gid = 1024;
+      "secrets".gid = 1437;
     };
   };
 }

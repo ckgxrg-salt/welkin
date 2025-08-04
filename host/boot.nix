@@ -38,11 +38,6 @@
     # ZFS
     supportedFilesystems = [ "zfs" ];
 
-    # Kernel params
-    kernelParams = [
-      "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
-    ];
-
     # Kernel extra config
     kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {
