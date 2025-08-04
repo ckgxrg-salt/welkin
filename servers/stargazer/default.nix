@@ -7,7 +7,6 @@
     ./cloudflared.nix
     ./conduit.nix
     ./matrix-qq.nix
-    ./v2raya.nix
   ];
 
   networking = {

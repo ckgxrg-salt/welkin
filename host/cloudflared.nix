@@ -9,25 +9,25 @@
         default = "http_status:404";
         ingress = {
           "ckgxrg.io" = {
-            service = "https://127.0.0.1:8443";
+            service = "http://127.0.0.1:8080";
           };
           "welkin.ckgxrg.io" = {
-            service = "https://127.0.0.1:8443";
+            service = "http://127.0.0.1:8080";
           };
           "auth.welkin.ckgxrg.io" = {
-            service = "https://127.0.0.1:8443";
+            service = "http://127.0.0.1:8080";
           };
           "firefly.welkin.ckgxrg.io" = {
-            service = "https://127.0.0.1:8443";
+            service = "http://127.0.0.1:8080";
           };
           "davis.welkin.ckgxrg.io" = {
-            service = "https://127.0.0.1:8443";
+            service = "http://127.0.0.1:8080";
           };
           "mealie.ckgxrg.io" = {
-            service = "https://127.0.0.1:8443";
+            service = "http://127.0.0.1:8080";
           };
           "todo.ckgxrg.io" = {
-            service = "https://127.0.0.1:8443";
+            service = "http://127.0.0.1:8080";
           };
         };
       };

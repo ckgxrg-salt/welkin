@@ -69,24 +69,6 @@
     };
   };
 
-  services.frp = {
-    enable = true;
-    role = "client";
-    settings = {
-      serverAddr = "welkin.ckgxrg.io";
-      serverPort = 7000;
-      proxies = [
-        {
-          name = "welkin-ssh";
-          type = "tcp";
-          localIP = "127.0.0.1";
-          localPort = 22;
-          remotePort = 7022;
-        }
-      ];
-    };
-  };
-
   #========== Power ==========#
   services.thermald.enable = true;
 
