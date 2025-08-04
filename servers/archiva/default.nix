@@ -4,8 +4,8 @@
   imports = [
     ../common.nix
 
-    ./caddy.nix
-    ./gitea.nix
+    ./cloudflared.nix
+    ./forgejo.nix
   ];
 
   networking = {

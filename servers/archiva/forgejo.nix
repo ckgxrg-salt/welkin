@@ -1,20 +1,19 @@
 { ... }:
-# Gitea
+# Forgejo
 {
-  services.gitea = {
+  services.forgejo = {
     enable = true;
-    appName = "Archiva Gitea";
-    database = {
-      type = "postgres";
-      name = "gitea";
-      user = "gitea";
-      passwordFile = "/var/secrets/gitea/dbpasswd";
-    };
+    database.type = "postgres";
     settings = {
+      default = {
+        APP_NAME = "Archiva";
+      };
       server = {
         DOMAIN = "archiva.ckgxrg.io";
         ROOT_URL = "https://archiva.ckgxrg.io";
         HTTP_PORT = 8999;
+      };
+      service = {
         DISABLE_REGISTRATION = true;
       };
       session = {
@@ -23,33 +22,30 @@
     };
   };
 
-  # Gitea database
+  # Forgejo database
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "gitea" ];
+    ensureDatabases = [ "forgejo" ];
     ensureUsers = [
       {
-        name = "gitea";
+        name = "forgejo";
         ensureDBOwnership = true;
       }
     ];
   };
 
-  # Gitea related users
+  # Forgejo related users
   users = {
     users = {
-      "gitea" = {
-        description = "Gitea Service";
+      "forgejo" = {
+        description = "Forgejo Service";
         isSystemUser = true;
-        uid = 996;
-        group = "gitea";
+        group = "forgejo";
         extraGroups = [ "secrets" ];
       };
     };
     groups = {
-      "gitea" = {
-        gid = 995;
-      };
+      "forgejo" = { };
     };
   };
 }
