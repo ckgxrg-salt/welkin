@@ -18,12 +18,17 @@
       email = "ckgxrg@ckgxrg.io";
     };
     certs = {
-      "ckgxrg.io" = {
+      "0" = {
+        domain = "ckgxrg.io";
+        dnsProvider = "cloudflare";
+        environmentFile = "/run/secrets/cloudflare/api";
+      };
+      "1" = {
         domain = "*.ckgxrg.io";
         dnsProvider = "cloudflare";
         environmentFile = "/run/secrets/cloudflare/api";
       };
-      "welkin.ckgxrg.io" = {
+      "2" = {
         domain = "*.welkin.ckgxrg.io";
         dnsProvider = "cloudflare";
         environmentFile = "/run/secrets/cloudflare/api";

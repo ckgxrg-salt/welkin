@@ -1,16 +1,8 @@
 { ... }:
 # Redirect domains to services
 let
-  mkHost = cfg: {
-    useACMEHost = "ckgxrg.io";
-    listenAddresses = [
-      "0.0.0.0"
-      "[::0]"
-    ];
-    extraConfig = "encode\n" + cfg;
-  };
-  mkWelkin = cfg: {
-    useACMEHost = "welkin.ckgxrg.io";
+  mkHost = cert: cfg: {
+    useACMEHost = cert;
     listenAddresses = [
       "0.0.0.0"
       "[::0]"
@@ -22,19 +14,20 @@ in
   services.caddy = {
     enable = true;
     globalConfig = ''
+      https_port 8443
       auto_https disable_certs
     '';
     virtualHosts = {
-      "ckgxrg.io" = mkHost ''
+      "ckgxrg.io" = mkHost "0" ''
         header /.well-known/matrix/* Content-Type application/json
         header /.well-known/matrix/* Access-Control-Allow-Origin *
         respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
         respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
       '';
-      "auth.welkin.ckgxrg.io" = mkWelkin ''
+      "auth.welkin.ckgxrg.io" = mkHost "2" ''
         reverse_proxy 192.168.50.101:1976
       '';
-      "welkin.ckgxrg.io" = mkWelkin ''
+      "welkin.ckgxrg.io" = mkHost "1" ''
         handle {
           forward_auth 192.168.50.101:1976 {
             uri /api/authz/forward-auth
@@ -75,44 +68,26 @@ in
           reverse_proxy 192.168.50.105:9124
         }
       '';
-      "davis.welkin.ckgxrg.io" = mkWelkin ''
+      "davis.welkin.ckgxrg.io" = mkHost "2" ''
         forward_auth 192.168.50.101:1976 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
         }
         reverse_proxy 192.168.50.105:8567
       '';
-      "firefly.welkin.ckgxrg.io" = mkWelkin ''
+      "firefly.welkin.ckgxrg.io" = mkHost "2" ''
         forward_auth 192.168.50.101:1976 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
         }
         reverse_proxy 192.168.50.105:9182
       '';
-      "mealie.welkin.ckgxrg.io" = mkWelkin ''
+      "mealie.welkin.ckgxrg.io" = mkHost "2" ''
         reverse_proxy 192.168.50.105:9275
       '';
-      "todo.welkin.ckgxrg.io" = mkWelkin ''
+      "todo.welkin.ckgxrg.io" = mkHost "2" ''
         reverse_proxy 192.168.50.105:4571
       '';
-      "trips.welkin.ckgxrg.io" = mkWelkin ''
-        @frontend {
-          not path /media* /admin* /static* /accounts*
-        }
-        reverse_proxy @frontend 192.168.50.106:8015
-        reverse_proxy 192.168.50.106:8016
-      '';
     };
-  };
-
-  networking.firewall = {
-    allowPing = true;
-    allowedTCPPorts = [
-      8080
-      8443
-    ];
-    allowedUDPPorts = [
-      8443
-    ];
   };
 }
