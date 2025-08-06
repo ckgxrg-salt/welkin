@@ -5,7 +5,7 @@
     enable = true;
     database.type = "postgres";
     settings = {
-      default = {
+      DEFAULT = {
         APP_NAME = "Archiva";
       };
       server = {

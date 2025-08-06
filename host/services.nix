@@ -1,7 +1,8 @@
 { ... }:
 # Redirect domains to services
 let
-  mkHost = cfg: {
+  mkHost = cert: cfg: {
+    useACMEHost = builtins.toString cert;
     listenAddresses = [
       "0.0.0.0"
       "[::0]"
@@ -13,43 +14,29 @@ in
   services.caddy = {
     enable = true;
     globalConfig = ''
-      http_port 8080
-      https_port 8443
-      auto_https off
+      auto_https disable_certs
     '';
     virtualHosts = {
-      "http://ckgxrg.io" = mkHost ''
+      "ckgxrg.io" = mkHost 0 ''
         header /.well-known/matrix/* Content-Type application/json
         header /.well-known/matrix/* Access-Control-Allow-Origin *
         respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
         respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
       '';
-      "auth.welkin.ckgxrg.io" = mkHost ''
+      "auth.welkin.ckgxrg.io" = mkHost 2 ''
         reverse_proxy 192.168.50.101:1976
       '';
-      "welkin.ckgxrg.io" = mkHost ''
+      "welkin.ckgxrg.io" = mkHost 1 ''
         handle {
-          forward_auth 192.168.50.101:1976 {
-            uri /api/authz/forward-auth
-            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          }
           reverse_proxy 192.168.50.101:5678
         }
 
         @files path /files /files/*
         handle @files {
-          forward_auth 192.168.50.101:1976 {
-            uri /api/authz/forward-auth
-            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          }
           reverse_proxy 192.168.50.101:8124
         }
 
         handle_path /sync/* {
-          forward_auth 192.168.50.101:1976 {
-            uri /api/authz/forward-auth
-            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          }
           reverse_proxy 192.168.50.101:8384
         }
 
@@ -68,26 +55,26 @@ in
           reverse_proxy 192.168.50.105:9124
         }
       '';
-      "http://davis.welkin.ckgxrg.io" = mkHost ''
-        forward_auth 192.168.50.101:1976 {
-          uri /api/authz/forward-auth
-          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-        }
+      "davis.welkin.ckgxrg.io" = mkHost 2 ''
         reverse_proxy 192.168.50.105:8567
       '';
-      "http://firefly.welkin.ckgxrg.io" = mkHost ''
-        forward_auth 192.168.50.101:1976 {
-          uri /api/authz/forward-auth
-          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-        }
+      "firefly.welkin.ckgxrg.io" = mkHost 2 ''
         reverse_proxy 192.168.50.105:9182
       '';
-      "http://mealie.welkin.ckgxrg.io" = mkHost ''
+      "mealie.welkin.ckgxrg.io" = mkHost 2 ''
         reverse_proxy 192.168.50.105:9275
       '';
-      "http://todo.welkin.ckgxrg.io" = mkHost ''
+      "todo.welkin.ckgxrg.io" = mkHost 2 ''
         reverse_proxy 192.168.50.105:4571
       '';
     };
+  };
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      80
+      443
+    ];
+    allowedUDPPorts = [ 443 ];
   };
 }

@@ -8,7 +8,9 @@
     ./settings.nix
     ./security.nix
 
+    ./certs.nix
     ./cloudflared.nix
+    ./tailscale.nix
     ./services.nix
 
     ../servers
