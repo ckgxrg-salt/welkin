@@ -6,10 +6,6 @@
       url = "github:ckgxrg-salt/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     colmena.url = "github:zhaofengli/colmena";
     disko = {
       url = "github:nix-community/disko";
@@ -26,7 +22,6 @@
       colmena,
       nixpkgs,
       ckgpkgs,
-      lix-module,
       disko,
       sops-nix,
       ...
@@ -60,7 +55,6 @@
           imports = [
             ./host
             ./secrets
-            lix-module.nixosModules.default
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
           ];
@@ -72,7 +66,6 @@
           inherit system;
           modules = [
             ./host
-            lix-module.nixosModules.default
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
           ];
