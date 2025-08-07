@@ -1,5 +1,7 @@
 { ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 9124 ];
+
   services.miniflux = {
     enable = true;
     adminCredentialsFile = "/var/secrets/miniflux/client-secret.env";

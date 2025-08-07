@@ -1,12 +1,14 @@
 { ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 5678 ];
+
   services.glance = {
     enable = true;
     environmentFile = "/var/secrets/glance/env";
     settings = {
       server = {
         port = 5678;
-        address = "0.0.0.0";
+        host = "0.0.0.0";
         proxied = true;
       };
       theme = {
@@ -166,7 +168,7 @@
                   type = "custom-api";
                   title = "Today's Meal";
                   cache = "1m";
-                  url = "https://mealie.welkin.ckgxrg.io/api/households/mealplans/today";
+                  url = "http://192.168.50.105:9275/api/households/mealplans/today";
                   headers.Authorization = "Bearer \${MEALIE_TOKEN}";
                   template = ''
                     <div class="flex gap-15 justify-between">
@@ -227,7 +229,7 @@
                 {
                   type = "custom-api";
                   title = "RSS Feeds";
-                  url = "https://welkin.ckgxrg.io/miniflux/v1/categories/2/entries?limit=10&order=published_at&direction=desc&category_id=2&status=unread";
+                  url = "http://192.168.50.105:9124/miniflux/v1/categories/2/entries?limit=10&order=published_at&direction=desc&category_id=2&status=unread";
                   cache = "15m";
                   headers = {
                     X-Auth-Token = "\${MINIFLUX_TOKEN}";
@@ -239,7 +241,7 @@
                       <li>
                           <div class="flex gap-10 row-reverse-on-mobile thumbnail-parent">
                               <div class="grow min-width-0">
-                                  <a href="https://welkin.ckgxrg.io/miniflux/unread/category/2/entry/{{ .String "id" }}" class="size-title-dynamic color-primary-if-not-visited" target="_blank" rel="noreferrer">{{ .String "title" }}</a>
+                                  <a href="https://192.168.50.105:9124/miniflux/unread/category/2/entry/{{ .String "id" }}" class="size-title-dynamic color-primary-if-not-visited" target="_blank" rel="noreferrer">{{ .String "title" }}</a>
                                   <ul class="list-horizontal-text flex-nowrap text-compact">
                                       <li class="shrink-0">{{ .String "feed.title" }}</li>
                                       <li class="shrink-0" {{ .String "published_at" | parseTime "rfc3339" | toRelativeTime }}></li>
@@ -344,22 +346,26 @@
                     {
                       title = "Filebrowser";
                       icon = "si:files";
-                      url = "https://welkin.ckgxrg.io/files";
+                      allow-insecure = true;
+                      url = "http://Everpivot:8124";
                     }
                     {
                       title = "Syncthing";
                       icon = "si:syncthing";
-                      url = "https://welkin.ckgxrg.io/sync";
+                      allow-insecure = true;
+                      url = "http://Everpivot:8384";
                     }
                     {
                       title = "Jellyfin";
                       icon = "si:jellyfin";
-                      url = "https://welkin.ckgxrg.io/jellyfin";
+                      allow-insecure = true;
+                      url = "http://Everpivot:8096";
                     }
                     {
                       title = "LinkWarden";
                       icon = "si:bookmeter";
-                      url = "https://welkin.ckgxrg.io/bookmarks";
+                      allow-insecure = true;
+                      url = "http://Everpivot:1145";
                     }
                     {
                       title = "AdGuard Home";
@@ -372,7 +378,7 @@
                 {
                   type = "monitor";
                   cache = "30m";
-                  title = "Paralace";
+                  title = "192.168.50.105";
                   basic-auth = {
                     username = "\${MONITOR_USERNAME}";
                     password = "\${MONITOR_PWD}";
@@ -381,27 +387,32 @@
                     {
                       title = "Davis";
                       icon = "si:googlecalendar";
-                      url = "https://davis.welkin.ckgxrg.io";
+                      allow-insecure = true;
+                      url = "http://192.168.50.105:8567";
                     }
                     {
                       title = "Firefly III";
                       icon = "si:fireflyiii";
-                      url = "https://firefly.welkin.ckgxrg.io";
+                      allow-insecure = true;
+                      url = "http://192.168.50.105:9182";
                     }
                     {
                       title = "Mealie";
                       icon = "si:mealie";
-                      url = "https://mealie.welkin.ckgxrg.io";
+                      allow-insecure = true;
+                      url = "http://192.168.50.105:9275";
                     }
                     {
                       title = "Miniflux";
                       icon = "si:rss";
-                      url = "https://welkin.ckgxrg.io/miniflux";
+                      allow-insecure = true;
+                      url = "http://192.168.50.105:9124";
                     }
                     {
                       title = "Vikunja";
                       icon = "si:todoist";
-                      url = "https://todo.welkin.ckgxrg.io";
+                      allow-insecure = true;
+                      url = "http://192.168.50.105:4571";
                     }
                   ];
                 }
@@ -411,8 +422,8 @@
                   title = "Archiva";
                   sites = [
                     {
-                      title = "Gitea";
-                      icon = "si:gitea";
+                      title = "Forgejo";
+                      icon = "si:forgejo";
                       url = "https://archiva.ckgxrg.io";
                     }
                   ];
@@ -423,16 +434,14 @@
                   title = "Stargazer";
                   sites = [
                     {
-                      title = "Matrix";
+                      title = "Conduit";
                       icon = "si:matrix";
                       url = "https://stargazer.ckgxrg.io";
-                      alt-status-codes = [ 403 ];
                     }
                     {
                       title = "Matrix-QQ";
                       icon = "si:qq";
                       url = "https://stargazer.ckgxrg.io";
-                      alt-status-codes = [ 403 ];
                     }
                   ];
                 }

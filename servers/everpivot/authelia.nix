@@ -1,5 +1,7 @@
 { ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 1976 ];
+
   services.authelia.instances."Welkin" = {
     enable = true;
     user = "authelia";
@@ -122,20 +124,6 @@
             client_name = "Vikunja";
             authorization_policy = "one_factor";
             redirect_uris = [ "https://todo.welkin.ckgxrg.io/auth/openid/welkin" ];
-            scopes = [
-              "openid"
-              "email"
-              "profile"
-            ];
-            userinfo_signed_response_alg = "none";
-            token_endpoint_auth_method = "client_secret_basic";
-          }
-          {
-            client_id = "adventurelog";
-            client_secret = "$pbkdf2-sha512$310000$rvybNTrkG4qHL/31xGp03w$Z1cnJOObu.sipS50XorZtwDNJV.c0QPlNS1n8pONODWuCgWCuLxgd1H4SoEz2aZMJ1NCAdqEoO00iifyZuvMWA";
-            client_name = "Adventure Log";
-            authorization_policy = "one_factor";
-            redirect_uris = [ "https://trips.welkin.ckgxrg.io/accounts/oidc/welkin/login/callback/" ];
             scopes = [
               "openid"
               "email"

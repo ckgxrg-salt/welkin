@@ -28,15 +28,27 @@ in
       '';
       "welkin.ckgxrg.io" = mkHost 1 ''
         handle {
+          forward_auth 192.168.50.101:1976 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
           reverse_proxy 192.168.50.101:5678
         }
 
         @files path /files /files/*
         handle @files {
+          forward_auth 192.168.50.101:1976 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
           reverse_proxy 192.168.50.101:8124
         }
 
         handle_path /sync/* {
+          forward_auth 192.168.50.101:1976 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
           reverse_proxy 192.168.50.101:8384
         }
 
@@ -56,9 +68,17 @@ in
         }
       '';
       "davis.welkin.ckgxrg.io" = mkHost 2 ''
+        forward_auth 192.168.50.101:1976 {
+          uri /api/authz/forward-auth
+          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+        }
         reverse_proxy 192.168.50.105:8567
       '';
       "firefly.welkin.ckgxrg.io" = mkHost 2 ''
+        forward_auth 192.168.50.101:1976 {
+          uri /api/authz/forward-auth
+          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+        }
         reverse_proxy 192.168.50.105:9182
       '';
       "mealie.welkin.ckgxrg.io" = mkHost 2 ''

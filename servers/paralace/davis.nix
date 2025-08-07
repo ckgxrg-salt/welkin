@@ -1,5 +1,7 @@
 { ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 8567 ];
+
   services.davis = {
     enable = true;
     hostname = "davis.welkin.ckgxrg.io";

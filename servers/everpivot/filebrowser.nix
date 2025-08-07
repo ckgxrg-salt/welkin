@@ -1,5 +1,7 @@
 { lib, ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 8124 ];
+
   services.filebrowser = {
     enable = true;
     settings = {

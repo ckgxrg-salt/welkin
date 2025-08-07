@@ -1,5 +1,7 @@
 { ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 9182 ];
+
   services.firefly-iii = {
     enable = true;
     enableNginx = true;

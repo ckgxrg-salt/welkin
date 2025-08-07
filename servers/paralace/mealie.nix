@@ -1,5 +1,7 @@
 { ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 9275 ];
+
   services.mealie = {
     enable = true;
     listenAddress = "0.0.0.0";

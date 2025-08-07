@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 4571 ];
   # A vikunja bug make it impossible to use env var to pass secrets
   # Thus secrets have to be embedded into the config
   environment.etc."vikunja/config.yaml".source = "/var/secrets/vikunja.yaml";
