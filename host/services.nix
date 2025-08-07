@@ -17,7 +17,7 @@ in
       auto_https disable_certs
     '';
     virtualHosts = {
-      "ckgxrg.io" = mkHost 0 ''
+      "http://ckgxrg.io".extraConfig = ''
         header /.well-known/matrix/* Content-Type application/json
         header /.well-known/matrix/* Access-Control-Allow-Origin *
         respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`

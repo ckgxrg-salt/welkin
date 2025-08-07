@@ -9,7 +9,7 @@
         default = "http_status:404";
         ingress = {
           "ckgxrg.io" = {
-            service = "https://127.0.0.1:443";
+            service = "http://127.0.0.1:80";
           };
         };
       };
