@@ -6,7 +6,10 @@
       url = "github:ckgxrg-salt/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    colmena.url = "github:zhaofengli/colmena";
+    lollypops = {
+      url = "github:pinpox/lollypops";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +22,7 @@
   outputs =
     {
       self,
-      colmena,
+      lollypops,
       nixpkgs,
       ckgpkgs,
       disko,
@@ -34,37 +37,20 @@
       ckgs = ckgpkgs.packages.${system};
     in
     {
-      colmenaHive = colmena.lib.makeHive self.outputs.colmena;
-      colmena = {
-        meta = {
-          nixpkgs = import nixpkgs {
-            inherit system;
-          };
-          specialArgs = {
-            inherit ckgs;
-          };
-        };
-
-        # Host
-        Welkin = {
-          deployment = {
-            buildOnTarget = true;
-            targetUser = "deployer";
-            targetHost = "192.168.50.100";
-          };
-          imports = [
-            ./host
-            ./secrets
-            disko.nixosModules.disko
-            sops-nix.nixosModules.sops
-          ];
-        };
-      };
-
       nixosConfigurations = {
-        Welkin = nixpkgs.lib.nixosSystem {
+        "Welkin" = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit ckgs; };
           modules = [
+            lollypops.nixosModules.default
+            {
+              lollypops.deployment = {
+                local-evaluation = true;
+                ssh.user = "deployer";
+                sudo.enable = true;
+              };
+            }
+
             ./host
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
@@ -72,19 +58,20 @@
         };
       };
 
-      # A nix develop shell including formatter and linter to be used with Neovim
       devShells.${system}.default = pkgs.mkShellNoCC {
         name = "welkin";
 
-        buildInputs = [
-          pkgs.nixfmt-rfc-style
-          pkgs.deadnix
-          pkgs.sops
-          colmena.packages.${system}.colmena
+        buildInputs = with pkgs; [
+          nixfmt-rfc-style
+          deadnix
+          sops
         ];
       };
 
-      # Support nix fmt command
       formatter.${system} = pkgs.nixfmt-rfc-style;
+
+      packages.x86_64-linux.deploy = lollypops.packages.x86_64-linux.default.override {
+        configFlake = self;
+      };
     };
 }

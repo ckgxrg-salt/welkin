@@ -3,7 +3,7 @@
   networking.firewall.allowedTCPPorts = [ 9275 ];
 
   services.mealie = {
-    enable = true;
+    enable = false;
     listenAddress = "0.0.0.0";
     port = 9275;
     settings = {
