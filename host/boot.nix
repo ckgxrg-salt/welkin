@@ -1,9 +1,6 @@
 { pkgs, ... }:
-# Bootstrap Process
 {
   boot = {
-    #========== Bootloader ==========#
-    # Config systemd-boot
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -14,7 +11,6 @@
       };
     };
 
-    #========== Initrd ==========#
     initrd = {
       systemd.enable = true;
       verbose = true;
@@ -31,14 +27,10 @@
       ];
     };
 
-    #========== Kernel ==========#
-    # Use lqx kernel
     kernelPackages = pkgs.linuxPackages_zen;
 
-    # ZFS
     supportedFilesystems = [ "zfs" ];
 
-    # Kernel extra config
     kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";

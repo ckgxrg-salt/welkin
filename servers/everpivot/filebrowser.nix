@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   networking.firewall.allowedTCPPorts = [ 8124 ];
 
@@ -14,23 +14,5 @@
     };
   };
 
-  # Why use DynamicUser if it need to access files...?
-  systemd.services.filebrowser = {
-    serviceConfig = {
-      DynamicUser = lib.mkForce false;
-      User = "filebrowser";
-      group = "filebrowser";
-    };
-  };
-
-  # Dedicated user
-  users = {
-    users."filebrowser" = {
-      description = "Filebrowser";
-      isSystemUser = true;
-      group = "filebrowser";
-      extraGroups = [ "storage" ];
-    };
-    groups."filebrowser" = { };
-  };
+  systemd.services.filebrowser.serviceConfig.SupplementaryGroups = [ "storage" ];
 }

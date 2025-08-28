@@ -1,5 +1,4 @@
 { ckgs, ... }:
-# Servers entrypoint
 {
   containers =
     let

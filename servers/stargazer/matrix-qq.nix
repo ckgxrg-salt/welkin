@@ -1,5 +1,4 @@
 { pkgs, ckgs, ... }:
-# Matrix-QQ bridge
 let
   settingsFile = "/var/lib/matrix-qq/settings.yaml";
   registrationFile = "/var/lib/matrix-qq/qq-registration.yaml";

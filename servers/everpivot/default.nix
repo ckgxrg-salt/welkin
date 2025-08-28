@@ -1,5 +1,4 @@
 { ... }:
-# Miscellaneous services
 {
   imports = [
     ../common.nix
@@ -51,7 +50,6 @@
 
   users = {
     users = {
-      # System administration & maintance
       "bse" = {
         isNormalUser = true;
         uid = 1001;
@@ -66,7 +64,6 @@
           ../../keys/asedia-ssh.pub
         ];
       };
-      # Storage user
       "storage" = {
         isSystemUser = true;
         uid = 1024;

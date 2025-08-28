@@ -1,5 +1,4 @@
 { ... }:
-# Communication related
 {
   imports = [
     ../common.nix
@@ -42,10 +41,8 @@
     '';
   };
 
-  # Users
   users = {
     users = {
-      # System administration & maintance
       "psichilus" = {
         isNormalUser = true;
         uid = 1001;

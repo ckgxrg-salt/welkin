@@ -1,7 +1,5 @@
 { ... }:
-# Configuration
 {
-  #========== Hardware ==========#
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
@@ -26,15 +24,11 @@
     };
   };
 
-  #========== Network & Devices ==========#
-  # Internet
   networking = {
-    # Ethernet only
     wireless.enable = false;
     useNetworkd = true;
   };
 
-  # Use systemd-networkd to manage interfaces
   systemd.network = {
     enable = true;
     networks = {
@@ -69,10 +63,8 @@
     };
   };
 
-  #========== Power ==========#
   services.thermald.enable = true;
 
-  #========== Nix ==========#
   nix = {
     channel.enable = false;
     settings = {
@@ -83,7 +75,6 @@
         "root"
         "@wheel"
       ];
-      # Enable flakes
       experimental-features = [
         "nix-command"
         "flakes"
@@ -98,8 +89,6 @@
     hostPlatform = "x86_64-linux";
   };
 
-  #========== Localisation ==========#
-  # Timezone, Locale
   time.timeZone = "Asia/Shanghai";
 
   i18n = {
@@ -112,8 +101,6 @@
     };
   };
 
-  #========== Miscellaneous ==========#
-  # Who'll need this...
   programs.nano.enable = false;
   programs.command-not-found.enable = false;
   services.speechd.enable = false;

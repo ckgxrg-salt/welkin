@@ -1,5 +1,4 @@
 { ... }:
-# Redirect domains to services
 let
   mkHost = cert: cfg: {
     useACMEHost = builtins.toString cert;

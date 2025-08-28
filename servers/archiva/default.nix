@@ -1,5 +1,4 @@
 { ... }:
-# Study & Project management
 {
   imports = [
     ../common.nix
@@ -42,7 +41,6 @@
   };
 
   users.users = {
-    # System administration & maintance
     "cresilexica" = {
       isNormalUser = true;
       uid = 1001;

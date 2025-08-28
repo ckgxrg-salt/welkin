@@ -1,5 +1,4 @@
 { ... }:
-# Entertainment
 {
   imports = [
     ../common.nix
@@ -42,7 +41,6 @@
 
   users = {
     users = {
-      # System administration & maintance
       "slat" = {
         isNormalUser = true;
         uid = 1001;
@@ -54,7 +52,6 @@
           ../../keys/asedia-ssh.pub
         ];
       };
-      # This user actually runs Minecraft servers
       "goat" = {
         isNormalUser = true;
         uid = 1002;

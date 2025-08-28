@@ -1,5 +1,4 @@
 { ... }:
-# Forgejo
 {
   services.forgejo = {
     enable = true;
@@ -22,7 +21,6 @@
     };
   };
 
-  # Forgejo database
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "forgejo" ];
@@ -34,7 +32,6 @@
     ];
   };
 
-  # Forgejo related users
   users = {
     users = {
       "forgejo" = {

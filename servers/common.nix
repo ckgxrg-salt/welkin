@@ -1,5 +1,4 @@
 { ... }:
-# Common configurations
 {
   networking = {
     wireless.enable = false;

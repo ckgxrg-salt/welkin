@@ -1,8 +1,6 @@
 { ... }:
-#========== Disks ==========#
 {
   disko.devices = {
-    # Physical disks
     disk = {
       "nvme" = {
         type = "disk";
@@ -41,7 +39,6 @@
       };
     };
 
-    # Primary zpool
     zpool = {
       "welkin" = {
         type = "zpool";

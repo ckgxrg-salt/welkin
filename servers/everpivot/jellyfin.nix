@@ -1,5 +1,4 @@
 { ... }:
-# Jellyfin Media Server
 {
   services.jellyfin = {
     enable = true;
@@ -8,7 +7,6 @@
     group = "jellyfin";
   };
 
-  # Dedicated user
   users = {
     users."jellyfin" = {
       description = "Jellyfin Media Server";

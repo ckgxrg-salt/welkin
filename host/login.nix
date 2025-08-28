@@ -1,6 +1,5 @@
 { ... }:
 {
-  # Login Messages
   environment.etc = {
     "motd".text = ''
       Welcome from the Welkin - Host
@@ -10,10 +9,8 @@
     '';
   };
 
-  # Users & Groups
   users = {
     users = {
-      # System administration & maintance
       "akacloud" = {
         isNormalUser = true;
         uid = 1001;
@@ -28,7 +25,6 @@
           ../keys/asedia-ssh.pub
         ];
       };
-      # The target colmena will ssh into
       "deployer" = {
         isNormalUser = true;
         uid = 1002;
@@ -43,7 +39,6 @@
           ../keys/asedia-ssh.pub
         ];
       };
-      # Storage user
       "storage" = {
         description = "Storage user";
         isSystemUser = true;

@@ -1,5 +1,4 @@
 { ... }:
-# Daily chores
 {
   imports = [
     ../common.nix
@@ -44,10 +43,8 @@
     '';
   };
 
-  # Users
   users = {
     users = {
-      # System administration & maintance
       "lurocia" = {
         isNormalUser = true;
         uid = 1001;

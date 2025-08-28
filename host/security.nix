@@ -1,7 +1,5 @@
 { ... }:
-# Security configuration
 {
-  # SSH to the dom0 should be strictly limited
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
@@ -16,7 +14,6 @@
     };
   };
 
-  # sudo
   security.sudo = {
     enable = true;
     wheelNeedsPassword = true;
@@ -35,7 +32,6 @@
     ];
   };
 
-  # Firewall with NFTables
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;
@@ -45,7 +41,6 @@
     implementation = "broker";
   };
 
-  # TPM Support
   boot.initrd.systemd.tpm2.enable = true;
   security.tpm2 = {
     enable = true;
