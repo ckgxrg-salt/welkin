@@ -33,7 +33,7 @@
 
     #========== Kernel ==========#
     # Use lqx kernel
-    kernelPackages = pkgs.linuxPackages_lqx;
+    kernelPackages = pkgs.linuxPackages_zen;
 
     # ZFS
     supportedFilesystems = [ "zfs" ];
