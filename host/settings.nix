@@ -89,6 +89,10 @@
         "flakes"
       ];
     };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
   };
   nixpkgs = {
     hostPlatform = "x86_64-linux";
