@@ -39,10 +39,7 @@ in
     "paralace/firefly-iii/app-key" = default;
     "paralace/mealie/client-secret.env" = { };
     "paralace/miniflux/client-secret.env" = { };
-    "paralace/vikunja.yaml" = default // {
-      sopsFile = ./vikunja.yaml;
-      key = "";
-    };
+    "paralace/vikunja/config.yml" = default;
     "paralace/silverbullet/env" = { };
   };
 
