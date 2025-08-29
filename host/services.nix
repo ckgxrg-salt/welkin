@@ -27,10 +27,6 @@ in
       '';
       "welkin.ckgxrg.io" = mkHost 1 ''
         handle {
-          forward_auth 192.168.50.101:1976 {
-            uri /api/authz/forward-auth
-            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          }
           reverse_proxy 192.168.50.101:5678
         }
 
@@ -44,10 +40,6 @@ in
         }
 
         handle_path /sync/* {
-          forward_auth 192.168.50.101:1976 {
-            uri /api/authz/forward-auth
-            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          }
           reverse_proxy 192.168.50.101:8384
         }
 

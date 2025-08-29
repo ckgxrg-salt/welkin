@@ -33,6 +33,31 @@
       };
       access_control = {
         default_policy = "deny";
+        rules = [
+          {
+            domain = "welkin.ckgxrg.io";
+            policy = "one_factor";
+            subject = [
+              "group:admin"
+            ];
+          }
+          {
+            domain = "davis.welkin.ckgxrg.io";
+            policy = "one_factor";
+            subject = [
+              "group:admin"
+              "group:davis"
+            ];
+          }
+          {
+            domain = "firefly.welkin.ckgxrg.io";
+            policy = "one_factor";
+            subject = [
+              "group:admin"
+              "group:firefly"
+            ];
+          }
+        ];
       };
       identity_providers.oidc = {
         clients = [
