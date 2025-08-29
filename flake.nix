@@ -52,6 +52,7 @@
             }
 
             ./host
+            ./secrets
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
           ];

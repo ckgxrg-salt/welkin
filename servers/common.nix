@@ -5,7 +5,7 @@
     useNetworkd = true;
     useHostResolvConf = false;
     hosts = {
-      "192.168.50.101" = [ "auth.welkin.ckgxrg.io" ];
+      "192.168.50.100" = [ "auth.welkin.ckgxrg.io" ];
     };
   };
   services.resolved.extraConfig = ''
