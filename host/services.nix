@@ -65,6 +65,11 @@ in
         handle @miniflux {
           reverse_proxy 192.168.50.105:9124
         }
+
+        @notes path /notes /notes/*
+        handle @notes {
+          reverse_proxy 192.168.50.105:4600
+        }
       '';
       "davis.welkin.ckgxrg.io" = mkHost 2 ''
         forward_auth 192.168.50.101:1976 {

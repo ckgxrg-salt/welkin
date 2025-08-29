@@ -45,6 +45,13 @@
       };
       # Daily chores
       paralace = base // {
+        bindMounts = {
+          storage = {
+            isReadOnly = false;
+            mountPoint = "/data";
+            hostPath = "/data";
+          };
+        };
         localAddress = "192.168.50.105/24";
         localAddress6 = "2408:8214:124:1750:e251:d8ff:23ae:ea23/64";
         config = import ./paralace;

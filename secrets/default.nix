@@ -43,7 +43,7 @@ in
       sopsFile = ./vikunja.yaml;
       key = "";
     };
-    "impure/adventurelog/env" = { };
+    "paralace/silverbullet/env" = { };
   };
 
   containers = {

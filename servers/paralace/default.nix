@@ -8,6 +8,7 @@
     ./mealie.nix
     ./miniflux.nix
     ./vikunja.nix
+    ./silverbullet.nix
   ];
 
   networking = {
@@ -56,7 +57,13 @@
           ../../keys/asedia-ssh.pub
         ];
       };
+      "storage" = {
+        isSystemUser = true;
+        uid = 1024;
+        group = "storage";
+      };
     };
+    groups."storage" = { };
   };
 
   system.stateVersion = "24.11";
