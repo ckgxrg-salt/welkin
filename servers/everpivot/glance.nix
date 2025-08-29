@@ -241,7 +241,7 @@
                       <li>
                           <div class="flex gap-10 row-reverse-on-mobile thumbnail-parent">
                               <div class="grow min-width-0">
-                                  <a href="https://192.168.50.105:9124/miniflux/unread/category/2/entry/{{ .String "id" }}" class="size-title-dynamic color-primary-if-not-visited" target="_blank" rel="noreferrer">{{ .String "title" }}</a>
+                                  <a href="https://welkin.ckgxrg.io/miniflux/unread/category/2/entry/{{ .String "id" }}" class="size-title-dynamic color-primary-if-not-visited" target="_blank" rel="noreferrer">{{ .String "title" }}</a>
                                   <ul class="list-horizontal-text flex-nowrap text-compact">
                                       <li class="shrink-0">{{ .String "feed.title" }}</li>
                                       <li class="shrink-0" {{ .String "published_at" | parseTime "rfc3339" | toRelativeTime }}></li>
@@ -413,6 +413,12 @@
                       icon = "si:todoist";
                       allow-insecure = true;
                       url = "http://192.168.50.105:4571";
+                    }
+                    {
+                      title = "Silverbullet";
+                      icon = "si:note";
+                      allow-insecure = true;
+                      url = "http://192.168.50.105:4600";
                     }
                   ];
                 }
