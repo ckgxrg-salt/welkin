@@ -1,11 +1,11 @@
 { ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 9275 ];
+  networking.firewall.allowedTCPPorts = [ 7502 ];
 
   services.mealie = {
-    enable = false;
+    enable = true;
     listenAddress = "0.0.0.0";
-    port = 9275;
+    port = 7502;
     settings = {
       BASE_URL = "https://mealie.welkin.ckgxrg.io";
       DB_ENGINE = "postgres";

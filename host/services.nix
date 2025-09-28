@@ -1,4 +1,29 @@
 { ... }:
+# Services and their ports
+# ========================
+# Everpivot 71:
+# - Authelia 7100
+# - Filebrowser 7101
+# - Glance 7102
+# - Jellyfin 7103
+# - Syncthing 7104
+# ========================
+# Archiva 72:
+# - Forgejo 7200
+# ========================
+# Goatfold 73:
+# - Minecraft 7300
+# ========================
+# Stargazer 74:
+# - Conduit 7400
+# ========================
+# Paralace 75:
+# - Davis 7500
+# - Firefly III 7501
+# - Mealie 7502
+# - Miniflux 7503
+# - Silverbullet 7504
+# - Vikunja 7505
 let
   mkHost = cert: cfg: {
     useACMEHost = builtins.toString cert;

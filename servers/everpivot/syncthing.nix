@@ -1,10 +1,10 @@
 { ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 8384 ];
+  networking.firewall.allowedTCPPorts = [ 7104 ];
 
   services.syncthing = {
     enable = true;
-    guiAddress = "0.0.0.0:8384";
+    guiAddress = "0.0.0.0:7104";
     user = "storage";
     group = "storage";
     overrideDevices = false;
@@ -18,17 +18,6 @@
         # Since it has no native support for SSO...
         insecureAdminAccess = true;
         insecureSkipHostcheck = true;
-      };
-      folders = {
-        "Books" = {
-          path = "/data/Books";
-        };
-        "Music" = {
-          path = "/data/Music";
-        };
-        "KeeShare" = {
-          path = "/data/KeeShare";
-        };
       };
     };
   };

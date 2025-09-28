@@ -10,7 +10,7 @@
       server = {
         DOMAIN = "archiva.ckgxrg.io";
         ROOT_URL = "https://archiva.ckgxrg.io";
-        HTTP_PORT = 8999;
+        HTTP_PORT = 7200;
       };
       service = {
         DISABLE_REGISTRATION = true;

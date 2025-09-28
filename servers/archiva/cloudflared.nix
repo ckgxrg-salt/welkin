@@ -9,7 +9,7 @@
         default = "http_status:404";
         ingress = {
           "archiva.ckgxrg.io" = {
-            service = "http://127.0.0.1:8999";
+            service = "http://127.0.0.1:7200";
           };
         };
       };

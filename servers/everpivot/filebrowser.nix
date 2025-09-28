@@ -1,12 +1,12 @@
 { ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 8124 ];
+  networking.firewall.allowedTCPPorts = [ 7101 ];
 
   services.filebrowser = {
     enable = true;
     settings = {
       address = "0.0.0.0";
-      port = 8124;
+      port = 7101;
       root = "/data";
       baseurl = "/files";
       "auth.method" = "proxy";

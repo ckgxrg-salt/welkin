@@ -1,6 +1,6 @@
 { ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 9182 ];
+  networking.firewall.allowedTCPPorts = [ 7501 ];
 
   services.firefly-iii = {
     enable = true;
@@ -22,7 +22,7 @@
   services.nginx.virtualHosts."firefly".listen = [
     {
       addr = "0.0.0.0";
-      port = 9182;
+      port = 7501;
     }
   ];
 

@@ -9,7 +9,7 @@
         default = "http_status:404";
         ingress = {
           "stargazer.ckgxrg.io" = {
-            service = "http://127.0.0.1:8008";
+            service = "http://127.0.0.1:7400";
           };
         };
       };

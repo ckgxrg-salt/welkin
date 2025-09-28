@@ -1,13 +1,13 @@
 { ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 5678 ];
+  networking.firewall.allowedTCPPorts = [ 7102 ];
 
   services.glance = {
     enable = true;
     environmentFile = "/var/secrets/glance/env";
     settings = {
       server = {
-        port = 5678;
+        port = 7102;
         host = "0.0.0.0";
         proxied = true;
       };

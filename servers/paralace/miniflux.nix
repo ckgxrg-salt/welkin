@@ -1,13 +1,13 @@
 { ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 9124 ];
+  networking.firewall.allowedTCPPorts = [ 7503 ];
 
   services.miniflux = {
     enable = true;
     adminCredentialsFile = "/var/secrets/miniflux/client-secret.env";
     config = {
       BASE_URL = "https://welkin.ckgxrg.io/miniflux";
-      LISTEN_ADDR = "0.0.0.0:9124";
+      LISTEN_ADDR = "0.0.0.0:7503";
 
       CREATE_ADMIN = 1;
 

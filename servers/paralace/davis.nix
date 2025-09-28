@@ -1,6 +1,6 @@
 { ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 8567 ];
+  networking.firewall.allowedTCPPorts = [ 7500 ];
 
   services.davis = {
     enable = true;
@@ -17,7 +17,7 @@
       listen = [
         {
           addr = "0.0.0.0";
-          port = 8567;
+          port = 7500;
         }
       ];
     };

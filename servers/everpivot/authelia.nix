@@ -1,6 +1,6 @@
 { ... }:
 {
-  networking.firewall.allowedTCPPorts = [ 1976 ];
+  networking.firewall.allowedTCPPorts = [ 7100 ];
 
   services.authelia.instances."Welkin" = {
     enable = true;
@@ -18,7 +18,7 @@
     };
     settings = {
       server = {
-        address = "tcp://:1976";
+        address = "tcp://:7100";
         asset_path = "/var/lib/authelia-Welkin/assets";
         endpoints.authz.forward-auth.implementation = "ForwardAuth";
       };
