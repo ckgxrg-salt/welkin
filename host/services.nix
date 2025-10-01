@@ -48,29 +48,29 @@ in
         respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
       '';
       "auth.welkin.ckgxrg.io" = mkHost 2 ''
-        reverse_proxy 192.168.50.101:1976
+        reverse_proxy 127.0.0.1:7100
       '';
       "welkin.ckgxrg.io" = mkHost 1 ''
         handle {
-          reverse_proxy 192.168.50.101:5678
+          reverse_proxy 127.0.0.1:7102
         }
 
         @files path /files /files/*
         handle @files {
-          forward_auth 192.168.50.101:1976 {
+          forward_auth 127.0.0.1:7100 {
             uri /api/authz/forward-auth
             copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
           }
-          reverse_proxy 192.168.50.101:8124
+          reverse_proxy 127.0.0.1:7101
         }
 
         handle_path /sync/* {
-          reverse_proxy 192.168.50.101:8384
+          reverse_proxy 127.0.0.1:7104
         }
 
         @jellyfin path /jellyfin /jellyfin/*
         handle @jellyfin {
-          reverse_proxy 192.168.50.101:8096
+          reverse_proxy 127.0.0.1:7103
         }
 
         @bookmarks path /bookmarks /bookmarks/*
@@ -80,33 +80,33 @@ in
 
         @miniflux path /miniflux /miniflux/*
         handle @miniflux {
-          reverse_proxy 192.168.50.105:9124
+          reverse_proxy 127.0.0.1:7503
         }
 
         @notes path /notes /notes/*
         handle @notes {
-          reverse_proxy 192.168.50.105:4600
+          reverse_proxy 127.0.0.1:7504
         }
       '';
       "davis.welkin.ckgxrg.io" = mkHost 2 ''
-        forward_auth 192.168.50.101:1976 {
+        forward_auth 127.0.0.1:7100 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
         }
-        reverse_proxy 192.168.50.105:8567
+        reverse_proxy 127.0.0.1:7500
       '';
       "firefly.welkin.ckgxrg.io" = mkHost 2 ''
-        forward_auth 192.168.50.101:1976 {
+        forward_auth 127.0.0.1:7100 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
         }
-        reverse_proxy 192.168.50.105:9182
+        reverse_proxy 127.0.0.1:7501
       '';
       "mealie.welkin.ckgxrg.io" = mkHost 2 ''
-        reverse_proxy 192.168.50.105:9275
+        reverse_proxy 127.0.0.1:7502
       '';
       "todo.welkin.ckgxrg.io" = mkHost 2 ''
-        reverse_proxy 192.168.50.105:4571
+        reverse_proxy 127.0.0.1:7505
       '';
     };
   };
