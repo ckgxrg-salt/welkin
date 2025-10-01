@@ -12,24 +12,24 @@
     hostId = "18324a96";
   };
 
-  systemd.network = {
-    enable = true;
-    networks = {
-      "20-lan" = {
-        matchConfig.Type = "ether";
-        networkConfig = {
-          Address = [
-            "192.168.50.102/24"
-            "2408:8215:123:16d0:e251:d8ff:5bd9:8a1c/64"
-          ];
-          Gateway = "192.168.50.1";
-          DNS = [ "192.168.50.1" ];
-          IPv6AcceptRA = true;
-          DHCP = "no";
-        };
-      };
-    };
-  };
+  # systemd.network = {
+  #   enable = true;
+  #   networks = {
+  #     "20-lan" = {
+  #       matchConfig.Type = "ether";
+  #       networkConfig = {
+  #         Address = [
+  #           "192.168.50.102/24"
+  #           "2408:8215:123:16d0:e251:d8ff:5bd9:8a1c/64"
+  #         ];
+  #         Gateway = "192.168.50.1";
+  #         DNS = [ "192.168.50.1" ];
+  #         IPv6AcceptRA = true;
+  #         DHCP = "no";
+  #       };
+  #     };
+  #   };
+  # };
 
   environment.etc = {
     "motd".text = ''

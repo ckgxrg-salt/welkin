@@ -5,7 +5,7 @@
     useNetworkd = true;
     useHostResolvConf = false;
     hosts = {
-      "192.168.50.100" = [ "auth.welkin.ckgxrg.io" ];
+      # "192.168.50.100" = [ "auth.welkin.ckgxrg.io" ];
     };
   };
   services.resolved.extraConfig = ''
@@ -29,7 +29,7 @@
     };
   };
 
-  time.timeZone = "Asia/Shanghai";
+  time.timeZone = "Europe/London";
 
   i18n = {
     defaultLocale = "en_GB.UTF-8";
