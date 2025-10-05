@@ -25,7 +25,10 @@
   };
 
   networking = {
-    wireless.enable = false;
+    # wireless.enable = false;
+    wireless.iwd = {
+      enable = true;
+    };
     useNetworkd = true;
   };
 
