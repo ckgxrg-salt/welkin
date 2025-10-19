@@ -25,46 +25,17 @@
   };
 
   networking = {
-    # wireless.enable = false;
-    wireless.iwd = {
-      enable = true;
-    };
-    useNetworkd = true;
-  };
+    wireless.iwd.enable = true;
+    nftables.enable = true;
+    firewall.enable = true;
 
-  # systemd.network = {
-  #   enable = true;
-  #   networks = {
-  #     "10-lan" = {
-  #       matchConfig.Name = [
-  #         "enp3s0"
-  #         "vm-*"
-  #       ];
-  #       networkConfig = {
-  #         Bridge = "br0";
-  #       };
-  #     };
-  #     "10-lan-bridge" = {
-  #       matchConfig.Name = "br0";
-  #       networkConfig = {
-  #         Address = [
-  #           "192.168.50.100/24"
-  #           "2408:8215:123:16d0:e251:d8ff:fe17:c7ff/64"
-  #         ];
-  #         Gateway = "192.168.50.1";
-  #         DNS = [ "192.168.50.1" ];
-  #         IPv6AcceptRA = true;
-  #       };
-  #       linkConfig.RequiredForOnline = "routable";
-  #     };
-  #   };
-  #   netdevs."br0" = {
-  #     netdevConfig = {
-  #       Name = "br0";
-  #       Kind = "bridge";
-  #     };
-  #   };
-  # };
+    # Control container IPs
+    nat = {
+      enable = true;
+      internalInterfaces = [ "ve-*" ];
+      externalInterface = "wlan0";
+    };
+  };
 
   services.thermald.enable = true;
 

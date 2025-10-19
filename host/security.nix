@@ -32,11 +32,6 @@
     ];
   };
 
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-  };
-
   services.dbus = {
     implementation = "broker";
   };

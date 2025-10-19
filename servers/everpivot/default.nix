@@ -16,25 +16,6 @@
     hostId = "f058329f";
   };
 
-  # systemd.network = {
-  #   enable = true;
-  #   networks = {
-  #     "20-lan" = {
-  #       matchConfig.Type = "ether";
-  #       networkConfig = {
-  #         Address = [
-  #           "192.168.50.101/24"
-  #           "2408:8215:123:16d0:e251:d8ff:95ca:72a1/64"
-  #         ];
-  #         Gateway = "192.168.50.1";
-  #         DNS = [ "192.168.50.1" ];
-  #         IPv6AcceptRA = true;
-  #         DHCP = "no";
-  #       };
-  #     };
-  #   };
-  # };
-
   systemd.tmpfiles.rules = [
     "d /data 770 storage storage - -"
   ];

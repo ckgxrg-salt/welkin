@@ -5,12 +5,14 @@
     useNetworkd = true;
     useHostResolvConf = false;
     hosts = {
-      # "192.168.50.100" = [ "auth.welkin.ckgxrg.io" ];
+      "10.7.0.0" = [ "auth.welkin.ckgxrg.io" ];
     };
   };
   services.resolved.extraConfig = ''
     DNSStubListener=no
   '';
+
+  systemd.network.wait-online.enable = false;
 
   nix = {
     channel.enable = false;
