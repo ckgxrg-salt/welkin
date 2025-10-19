@@ -8,7 +8,6 @@
     ./mealie.nix
     ./miniflux.nix
     ./vikunja.nix
-    ./silverbullet.nix
   ];
 
   networking = {

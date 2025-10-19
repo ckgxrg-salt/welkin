@@ -22,7 +22,6 @@
 # - Firefly III 7501
 # - Mealie 7502
 # - Miniflux 7503
-# - Silverbullet 7504
 # - Vikunja 7505
 let
   mkHost = cert: cfg: {
@@ -83,9 +82,6 @@ in
           reverse_proxy 127.0.0.1:7503
         }
 
-        @notes path /notes /notes/*
-        handle @notes {
-          reverse_proxy 127.0.0.1:7504
         }
       '';
       "davis.welkin.ckgxrg.io" = mkHost 2 ''
