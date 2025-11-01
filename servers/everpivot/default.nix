@@ -5,6 +5,7 @@
 
     ./adguard.nix
     ./authelia.nix
+    ./alumnimap.nix
     ./filebrowser.nix
     ./glance.nix
     ./jellyfin.nix
