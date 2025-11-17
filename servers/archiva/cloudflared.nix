@@ -11,6 +11,9 @@
           "archiva.ckgxrg.io" = {
             service = "http://127.0.0.1:7200";
           };
+          "alumnimap.ckgxrg.io" = {
+            service = "http://127.0.0.1:7201";
+          };
         };
       };
     };
