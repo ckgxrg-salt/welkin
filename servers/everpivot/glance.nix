@@ -229,7 +229,7 @@
                 {
                   type = "custom-api";
                   title = "RSS Feeds";
-                  url = "http://192.168.50.105:9124/miniflux/v1/categories/2/entries?limit=10&order=published_at&direction=desc&category_id=2&status=unread";
+                  url = "http://welkin.ckgxrg.io/rss/v1/categories/2/entries?limit=10&order=published_at&direction=desc&category_id=2&status=unread";
                   cache = "15m";
                   headers = {
                     X-Auth-Token = "\${MINIFLUX_TOKEN}";
@@ -241,7 +241,7 @@
                       <li>
                           <div class="flex gap-10 row-reverse-on-mobile thumbnail-parent">
                               <div class="grow min-width-0">
-                                  <a href="https://welkin.ckgxrg.io/miniflux/unread/category/2/entry/{{ .String "id" }}" class="size-title-dynamic color-primary-if-not-visited" target="_blank" rel="noreferrer">{{ .String "title" }}</a>
+                                  <a href="https://welkin.ckgxrg.io/rss/unread/category/2/entry/{{ .String "id" }}" class="size-title-dynamic color-primary-if-not-visited" target="_blank" rel="noreferrer">{{ .String "title" }}</a>
                                   <ul class="list-horizontal-text flex-nowrap text-compact">
                                       <li class="shrink-0">{{ .String "feed.title" }}</li>
                                       <li class="shrink-0" {{ .String "published_at" | parseTime "rfc3339" | toRelativeTime }}></li>

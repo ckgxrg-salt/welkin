@@ -6,7 +6,7 @@
     enable = true;
     adminCredentialsFile = "/var/secrets/miniflux/client-secret.env";
     config = {
-      BASE_URL = "https://welkin.ckgxrg.io/miniflux";
+      BASE_URL = "https://welkin.ckgxrg.io/rss";
       LISTEN_ADDR = "0.0.0.0:7503";
 
       CREATE_ADMIN = 1;
@@ -15,7 +15,7 @@
       OAUTH2_CLIENT_ID = "miniflux";
       OAUTH2_OIDC_PROVIDER_NAME = "Welkin";
       OAUTH2_PROVIDER = "oidc";
-      OAUTH2_REDIRECT_URL = "https://welkin.ckgxrg.io/miniflux/oauth2/oidc/callback";
+      OAUTH2_REDIRECT_URL = "https://welkin.ckgxrg.io/rss/oauth2/oidc/callback";
     };
   };
 

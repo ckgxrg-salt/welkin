@@ -78,8 +78,8 @@ in
           respond "Under Construction" 501
         }
 
-        @miniflux path /miniflux /miniflux/*
-        handle @miniflux {
+        @rss path /rss /rss/*
+        handle @rss {
           reverse_proxy 10.7.0.5:7503
         }
       '';

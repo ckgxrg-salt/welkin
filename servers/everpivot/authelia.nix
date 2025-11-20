@@ -109,7 +109,7 @@
             client_secret = "$pbkdf2-sha512$310000$6Pc6L/0c58.EoViD8jyKVw$9XE7vgDzyEZHGg0xua6KMgDWwq4k1z3NEQIuxAWg.YXACFqgTmfrhYsmdPlnxJ0y/a3QvcAIPYpBp.JwKQNEwA";
             client_name = "Miniflux";
             authorization_policy = "one_factor";
-            redirect_uris = [ "https://welkin.ckgxrg.io/miniflux/oauth2/oidc/callback" ];
+            redirect_uris = [ "https://welkin.ckgxrg.io/rss/oauth2/oidc/callback" ];
             scopes = [
               "openid"
               "email"
