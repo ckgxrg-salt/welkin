@@ -9,7 +9,7 @@
     settings = {
       BASE_URL = "https://mealie.welkin.ckgxrg.io";
       DB_ENGINE = "postgres";
-      POSTGRES_SERVER = "localhost";
+      POSTGRES_SERVER = "127.0.0.1";
 
       OIDC_AUTH_ENABLED = true;
       OIDC_SIGNUP_ENABLED = true;
