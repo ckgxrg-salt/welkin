@@ -6,6 +6,7 @@
     hosts = {
       "10.7.0.0" = [
         "auth.welkin.ckgxrg.io"
+        "welkin.ckgxrg.io"
         "Welkin"
       ];
       "10.7.0.1" = [ "Everpivot" ];
@@ -15,9 +16,12 @@
       "10.7.0.5" = [ "Paralace" ];
     };
   };
-  services.resolved.extraConfig = ''
-    DNSStubListener=no
-  '';
+  services.resolved = {
+    enable = true;
+    extraConfig = ''
+      DNSStubListener=no
+    '';
+  };
 
   systemd.network.wait-online.enable = false;
 
