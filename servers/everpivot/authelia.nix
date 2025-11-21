@@ -94,7 +94,11 @@
             client_secret = "$pbkdf2-sha512$310000$.4z4aG.rGjNuqRieKKQ69Q$a3trExILXestrXn0mH2v0KfBSCrJXmOkKt1v5G6eM5KunHwsO2gC/UZW0nYPYgEYzx66HeyoN3pYkVbau3Zm4A";
             client_name = "Mealie";
             authorization_policy = "one_factor";
-            redirect_uris = [ "https://mealie.welkin.ckgxrg.io/login" ];
+            redirect_uris = [
+              "https://mealie.welkin.ckgxrg.io/login"
+              # Strange bug
+              "http://mealie.welkin.ckgxrg.io/login"
+            ];
             scopes = [
               "openid"
               "email"
