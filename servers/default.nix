@@ -23,7 +23,7 @@
         localAddress = "10.7.0.1";
         config = import ./everpivot;
       };
-      # Study & Project management
+      # Academics & Project management
       archiva = base // {
         localAddress = "10.7.0.2";
         config = import ./archiva;

@@ -8,6 +8,7 @@
     ./filebrowser.nix
     ./glance.nix
     ./jellyfin.nix
+    ./redis.nix
     ./syncthing.nix
   ];
 
