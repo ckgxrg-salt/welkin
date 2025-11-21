@@ -13,7 +13,7 @@
       APP_KEY_FILE = "/var/secrets/firefly-iii/app-key";
 
       AUTHENTICATION_GUARD = "remote_user_guard";
-      AUTHENTICATION_GUARD_HEADER = "Remote-User";
+      AUTHENTICATION_GUARD_HEADER = "Remote-Email";
     };
   };
 
