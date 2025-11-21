@@ -136,6 +136,23 @@
             userinfo_signed_response_alg = "none";
             token_endpoint_auth_method = "client_secret_basic";
           }
+          {
+            client_id = "paperless";
+            client_secret = "$pbkdf2-sha512$310000$dbg.3mzulWQBl6DielCNtg$xt4UYt9wknuPKpcCzXJs2cRaRaYInhtVIw5e7flxuqhMIX8gTByCAXp0SJDDqi1E.PE7iDiKctVV9B99Tq4lnA";
+            client_name = "Paperless";
+            authorization_policy = "one_factor";
+            redirect_uris = [ "https://welkin.ckgxrg.io/docs/accounts/oidc/authelia/login/callback/" ];
+            scopes = [
+              "openid"
+              "email"
+              "profile"
+              "groups"
+            ];
+            response_types = [ "code" ];
+            grant_types = [ "authorization_code" ];
+            userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_basic";
+          }
         ];
       };
       session = {

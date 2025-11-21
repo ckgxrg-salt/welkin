@@ -7,6 +7,7 @@
 # - Glance 7102
 # - Jellyfin 7103
 # - Syncthing 7104
+# - Paperless 7105
 # ========================
 # Archiva 10.7.0.2:
 # - Forgejo 7200
@@ -81,6 +82,11 @@ in
         @rss path /rss /rss/*
         handle @rss {
           reverse_proxy 10.7.0.5:7503
+        }
+
+        @docs path /docs /docs/*
+        handle @docs {
+          reverse_proxy 10.7.0.1:7105
         }
       '';
       "davis.welkin.ckgxrg.io" = mkHost 2 ''

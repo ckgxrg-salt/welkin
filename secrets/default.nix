@@ -30,6 +30,8 @@ in
       sopsFile = ../secrets/users.yaml;
       key = "";
     };
+    "everpivot/paperless/admin-pass" = default;
+    "everpivot/paperless/env" = default;
     "archiva/cloudflare/cert.pem" = { };
     "archiva/cloudflare/archiva.json" = { };
     "stargazer/conduit/registration-token.env" = { };
