@@ -6,6 +6,7 @@
     ./cloudflared.nix
     ./conduit.nix
     ./matrix-qq.nix
+    ./matrix-whatsapp.nix
   ];
 
   networking = {
