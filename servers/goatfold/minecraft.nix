@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  java24 = pkgs.temurin-jre-bin-24;
+  java25 = pkgs.temurin-jre-bin-25;
 in
 {
   programs.tmux = {
@@ -20,7 +20,7 @@ in
     description = "Minecraft Server: %i";
     after = [ "network.target" ];
     path = [
-      java24
+      java25
       pkgs.bash
     ];
     serviceConfig = {
