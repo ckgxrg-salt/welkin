@@ -4,7 +4,7 @@
 
   services.davis = {
     enable = true;
-    hostname = "davis.welkin.ckgxrg.io";
+    hostname = "dav.welkin.ckgxrg.io";
     database.driver = "postgresql";
     adminLogin = "ckgxrg";
     adminPasswordFile = "/dev/null";

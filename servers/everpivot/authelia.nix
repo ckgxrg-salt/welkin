@@ -42,7 +42,7 @@
             ];
           }
           {
-            domain = "davis.welkin.ckgxrg.io";
+            domain = "dav.welkin.ckgxrg.io";
             policy = "one_factor";
             subject = [
               "group:admin"

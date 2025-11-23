@@ -89,7 +89,7 @@ in
           reverse_proxy 10.7.0.1:7105
         }
       '';
-      "davis.welkin.ckgxrg.io" = mkHost 2 ''
+      "dav.welkin.ckgxrg.io" = mkHost 2 ''
         forward_auth 10.7.0.1:7100 {
           uri /api/authz/forward-auth
           copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
