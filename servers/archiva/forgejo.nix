@@ -1,5 +1,7 @@
 { ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 7200 ];
+
   services.forgejo = {
     enable = true;
     database.type = "postgres";

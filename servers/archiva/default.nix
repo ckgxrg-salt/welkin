@@ -4,7 +4,6 @@
     ../common.nix
 
     ./alumnimap.nix
-    ./cloudflared.nix
     ./forgejo.nix
   ];
 

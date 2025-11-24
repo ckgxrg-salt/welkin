@@ -1,5 +1,7 @@
 { ckgs, ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 7201 ];
+
   # Dedicated user
   users = {
     users."alumnimap" = {

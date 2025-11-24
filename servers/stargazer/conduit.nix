@@ -1,5 +1,7 @@
 { ... }:
 {
+  networking.firewall.allowedTCPPorts = [ 7400 ];
+
   services.matrix-conduit = {
     enable = true;
     settings = {
@@ -10,16 +12,7 @@
         database_backend = "rocksdb";
         allow_check_for_updates = false;
         enable_lightning_bolt = false;
-        allow_registration = true;
-        #proxy.by_domain = [
-        #  {
-        #    url = "socks5h://127.0.0.1:20170";
-        #    include = [
-        #      "matrix.org"
-        #      "*.matrix.org"
-        #    ];
-        #  }
-        #];
+        allow_registration = false;
       };
     };
   };

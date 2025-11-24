@@ -32,12 +32,8 @@ in
     };
     "everpivot/paperless/admin-pass" = default;
     "everpivot/paperless/env" = default;
-    "archiva/cloudflare/cert.pem" = { };
-    "archiva/cloudflare/archiva.json" = { };
     "stargazer/conduit/registration-token.env" = { };
     "stargazer/matrix-whatsapp/env" = { };
-    "stargazer/cloudflare/cert.pem" = { };
-    "stargazer/cloudflare/stargazer.json" = { };
     "paralace/davis/app-secret" = default;
     "paralace/firefly-iii/app-key" = default;
     "paralace/mealie/client-secret.env" = { };
@@ -52,11 +48,11 @@ in
       mountPoint = "/var/secrets";
       isReadOnly = true;
     };
-    archiva.bindMounts."secrets" = {
-      hostPath = "/run/secrets/archiva";
-      mountPoint = "/var/secrets";
-      isReadOnly = true;
-    };
+    # archiva.bindMounts."secrets" = {
+    #   hostPath = "/run/secrets/archiva";
+    #   mountPoint = "/var/secrets";
+    #   isReadOnly = true;
+    # };
     stargazer.bindMounts."secrets" = {
       hostPath = "/run/secrets/stargazer";
       mountPoint = "/var/secrets";
