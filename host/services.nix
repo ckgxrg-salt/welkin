@@ -20,7 +20,6 @@
 # - Conduit 7400
 # ========================
 # Paralace 10.7.0.5:
-# - Davis 7500
 # - Firefly III 7501
 # - Mealie 7502
 # - Miniflux 7503
@@ -93,13 +92,6 @@ in
         handle_path /cloud/* {
           reverse_proxy 10.7.0.5:7504
         }
-      '';
-      "dav.welkin.ckgxrg.io" = mkHost 2 ''
-        forward_auth 10.7.0.1:7100 {
-          uri /api/authz/forward-auth
-          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-        }
-        reverse_proxy 10.7.0.5:7500
       '';
       "firefly.welkin.ckgxrg.io" = mkHost 2 ''
         forward_auth 10.7.0.1:7100 {

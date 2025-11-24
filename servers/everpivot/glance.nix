@@ -385,12 +385,6 @@
                   };
                   sites = [
                     {
-                      title = "Davis";
-                      icon = "si:googlecalendar";
-                      allow-insecure = true;
-                      url = "http://192.168.50.105:8567";
-                    }
-                    {
                       title = "Firefly III";
                       icon = "si:fireflyiii";
                       allow-insecure = true;

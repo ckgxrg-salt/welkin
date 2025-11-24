@@ -42,14 +42,6 @@
             ];
           }
           {
-            domain = "dav.welkin.ckgxrg.io";
-            policy = "one_factor";
-            subject = [
-              "group:admin"
-              "group:davis"
-            ];
-          }
-          {
             domain = "firefly.welkin.ckgxrg.io";
             policy = "one_factor";
             subject = [

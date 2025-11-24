@@ -3,7 +3,6 @@
   imports = [
     ../common.nix
 
-    ./davis.nix
     ./firefly-iii.nix
     ./mealie.nix
     ./miniflux.nix

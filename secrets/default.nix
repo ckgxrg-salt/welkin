@@ -34,7 +34,6 @@ in
     "everpivot/paperless/env" = default;
     "stargazer/conduit/registration-token.env" = { };
     "stargazer/matrix-whatsapp/env" = { };
-    "paralace/davis/app-secret" = default;
     "paralace/firefly-iii/app-key" = default;
     "paralace/mealie/client-secret.env" = { };
     "paralace/miniflux/client-secret.env" = { };
