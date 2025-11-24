@@ -153,6 +153,23 @@
             userinfo_signed_response_alg = "none";
             token_endpoint_auth_method = "client_secret_basic";
           }
+          {
+            client_id = "nextcloud";
+            client_secret = "$pbkdf2-sha512$310000$BXB7lJmdeS4vI6FwVUBixg$HRUYNbh3hTUx35Zl5FSNTfeOD2DgLUijskeA2onBPhSNKR1gYZuu4neHwhxgcWoKS0T1rYU9EyilRvN7sg3iGw";
+            client_name = "Nextcloud";
+            authorization_policy = "one_factor";
+            redirect_uris = [ "https://welkin.ckgxrg.io/cloud/apps/sociallogin/custom_oidc/welkin" ];
+            scopes = [
+              "openid"
+              "email"
+              "profile"
+              "groups"
+            ];
+            response_types = [ "code" ];
+            grant_types = [ "authorization_code" ];
+            userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_post";
+          }
         ];
       };
       session = {

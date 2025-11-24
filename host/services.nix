@@ -24,6 +24,7 @@
 # - Firefly III 7501
 # - Mealie 7502
 # - Miniflux 7503
+# - Nextcloud 7504
 # - Vikunja 7505
 let
   mkHost = cert: cfg: {
@@ -87,6 +88,10 @@ in
         @docs path /docs /docs/*
         handle @docs {
           reverse_proxy 10.7.0.1:7105
+        }
+
+        handle_path /cloud/* {
+          reverse_proxy 10.7.0.5:7504
         }
       '';
       "dav.welkin.ckgxrg.io" = mkHost 2 ''

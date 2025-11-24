@@ -7,6 +7,7 @@
     ./firefly-iii.nix
     ./mealie.nix
     ./miniflux.nix
+    ./nextcloud.nix
     ./vikunja.nix
   ];
 

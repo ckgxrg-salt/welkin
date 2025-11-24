@@ -38,8 +38,8 @@ in
     "paralace/firefly-iii/app-key" = default;
     "paralace/mealie/client-secret.env" = { };
     "paralace/miniflux/client-secret.env" = { };
+    "paralace/nextcloud/admin-pass" = default;
     "paralace/vikunja/config.yml" = default;
-    "paralace/silverbullet/env" = { };
   };
 
   containers = {
