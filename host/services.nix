@@ -24,7 +24,6 @@
 # - Mealie 7502
 # - Miniflux 7503
 # - Nextcloud 7504
-# - Vikunja 7505
 let
   mkHost = cert: cfg: {
     useACMEHost = builtins.toString cert;
@@ -102,9 +101,6 @@ in
       '';
       "mealie.welkin.ckgxrg.io" = mkHost 2 ''
         reverse_proxy 10.7.0.5:7502
-      '';
-      "todo.welkin.ckgxrg.io" = mkHost 2 ''
-        reverse_proxy 10.7.0.5:7505
       '';
     };
   };

@@ -115,20 +115,6 @@
             token_endpoint_auth_method = "client_secret_basic";
           }
           {
-            client_id = "vikunja";
-            client_secret = "$pbkdf2-sha512$310000$cuEUJxjMnVIvxpY2zGZ0KA$A618BJq.LIQTVfAL2bkhJ7AZMsvJwyvjoZb7Q1efy96RVSpUX1o53Q.F58kB1ym6doxU6tE9xlRvV2rLwk7bBA";
-            client_name = "Vikunja";
-            authorization_policy = "one_factor";
-            redirect_uris = [ "https://todo.welkin.ckgxrg.io/auth/openid/welkin" ];
-            scopes = [
-              "openid"
-              "email"
-              "profile"
-            ];
-            userinfo_signed_response_alg = "none";
-            token_endpoint_auth_method = "client_secret_basic";
-          }
-          {
             client_id = "paperless";
             client_secret = "$pbkdf2-sha512$310000$dbg.3mzulWQBl6DielCNtg$xt4UYt9wknuPKpcCzXJs2cRaRaYInhtVIw5e7flxuqhMIX8gTByCAXp0SJDDqi1E.PE7iDiKctVV9B99Tq4lnA";
             client_name = "Paperless";

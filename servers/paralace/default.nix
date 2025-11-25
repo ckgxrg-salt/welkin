@@ -7,7 +7,6 @@
     ./mealie.nix
     ./miniflux.nix
     ./nextcloud.nix
-    ./vikunja.nix
   ];
 
   networking = {

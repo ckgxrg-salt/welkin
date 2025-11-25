@@ -403,12 +403,6 @@
                       url = "http://192.168.50.105:9124";
                     }
                     {
-                      title = "Vikunja";
-                      icon = "si:todoist";
-                      allow-insecure = true;
-                      url = "http://192.168.50.105:4571";
-                    }
-                    {
                       title = "Silverbullet";
                       icon = "si:note";
                       allow-insecure = true;

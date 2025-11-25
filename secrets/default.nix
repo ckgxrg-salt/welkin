@@ -38,7 +38,6 @@ in
     "paralace/mealie/client-secret.env" = { };
     "paralace/miniflux/client-secret.env" = { };
     "paralace/nextcloud/admin-pass" = default;
-    "paralace/vikunja/config.yml" = default;
   };
 
   containers = {
