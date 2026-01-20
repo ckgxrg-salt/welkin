@@ -63,13 +63,11 @@
         name = "welkin";
 
         buildInputs = with pkgs; [
-          nixfmt-rfc-style
+          nixfmt
           deadnix
           sops
         ];
       };
-
-      formatter.${system} = pkgs.nixfmt-rfc-style;
 
       packages.x86_64-linux.deploy = lollypops.packages.x86_64-linux.default.override {
         configFlake = self;
