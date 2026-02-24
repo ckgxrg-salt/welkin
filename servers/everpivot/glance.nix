@@ -432,11 +432,6 @@
                       icon = "si:matrix";
                       url = "https://stargazer.ckgxrg.io";
                     }
-                    {
-                      title = "Matrix-QQ";
-                      icon = "si:qq";
-                      url = "https://stargazer.ckgxrg.io";
-                    }
                   ];
                 }
               ];

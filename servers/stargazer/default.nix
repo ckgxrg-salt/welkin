@@ -4,7 +4,6 @@
     ../common.nix
 
     ./conduit.nix
-    ./matrix-qq.nix
     ./matrix-whatsapp.nix
   ];
 
