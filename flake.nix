@@ -1,13 +1,12 @@
 {
-  description = "Welkin's Dotfiles";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     ckgpkgs = {
       url = "github:ckgxrg-salt/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lollypops = {
-      url = "github:pinpox/lollypops";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -22,9 +21,9 @@
   outputs =
     {
       self,
-      lollypops,
       nixpkgs,
       ckgpkgs,
+      deploy-rs,
       disko,
       sops-nix,
       ...
@@ -35,6 +34,18 @@
         inherit system;
       };
       ckgs = ckgpkgs.packages.${system};
+      dkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          deploy-rs.overlays.default
+          (_: super: {
+            deploy-rs = {
+              inherit (pkgs) deploy-rs;
+              lib = super.deploy-rs.lib;
+            };
+          })
+        ];
+      };
     in
     {
       nixosConfigurations = {
@@ -42,15 +53,6 @@
           inherit system;
           specialArgs = { inherit ckgs; };
           modules = [
-            lollypops.nixosModules.default
-            {
-              lollypops.deployment = {
-                local-evaluation = true;
-                ssh.user = "deployer";
-                sudo.enable = true;
-              };
-            }
-
             ./host
             ./secrets
             disko.nixosModules.disko
@@ -62,15 +64,22 @@
       devShells.${system}.default = pkgs.mkShellNoCC {
         name = "welkin";
 
-        buildInputs = with pkgs; [
-          nixfmt
-          deadnix
+        nativeBuildInputs = with pkgs; [
           sops
+          deploy-rs.packages.${system}.default
         ];
       };
 
-      packages.x86_64-linux.deploy = lollypops.packages.x86_64-linux.default.override {
-        configFlake = self;
+      deploy.nodes = {
+        "Welkin" = {
+          profiles.system = {
+            user = "deployer";
+            path = dkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations."Welkin";
+            remoteBuild = true;
+          };
+        };
       };
+
+      checks = builtins.mapAttrs (_: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }
