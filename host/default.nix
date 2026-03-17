@@ -10,7 +10,7 @@
 
     ./certs.nix
     ./cloudflared.nix
-    ./tailscale.nix
+    ./netbird.nix
     ./services.nix
 
     ../servers
