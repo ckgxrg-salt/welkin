@@ -1,12 +1,12 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     ckgpkgs = {
       url = "github:ckgxrg-salt/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
+    colmena = {
+      url = "github:zhaofengli/colmena";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -20,10 +20,9 @@
   };
   outputs =
     {
-      self,
       nixpkgs,
       ckgpkgs,
-      deploy-rs,
+      colmena,
       disko,
       sops-nix,
       ...
@@ -34,18 +33,6 @@
         inherit system;
       };
       ckgs = ckgpkgs.packages.${system};
-      dkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          deploy-rs.overlays.default
-          (_: super: {
-            deploy-rs = {
-              inherit (pkgs) deploy-rs;
-              lib = super.deploy-rs.lib;
-            };
-          })
-        ];
-      };
     in
     {
       nixosConfigurations = {
@@ -66,20 +53,29 @@
 
         nativeBuildInputs = with pkgs; [
           sops
-          deploy-rs.packages.${system}.default
+          colmena.packages.${system}.colmena
         ];
       };
 
-      deploy.nodes = {
+      colmenaHive = colmena.lib.makeHive {
+        meta = {
+          nixpkgs = pkgs;
+          specialArgs = { inherit ckgs; };
+        };
+
         "Welkin" = {
-          profiles.system = {
-            user = "deployer";
-            path = dkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations."Welkin";
-            remoteBuild = true;
+          deployment = {
+            targetHost = "Welkin";
+            targetUser = "deployer";
+            buildOnTarget = true;
           };
+          imports = [
+            ./host
+            ./secrets
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+          ];
         };
       };
-
-      checks = builtins.mapAttrs (_: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }
