@@ -1,25 +1,22 @@
 { ... }:
 # Services and their ports
-# ========================
-# Everpivot 10.7.0.1:
-# - Authelia 7100
+# ======= Backbone =======
+# - Caddy
+# - ACME
+# - Keycloak 7000
+# - PostgreSQL
+# - Cloudflared
+# - Netbird
+# ======= Services =======
 # - Filebrowser 7101
 # - Glance 7102
 # - Jellyfin 7103
 # - Syncthing 7104
 # - Paperless 7105
-# ========================
-# Archiva 10.7.0.2:
 # - Forgejo 7200
 # - AlumniMap 7201
-# ========================
-# Goatfold 10.7.0.3:
 # - Minecraft 7300
-# ========================
-# Stargazer 10.7.0.4:
 # - Conduit 7400
-# ========================
-# Paralace 10.7.0.5:
 # - Firefly III 7501
 # - Mealie 7502
 # - Miniflux 7503
@@ -47,17 +44,19 @@ in
         respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
         respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
       '';
-      "auth.welkin.ckgxrg.io" = mkHost 2 ''
-        reverse_proxy 10.7.0.1:7100
-      '';
       "welkin.ckgxrg.io" = mkHost 1 ''
         handle {
-          reverse_proxy 10.7.0.1:7102
+          reverse_proxy 127.0.0.1:7000
+        }
+
+        @auth path /auth /auth/*
+        handle @auth {
+          reverse_proxy 127.0.0.1:7000
         }
 
         @files path /files /files/*
         handle @files {
-          forward_auth 10.7.0.1:7100 {
+          forward_auth 10.7.0.1:7000 {
             uri /api/authz/forward-auth
             copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
           }

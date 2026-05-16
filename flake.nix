@@ -38,7 +38,10 @@
       nixosConfigurations = {
         "Welkin" = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit ckgs; };
+          specialArgs = {
+            inherit ckgs;
+            helpers = import ./utils;
+          };
           modules = [
             ./host
             ./secrets
@@ -60,7 +63,10 @@
       colmenaHive = colmena.lib.makeHive {
         meta = {
           nixpkgs = pkgs;
-          specialArgs = { inherit ckgs; };
+          specialArgs = {
+            inherit ckgs;
+            helpers = import ./utils;
+          };
         };
 
         "Welkin" = {

@@ -40,26 +40,26 @@ in
     "paralace/nextcloud/admin-pass" = default;
   };
 
-  containers = {
-    everpivot.bindMounts."secrets" = {
-      hostPath = "/run/secrets/everpivot";
-      mountPoint = "/var/secrets";
-      isReadOnly = true;
-    };
-    # archiva.bindMounts."secrets" = {
-    #   hostPath = "/run/secrets/archiva";
-    #   mountPoint = "/var/secrets";
-    #   isReadOnly = true;
-    # };
-    stargazer.bindMounts."secrets" = {
-      hostPath = "/run/secrets/stargazer";
-      mountPoint = "/var/secrets";
-      isReadOnly = true;
-    };
-    paralace.bindMounts."secrets" = {
-      hostPath = "/run/secrets/paralace";
-      mountPoint = "/var/secrets";
-      isReadOnly = true;
-    };
-  };
+  # containers = {
+  #   everpivot.bindMounts."secrets" = {
+  #     hostPath = "/run/secrets/everpivot";
+  #     mountPoint = "/var/secrets";
+  #     isReadOnly = true;
+  #   };
+  #   # archiva.bindMounts."secrets" = {
+  #   #   hostPath = "/run/secrets/archiva";
+  #   #   mountPoint = "/var/secrets";
+  #   #   isReadOnly = true;
+  #   # };
+  #   stargazer.bindMounts."secrets" = {
+  #     hostPath = "/run/secrets/stargazer";
+  #     mountPoint = "/var/secrets";
+  #     isReadOnly = true;
+  #   };
+  #   paralace.bindMounts."secrets" = {
+  #     hostPath = "/run/secrets/paralace";
+  #     mountPoint = "/var/secrets";
+  #     isReadOnly = true;
+  #   };
+  # };
 }

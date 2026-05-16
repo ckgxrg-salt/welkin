@@ -8,12 +8,7 @@
     ./settings.nix
     ./security.nix
 
-    ./certs.nix
-    ./cloudflared.nix
-    ./netbird.nix
-    ./services.nix
-
-    ../servers
+    ../backbone
   ];
 
   networking = {
