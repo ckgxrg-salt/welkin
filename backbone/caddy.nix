@@ -67,10 +67,10 @@ in
           reverse_proxy 127.0.0.1:7104
         }
 
-        @jellyfin path /jellyfin /jellyfin/*
-        handle @jellyfin {
-          reverse_proxy 10.7.0.1:7103
-        }
+        # @jellyfin path /jellyfin /jellyfin/*
+        # handle @jellyfin {
+        #   reverse_proxy 10.7.0.1:7103
+        # }
 
         @bookmarks path /bookmarks /bookmarks/*
         handle @bookmarks {
@@ -79,7 +79,7 @@ in
 
         @rss path /rss /rss/*
         handle @rss {
-          reverse_proxy 10.7.0.5:7503
+          reverse_proxy 127.0.0.1:7503
         }
 
         @docs path /docs /docs/*
