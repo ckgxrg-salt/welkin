@@ -18,10 +18,6 @@
   };
   services.resolved = {
     enable = true;
-    extraConfig = ''
-      [Resolve]
-      DNSStubListener = "no";
-    '';
   };
 
   systemd.network.wait-online.enable = false;

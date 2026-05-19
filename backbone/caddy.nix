@@ -87,7 +87,7 @@ in
         }
 
         handle_path /cloud/* {
-          reverse_proxy 10.7.0.5:7504
+          reverse_proxy 127.0.0.1:7504
         }
       '';
       "firefly.welkin.ckgxrg.io" = mkHost 2 ''

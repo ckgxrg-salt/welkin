@@ -11,34 +11,34 @@
       };
     in
     {
-      # Common services
-      everpivot = base // {
-        bindMounts = {
-          storage = {
-            isReadOnly = false;
-            mountPoint = "/data";
-            hostPath = "/data";
-          };
-        };
-        localAddress = "10.7.0.1";
-        config = import ./everpivot;
-      };
-      # Academics & Project management
-      archiva = base // {
-        localAddress = "10.7.0.2";
-        config = import ./archiva;
-      };
-      # Entertainment
-      goatfold = base // {
-        localAddress = "10.7.0.3";
-        config = import ./goatfold;
-      };
-      # Communication
-      stargazer = base // {
-        localAddress = "10.7.0.4";
-        specialArgs = { inherit ckgs; };
-        config = import ./stargazer;
-      };
+      # # Common services
+      # everpivot = base // {
+      #   bindMounts = {
+      #     storage = {
+      #       isReadOnly = false;
+      #       mountPoint = "/data";
+      #       hostPath = "/data";
+      #     };
+      #   };
+      #   localAddress = "10.7.0.1";
+      #   config = import ./everpivot;
+      # };
+      # # Academics & Project management
+      # archiva = base // {
+      #   localAddress = "10.7.0.2";
+      #   config = import ./archiva;
+      # };
+      # # Entertainment
+      # goatfold = base // {
+      #   localAddress = "10.7.0.3";
+      #   config = import ./goatfold;
+      # };
+      # # Communication
+      # stargazer = base // {
+      #   localAddress = "10.7.0.4";
+      #   specialArgs = { inherit ckgs; };
+      #   config = import ./stargazer;
+      # };
       # Daily chores
       paralace = base // {
         bindMounts = {

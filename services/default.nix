@@ -2,5 +2,6 @@
 {
   imports = [
     ./matrix
+    ./nextcloud.nix
   ];
 }
