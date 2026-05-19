@@ -63,7 +63,7 @@ in
         }
 
         handle_path /sync/* {
-          reverse_proxy 10.7.0.1:7104
+          reverse_proxy 127.0.0.1:7104
         }
 
         @jellyfin path /jellyfin /jellyfin/*
