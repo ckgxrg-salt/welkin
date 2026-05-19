@@ -19,47 +19,14 @@ in
     "cloudflare/cert.pem" = { };
     "cloudflare/welkin.json" = { };
 
-    "everpivot/glance/env" = { };
-    "everpivot/authelia/jwt" = default;
-    "everpivot/authelia/storage" = default;
-    "everpivot/authelia/dbpasswd" = default;
-    "everpivot/authelia/session" = default;
-    "everpivot/authelia/hmac" = default;
-    "everpivot/authelia/oidc-issuer" = default;
-    "everpivot/authelia/users.yaml" = default // {
-      sopsFile = ../secrets/users.yaml;
-      key = "";
-    };
-    "everpivot/paperless/admin-pass" = default;
-    "everpivot/paperless/env" = default;
-    "stargazer/conduit/registration-token.env" = { };
-    "stargazer/matrix-whatsapp/env" = { };
-    "paralace/firefly-iii/app-key" = default;
-    "paralace/mealie/client-secret.env" = { };
-    "paralace/miniflux/client-secret.env" = { };
-    "paralace/nextcloud/admin-pass" = default;
+    "glance/env" = { };
+    "paperless/admin-pass" = default;
+    "paperless/env" = default;
+    "tuwunel/env" = { };
+    "matrix-whatsapp/env" = { };
+    "firefly-iii/app-key" = default;
+    "mealie/client-secret.env" = { };
+    "miniflux/client-secret.env" = { };
+    "nextcloud/admin-pass" = default;
   };
-
-  # containers = {
-  #   everpivot.bindMounts."secrets" = {
-  #     hostPath = "/run/secrets/everpivot";
-  #     mountPoint = "/var/secrets";
-  #     isReadOnly = true;
-  #   };
-  #   # archiva.bindMounts."secrets" = {
-  #   #   hostPath = "/run/secrets/archiva";
-  #   #   mountPoint = "/var/secrets";
-  #   #   isReadOnly = true;
-  #   # };
-  #   stargazer.bindMounts."secrets" = {
-  #     hostPath = "/run/secrets/stargazer";
-  #     mountPoint = "/var/secrets";
-  #     isReadOnly = true;
-  #   };
-  #   paralace.bindMounts."secrets" = {
-  #     hostPath = "/run/secrets/paralace";
-  #     mountPoint = "/var/secrets";
-  #     isReadOnly = true;
-  #   };
-  # };
 }

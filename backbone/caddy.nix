@@ -16,7 +16,7 @@
 # - Forgejo 7200
 # - AlumniMap 7201
 # - Minecraft 7300
-# - Conduit 7400
+# - Twunnel 7400
 # - Firefly III 7501
 # - Mealie 7502
 # - Miniflux 7503
@@ -39,10 +39,9 @@ in
     '';
     virtualHosts = {
       "http://ckgxrg.io".extraConfig = ''
-        header /.well-known/matrix/* Content-Type application/json
-        header /.well-known/matrix/* Access-Control-Allow-Origin *
-        respond /.well-known/matrix/server `{"m.server": "stargazer.ckgxrg.io:443"}`
-        respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"https://stargazer.ckgxrg.io"}}`
+        reverse_proxy /.well-known/matrix/* 127.0.0.1:7400 {
+          header_up Host {upstream_hostport}
+        }
       '';
       "welkin.ckgxrg.io" = mkHost 1 ''
         handle {

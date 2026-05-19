@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     ckgpkgs = {
       url = "github:ckgxrg-salt/ckgpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +45,8 @@
           modules = [
             ./host
             ./secrets
+            ./backbone
+            ./services
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
           ];
@@ -78,6 +80,8 @@
           imports = [
             ./host
             ./secrets
+            ./backbone
+            ./services
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
           ];

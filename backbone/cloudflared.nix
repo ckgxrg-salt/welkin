@@ -18,7 +18,7 @@
             service = "http://10.7.0.2:7201";
           };
           "stargazer.ckgxrg.io" = {
-            service = "http://10.7.0.4:7400";
+            service = "http://127.0.0.1:7400";
           };
         };
       };
