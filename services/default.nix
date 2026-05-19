@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./glance.nix
     ./filebrowser.nix
     ./matrix
     ./miniflux.nix

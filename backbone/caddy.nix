@@ -46,7 +46,7 @@ in
       '';
       "welkin.ckgxrg.io" = mkHost 1 ''
         handle {
-          reverse_proxy 127.0.0.1:7000
+          reverse_proxy 127.0.0.1:7102
         }
 
         @auth path /auth /auth/*
@@ -82,24 +82,14 @@ in
           reverse_proxy 127.0.0.1:7503
         }
 
-        @docs path /docs /docs/*
-        handle @docs {
-          reverse_proxy 10.7.0.1:7105
-        }
+        # @docs path /docs /docs/*
+        # handle @docs {
+        #   reverse_proxy 10.7.0.1:7105
+        # }
 
         handle_path /cloud/* {
           reverse_proxy 127.0.0.1:7504
         }
-      '';
-      "firefly.welkin.ckgxrg.io" = mkHost 2 ''
-        forward_auth 10.7.0.1:7100 {
-          uri /api/authz/forward-auth
-          copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-        }
-        reverse_proxy 10.7.0.5:7501
-      '';
-      "mealie.welkin.ckgxrg.io" = mkHost 2 ''
-        reverse_proxy 10.7.0.5:7502
       '';
     };
   };

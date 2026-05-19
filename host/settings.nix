@@ -28,12 +28,10 @@
     wireless.iwd.enable = true;
     nftables.enable = true;
     firewall.enable = true;
-
-    # Control container IPs
-    nat = {
-      enable = true;
-      internalInterfaces = [ "ve-*" ];
-      externalInterface = "wlan0";
+    hosts = {
+      "127.0.0.1" = [
+        "welkin.ckgxrg.io"
+      ];
     };
   };
 
