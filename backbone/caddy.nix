@@ -4,6 +4,7 @@
 # - Caddy
 # - ACME
 # - Keycloak 7000
+# - OAuth2-Proxy
 # - PostgreSQL
 # - Cloudflared
 # - Netbird
@@ -55,11 +56,11 @@ in
 
         @files path /files /files/*
         handle @files {
-          forward_auth 10.7.0.1:7000 {
-            uri /api/authz/forward-auth
-            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          }
-          reverse_proxy 10.7.0.1:7101
+          # forward_auth 10.7.0.1:7000 {
+          #   uri /api/authz/forward-auth
+          #   copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          # }
+          reverse_proxy 127.0.0.1:7101
         }
 
         handle_path /sync/* {
