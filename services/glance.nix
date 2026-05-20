@@ -307,11 +307,6 @@
                   };
                   sites = [
                     {
-                      title = "Filebrowser";
-                      icon = "si:files";
-                      url = "https://welkin.ckgxrg.io/files";
-                    }
-                    {
                       title = "Syncthing";
                       icon = "si:syncthing";
                       url = "https://welkin.ckgxrg.io/sync/";

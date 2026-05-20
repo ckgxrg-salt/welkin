@@ -9,7 +9,6 @@
 # - Cloudflared
 # - Netbird
 # ======= Services =======
-# - Filebrowser 7101
 # - Glance 7102
 # - Jellyfin 7103
 # - Syncthing 7104
