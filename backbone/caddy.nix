@@ -21,6 +21,7 @@
 # - Mealie 7502
 # - Miniflux 7503
 # - Nextcloud 7504
+# - Immich 7505
 let
   mkHost = cert: cfg: {
     useACMEHost = builtins.toString cert;
@@ -89,6 +90,10 @@ in
         handle_path /cloud/* {
           reverse_proxy 127.0.0.1:7504
         }
+      '';
+
+      "gallery.welkin.ckgxrg.io" = mkHost 2 ''
+        reverse_proxy 127.0.0.1:7505
       '';
     };
   };

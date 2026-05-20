@@ -307,14 +307,19 @@
                   };
                   sites = [
                     {
+                      title = "Matrix";
+                      icon = "si:matrix";
+                      url = "https://stargazer.ckgxrg.io";
+                    }
+                    {
+                      title = "Nextcloud";
+                      icon = "si:nextcloud";
+                      url = "https://welkin.ckgxrg.io/cloud/";
+                    }
+                    {
                       title = "Syncthing";
                       icon = "si:syncthing";
                       url = "https://welkin.ckgxrg.io/sync/";
-                    }
-                    {
-                      title = "Miniflux";
-                      icon = "si:rss";
-                      url = "https://welkin.ckgxrg.io/rss";
                     }
                     {
                       title = "Forgejo";
@@ -322,9 +327,14 @@
                       url = "https://archiva.ckgxrg.io";
                     }
                     {
-                      title = "Conduit";
-                      icon = "si:matrix";
-                      url = "https://stargazer.ckgxrg.io";
+                      title = "Immich";
+                      icon = "si:immich";
+                      url = "https://gallery.welkin.ckgxrg.io";
+                    }
+                    {
+                      title = "Miniflux";
+                      icon = "si:rss";
+                      url = "https://welkin.ckgxrg.io/rss";
                     }
                   ];
                 }
