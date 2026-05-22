@@ -13,7 +13,6 @@
     environmentFile = "/run/secrets/matrix-whatsapp/env";
     settings = {
       network.os_name = "Matrix-WhatsApp";
-      appservice.ephemeral_events = false;
       backfill.enabled = true;
       bridge = {
         mute_only_on_create = false;

@@ -2,6 +2,7 @@
 {
   imports = [
     ./twunnel.nix
-    ./matrix-whatsapp.nix
+    ./mautrix-whatsapp.nix
+    ./mautrix-discord.nix
   ];
 }
