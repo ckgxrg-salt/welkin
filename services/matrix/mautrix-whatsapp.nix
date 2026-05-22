@@ -34,6 +34,11 @@
         address = "http://127.0.0.1:7400";
         domain = "ckgxrg.io";
       };
+      double_puppet = {
+        secrets = {
+          "ckgxrg.io" = "as_token:$DOUBLE_PUPPET_KEY";
+        };
+      };
     };
   };
 }

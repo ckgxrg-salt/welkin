@@ -7,7 +7,7 @@
     settings = {
       global = {
         server_name = "ckgxrg.io";
-        address = [ "0.0.0.0" ];
+        address = [ "127.0.0.1" ];
         port = [ 7400 ];
         new_user_displayname_suffix = "";
         allow_registration = false;

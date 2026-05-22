@@ -24,6 +24,7 @@ in
     "paperless/env" = default;
     "tuwunel/env" = { };
     "matrix-whatsapp/env" = { };
+    "matrix-discord/env" = { };
     "firefly-iii/app-key" = default;
     "mealie/client-secret.env" = { };
     "miniflux/client-secret.env" = { };

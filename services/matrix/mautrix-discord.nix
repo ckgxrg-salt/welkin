@@ -10,7 +10,7 @@
 
   services.mautrix-discord = {
     enable = true;
-    # environmentFile = "/run/secrets/matrix-whatsapp/env";
+    environmentFile = "/run/secrets/matrix-discord/env";
     settings = {
       bridge = {
         mute_only_on_create = false;
@@ -22,6 +22,9 @@
         encryption = {
           allow = true;
           default = true;
+        };
+        login_shared_secret_map = {
+          "ckgxrg.io" = "as_token:$DOUBLE_PUPPET_KEY";
         };
       };
       appservice = {
