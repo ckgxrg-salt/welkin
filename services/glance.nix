@@ -312,6 +312,11 @@
                       url = "https://stargazer.ckgxrg.io";
                     }
                     {
+                      title = "Actual";
+                      icon = "si:actualbudget";
+                      url = "https://finance.welkin.ckgxrg.io";
+                    }
+                    {
                       title = "Nextcloud";
                       icon = "si:nextcloud";
                       url = "https://welkin.ckgxrg.io/cloud/";

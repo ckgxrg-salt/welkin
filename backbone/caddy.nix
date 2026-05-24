@@ -15,9 +15,8 @@
 # - Paperless 7105
 # - Forgejo 7200
 # - AlumniMap 7201
-# - Minecraft 7300
 # - Twunnel 7400
-# - Firefly III 7501
+# - Actual 7501
 # - Mealie 7502
 # - Miniflux 7503
 # - Nextcloud 7504
@@ -94,6 +93,10 @@ in
 
       "gallery.welkin.ckgxrg.io" = mkHost 2 ''
         reverse_proxy 127.0.0.1:7505
+      '';
+
+      "finance.welkin.ckgxrg.io" = mkHost 2 ''
+        reverse_proxy 127.0.0.1:7501
       '';
     };
   };

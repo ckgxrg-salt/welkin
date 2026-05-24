@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./actual.nix
     ./glance.nix
     ./immich.nix
     ./matrix
