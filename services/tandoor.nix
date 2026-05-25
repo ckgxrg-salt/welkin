@@ -13,6 +13,7 @@
       POSTGRES_HOST = "/run/postgresql";
       POSTGRES_USER = "tandoor_recipes";
       POSTGRES_DB = "tandoor_recipes";
+      MEDIA_ROOT = "/var/lib/tandoor-recipes/media";
 
       ALLOWED_HOSTS = "welkin.ckgxrg.io";
       SCRIPT_NAME = "/recipes";
