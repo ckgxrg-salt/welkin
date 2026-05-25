@@ -17,7 +17,7 @@
 # - AlumniMap 7201
 # - Twunnel 7400
 # - Actual 7501
-# - Mealie 7502
+# - Tandoor Recipes 7502
 # - Miniflux 7503
 # - Nextcloud 7504
 # - Immich 7505
@@ -88,6 +88,11 @@ in
 
         handle_path /cloud/* {
           reverse_proxy 127.0.0.1:7504
+        }
+
+        @recipes path /recipes /recipes/*
+        handle @recipes {
+          reverse_proxy 127.0.0.1:7502
         }
       '';
 

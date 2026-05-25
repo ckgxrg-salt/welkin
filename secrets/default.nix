@@ -29,5 +29,6 @@ in
     "mealie/client-secret.env" = { };
     "miniflux/client-secret.env" = { };
     "nextcloud/admin-pass" = default;
+    "tandoor/env" = { };
   };
 }

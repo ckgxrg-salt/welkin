@@ -73,7 +73,6 @@
     };
   };
 
-  programs.nano.enable = false;
   programs.command-not-found.enable = false;
   services.speechd.enable = false;
   xdg.sounds.enable = false;

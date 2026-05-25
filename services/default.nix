@@ -8,5 +8,6 @@
     ./miniflux.nix
     ./nextcloud.nix
     ./syncthing.nix
+    ./tandoor.nix
   ];
 }

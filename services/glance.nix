@@ -337,6 +337,11 @@
                       url = "https://gallery.welkin.ckgxrg.io";
                     }
                     {
+                      title = "Tandoor Recipes";
+                      icon = "si:mealie";
+                      url = "https://welkin.ckgxrg.io/recipes";
+                    }
+                    {
                       title = "Miniflux";
                       icon = "si:rss";
                       url = "https://welkin.ckgxrg.io/rss";
