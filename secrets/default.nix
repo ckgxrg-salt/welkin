@@ -20,15 +20,14 @@ in
     "cloudflare/welkin.json" = { };
 
     "glance/env" = { };
-    "paperless/admin-pass" = default;
-    "paperless/env" = default;
     "tuwunel/env" = { };
     "matrix-whatsapp/env" = { };
     "matrix-discord/env" = { };
-    "firefly-iii/app-key" = default;
     "mealie/client-secret.env" = { };
     "miniflux/client-secret.env" = { };
     "nextcloud/admin-pass" = default;
     "tandoor/env" = { };
+    "oauth2-proxy/client-secret" = { };
+    "oauth2-proxy/cookie-secret" = { };
   };
 }

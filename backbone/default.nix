@@ -7,6 +7,7 @@
     ./valkey.nix
 
     ./keycloak.nix
+    ./oauth2-proxy.nix
 
     ./cloudflared.nix
     ./netbird.nix

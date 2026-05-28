@@ -30,7 +30,9 @@
     kernelPackages = pkgs.linuxPackages_zen;
 
     supportedFilesystems = [ "zfs" ];
-    zfs.package = pkgs.zfs_2_4;
+    zfs = {
+      forceImportRoot = false;
+    };
 
     kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {

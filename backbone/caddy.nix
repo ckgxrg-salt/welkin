@@ -4,15 +4,13 @@
 # - Caddy
 # - ACME
 # - Keycloak 7000
-# - OAuth2-Proxy
+# - OAuth2-Proxy 7001
 # - PostgreSQL
 # - Cloudflared
 # - Netbird
 # ======= Services =======
 # - Glance 7102
-# - Jellyfin 7103
 # - Syncthing 7104
-# - Paperless 7105
 # - Forgejo 7200
 # - AlumniMap 7201
 # - Twunnel 7400
@@ -45,6 +43,14 @@ in
       '';
       "welkin.ckgxrg.io" = mkHost 1 ''
         handle {
+          forward_auth 127.0.0.1:7001 {
+            uri /oauth2/auth
+            header_up X-Real-IP {remote_host}
+            @error status 401
+            handle_response @error {
+              redir * /oauth2/sign_in?rd={scheme}://{host}{uri}
+            }
+          }
           reverse_proxy 127.0.0.1:7102
         }
 
@@ -53,23 +59,24 @@ in
           reverse_proxy 127.0.0.1:7000
         }
 
-        @files path /files /files/*
-        handle @files {
-          # forward_auth 10.7.0.1:7000 {
-          #   uri /api/authz/forward-auth
-          #   copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          # }
-          reverse_proxy 127.0.0.1:7101
+        handle /oauth2/* {
+          reverse_proxy 127.0.0.1:7001 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-Uri {uri}
+          }
         }
 
         handle_path /sync/* {
+          forward_auth 127.0.0.1:7001 {
+            uri /oauth2/auth
+            header_up X-Real-IP {remote_host}
+            @error status 401
+            handle_response @error {
+              redir * /oauth2/sign_in?rd={scheme}://{host}/sync{uri}
+            }
+          }
           reverse_proxy 127.0.0.1:7104
         }
-
-        # @jellyfin path /jellyfin /jellyfin/*
-        # handle @jellyfin {
-        #   reverse_proxy 10.7.0.1:7103
-        # }
 
         @bookmarks path /bookmarks /bookmarks/*
         handle @bookmarks {
@@ -80,11 +87,6 @@ in
         handle @rss {
           reverse_proxy 127.0.0.1:7503
         }
-
-        # @docs path /docs /docs/*
-        # handle @docs {
-        #   reverse_proxy 10.7.0.1:7105
-        # }
 
         handle_path /cloud/* {
           reverse_proxy 127.0.0.1:7504
