@@ -36,8 +36,8 @@
         mail
         ;
       sociallogin = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-1wyQlxuyYFbAB9KLq2VSWZ/8zbdGmzq7UlkAYuZUgJc=";
-        url = "https://github.com/zorn-v/nextcloud-social-login/releases/download/v6.4.3/release.tar.gz";
+        sha256 = "sha256-DUX3nBABqKklkCHaYL3/L5ge+F43Mu9kY9jlzxGwecE=";
+        url = "https://github.com/zorn-v/nextcloud-social-login/releases/download/v6.5.2/release.tar.gz";
         license = "agpl3Only";
       };
     };
