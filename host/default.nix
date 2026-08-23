@@ -3,7 +3,8 @@
 {
   imports = [
     ./boot.nix
-    ./disko.nix
+    ./btrfs.nix
+    ./fstab.nix
     ./login.nix
     ./settings.nix
     ./security.nix
@@ -16,5 +17,5 @@
     hostId = "9ff456c1";
   };
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "26.11";
 }

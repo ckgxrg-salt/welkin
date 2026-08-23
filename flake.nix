@@ -9,10 +9,6 @@
       url = "github:zhaofengli/colmena";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +19,6 @@
       nixpkgs,
       ckgpkgs,
       colmena,
-      disko,
       sops-nix,
       ...
     }:
@@ -47,7 +42,6 @@
             ./secrets
             ./backbone
             ./services
-            disko.nixosModules.disko
             sops-nix.nixosModules.sops
           ];
         };
@@ -73,7 +67,7 @@
 
         "Welkin" = {
           deployment = {
-            targetHost = "Welkin";
+            targetHost = "100.100.150.1";
             targetUser = "deployer";
             buildOnTarget = true;
           };
@@ -82,7 +76,6 @@
             ./secrets
             ./backbone
             ./services
-            disko.nixosModules.disko
             sops-nix.nixosModules.sops
           ];
         };

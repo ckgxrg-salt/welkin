@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   boot = {
     loader = {
@@ -6,15 +6,25 @@
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      systemd-boot = {
+
+      limine = {
         enable = true;
+        efiSupport = true;
+        efiInstallAsRemovable = true;
+        biosSupport = false;
+        style.wallpapers = lib.mkForce [ ];
       };
     };
 
+    zswap = {
+      enable = true;
+      compressor = "zstd";
+    };
+
+    tmp.cleanOnBoot = true;
+
     initrd = {
-      systemd.enable = true;
       verbose = true;
-      supportedFilesystems = [ "zfs" ];
       availableKernelModules = [
         "xhci_pci"
         "nvme"
@@ -28,11 +38,6 @@
     };
 
     kernelPackages = pkgs.linuxPackages_zen;
-
-    supportedFilesystems = [ "zfs" ];
-    zfs = {
-      forceImportRoot = false;
-    };
 
     kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {

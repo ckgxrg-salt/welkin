@@ -11,7 +11,7 @@
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud33;
+    package = pkgs.nextcloud34;
     hostName = "localhost";
     database.createLocally = true;
     settings = {
@@ -34,12 +34,8 @@
         deck
         tasks
         mail
+        sociallogin
         ;
-      sociallogin = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-DUX3nBABqKklkCHaYL3/L5ge+F43Mu9kY9jlzxGwecE=";
-        url = "https://github.com/zorn-v/nextcloud-social-login/releases/download/v6.5.2/release.tar.gz";
-        license = "agpl3Only";
-      };
     };
   };
 

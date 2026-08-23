@@ -4,25 +4,6 @@
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
   };
-  services.zfs = {
-    autoScrub.enable = true;
-    trim.enable = true;
-  };
-  services.sanoid = {
-    enable = true;
-    templates."default" = {
-      autosnap = true;
-      autoprune = true;
-      hourly = 24;
-      daily = 7;
-      weekly = 4;
-      monthly = 4;
-    };
-    datasets = {
-      "welkin/storage".useTemplate = [ "default" ];
-      "welkin/container".useTemplate = [ "default" ];
-    };
-  };
 
   networking = {
     wireless.iwd.enable = true;
@@ -34,8 +15,6 @@
       ];
     };
   };
-
-  services.thermald.enable = true;
 
   nix = {
     channel.enable = false;
@@ -60,8 +39,6 @@
   nixpkgs = {
     hostPlatform = "x86_64-linux";
   };
-
-  time.timeZone = "Europe/London";
 
   i18n = {
     defaultLocale = "en_GB.UTF-8";

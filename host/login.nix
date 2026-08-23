@@ -11,14 +11,14 @@
 
   users = {
     users = {
-      "akacloud" = {
+      "caderavis" = {
         isNormalUser = true;
         uid = 1001;
         extraGroups = [
           "wheel"
           "storage"
         ];
-        description = "System Administrator";
+        description = "System administrator";
         openssh.authorizedKeys.keyFiles = [
           ../keys/daywatch-ssh.pub
           ../keys/rhyslow-ssh.pub
@@ -38,10 +38,12 @@
         ];
       };
       "storage" = {
-        description = "Storage user";
-        isSystemUser = true;
+        isNormalUser = true;
         uid = 1024;
         group = "storage";
+        home = "/data";
+        createHome = false;
+        description = "Storage user";
       };
     };
     groups = {

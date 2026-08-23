@@ -19,11 +19,4 @@
       };
     };
   };
-
-  # Huh?
-  users.users.syncthing = {
-    enable = false;
-    isSystemUser = true;
-    group = "storage";
-  };
 }
