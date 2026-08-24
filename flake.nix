@@ -67,7 +67,7 @@
 
         "Welkin" = {
           deployment = {
-            targetHost = "100.100.150.1";
+            targetHost = "welkin.ckgxrg.io";
             targetUser = "deployer";
             buildOnTarget = true;
           };

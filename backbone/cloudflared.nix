@@ -11,11 +11,8 @@
           "ckgxrg.io" = {
             service = "http://127.0.0.1:80";
           };
-          "archiva.ckgxrg.io" = {
-            service = "http://10.7.0.2:7200";
-          };
-          "alumnimap.ckgxrg.io" = {
-            service = "http://10.7.0.2:7201";
+          "rainforest.ckgxrg.io" = {
+            service = "http://127.0.0.1:7200";
           };
           "stargazer.ckgxrg.io" = {
             service = "http://127.0.0.1:7400";

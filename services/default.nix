@@ -2,6 +2,7 @@
 {
   imports = [
     ./actual.nix
+    ./forgejo.nix
     ./glance.nix
     ./immich.nix
     ./matrix

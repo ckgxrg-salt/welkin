@@ -329,7 +329,7 @@
                     {
                       title = "Forgejo";
                       icon = "si:forgejo";
-                      url = "https://archiva.ckgxrg.io";
+                      url = "https://rainforest.ckgxrg.io";
                     }
                     {
                       title = "Immich";
