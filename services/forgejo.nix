@@ -20,12 +20,24 @@
       };
       service = {
         DISABLE_REGISTRATION = true;
+        ENABLE_NOTIFY_MAIL = true;
       };
       session = {
         COOKIE_SECURE = true;
       };
+      mailer = {
+        ENABLED = true;
+        PROTOCOL = "smtps";
+        FROM = "Irida <irida@ckgxrg.io>";
+        SMTP_PORT = 465;
+      };
+    };
+    secrets = {
+      mailer = {
+        SMTP_ADDR = "/run/secrets/forgejo/smtp-addr";
+        USER = "/run/secrets/forgejo/smtp-user";
+        PASSWD = "/run/secrets/forgejo/smtp-passwd";
+      };
     };
   };
-
-  users.users."forgejo".extraGroups = [ "secrets" ];
 }

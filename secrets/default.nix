@@ -19,6 +19,9 @@ in
     "cloudflare/cert.pem" = { };
     "cloudflare/welkin.json" = { };
 
+    "forgejo/smtp-addr" = { };
+    "forgejo/smtp-user" = { };
+    "forgejo/smtp-passwd" = { };
     "glance/env" = { };
     "tuwunel/env" = { };
     "matrix-whatsapp/env" = { };
