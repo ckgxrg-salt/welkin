@@ -9,7 +9,7 @@
   ];
 
   services.mautrix-whatsapp = {
-    enable = false;
+    enable = true;
     environmentFile = "/run/secrets/matrix-whatsapp/env";
     settings = {
       network.os_name = "Matrix-WhatsApp";

@@ -25,7 +25,7 @@
             TIMELINE_LIMIT_MONTHLY = 1;
           };
           "data" = enable // {
-            SUBVOLUME = "/home";
+            SUBVOLUME = "/data";
             TIMELINE_LIMIT_YEARLY = 0;
             TIMELINE_LIMIT_HOURLY = 24;
             TIMELINE_LIMIT_DAILY = 7;
